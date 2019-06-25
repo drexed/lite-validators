@@ -1,4 +1,6 @@
-require "lite/validators/version"
+# frozen_string_literal: true
+
+require 'lite/validators/version'
 
 module Lite
   module Validators
