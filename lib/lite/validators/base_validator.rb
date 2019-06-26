@@ -19,7 +19,7 @@ class BaseValidator < ActiveModel::EachValidator
   end
 
   def valid_format?(value)
-    value =~ self.class::REGEXP
+    value.to_s =~ self.class::REGEXP
   end
 
   def valid_length?(value)

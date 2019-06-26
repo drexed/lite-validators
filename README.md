@@ -35,7 +35,7 @@ Or install it yourself as:
 * [Coordinates](https://github.com/drexed/lite-validators/blob/master/docs/COORDINATE.md)
 * [Credit Card](https://github.com/drexed/lite-validators/blob/master/docs/CREDIT_CARD.md)
 * [Csv](#csvvalidator)
-* [Currency](#currencyvalidator)
+* [Currency](https://github.com/drexed/lite-validators/blob/master/docs/CURRENCY.md)
 * [CUSIP](#cusipvalidator)
 * [Email](#emailvalidator)
 * [Equality](#equalityvalidator)

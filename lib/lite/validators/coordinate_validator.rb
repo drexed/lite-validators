@@ -13,11 +13,11 @@ class CoordinateValidator < BaseValidator
   end
 
   def valid_latitude?(value)
-    value.abs <= 90.0
+    value.to_f.abs <= 90.0
   end
 
   def valid_longitude?(value)
-    value.abs <= 180.0
+    value.to_f.abs <= 180.0
   end
 
 end

@@ -32,7 +32,7 @@ class AlphaValidator < BaseValidator
   end
 
   def valid_format?(value)
-    value =~ regexp
+    value.to_s =~ regexp
   end
 
 end

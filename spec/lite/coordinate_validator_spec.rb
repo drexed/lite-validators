@@ -17,6 +17,7 @@ RSpec.describe CoordinateValidator do
 
     describe '#validate' do
       it 'to be valid' do
+        pass!(['90', '180'])
         pass!([90, 180])
         pass!([-90.0, -180.0])
       end
@@ -41,6 +42,7 @@ RSpec.describe CoordinateValidator do
 
     describe '#validate' do
       it 'to be valid' do
+        pass!('90')
         pass!(90)
         pass!(-90.0)
       end
@@ -65,6 +67,7 @@ RSpec.describe CoordinateValidator do
 
     describe '#validate' do
       it 'to be valid' do
+        pass!('180')
         pass!(180)
         pass!(-180.0)
       end
