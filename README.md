@@ -33,7 +33,7 @@ Or install it yourself as:
 * [Base64](https://github.com/drexed/lite-validators/blob/master/docs/BASE64.md)
 * [Boolean](https://github.com/drexed/lite-validators/blob/master/docs/BOOLEAN.md)
 * [Coordinates](https://github.com/drexed/lite-validators/blob/master/docs/COORDINATE.md)
-* [Credit Card](#creditcardvalidator)
+* [Credit Card](https://github.com/drexed/lite-validators/blob/master/docs/CREDIT_CARD.md)
 * [Csv](#csvvalidator)
 * [Currency](#currencyvalidator)
 * [CUSIP](#cusipvalidator)

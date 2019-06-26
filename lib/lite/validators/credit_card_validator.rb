@@ -1,0 +1,143 @@
+# frozen_string_literal: true
+
+class CreditCardValidator < BaseValidator
+
+  # NOTE: https://en.wikipedia.org/wiki/Payment_card_value#Issuer_identification_value_.28IIN.29
+
+  PROVIDERS ||= {
+    american_express: {
+      sizes: [15],
+      prefixes: [34, 37]
+    },
+    dankort: {
+      sizes: [16],
+      prefixes: [4571, 5019]
+    },
+    diners_club: {
+      sizes: (14..19),
+      prefixes: [36, (38..39), (54..55), (300..305), 3095]
+    },
+    discover: {
+      sizes: (16..19),
+      prefixes: [(64..65), 6011, (622126..622925), (624000..626999), (628200..628899)]
+    },
+    interpayment: {
+      sizes: (16..19),
+      prefixes: [636]
+    },
+    rupay: {
+      sizes: [16],
+      prefixes: [60, (6521..6522)]
+    },
+    jcb: {
+      sizes: (16..19),
+      prefixes: [(3528..3589)]
+    },
+    maestro: {
+      sizes: (12..19),
+      prefixes: [50, (56..69)]
+    },
+    maestro_uk: {
+      sizes: (12..19),
+      prefixes: [6759, 676770, 676774]
+    },
+    mastercard: {
+      sizes: [16],
+      prefixes: [(51..55), (2221..2720)]
+    },
+    mir: {
+      sizes: [16],
+      prefixes: [(2200..2204)]
+    },
+    nps_pridnestrovie: {
+      sizes: [16],
+      prefixes: [(6054740..6054744)]
+    },
+    troy: {
+      sizes: [16],
+      prefixes: [(979200..979289)]
+    },
+    uatp: {
+      sizes: [16],
+      prefixes: [1]
+    },
+    unionpay: {
+      sizes: (16..19),
+      prefixes: [62]
+    },
+    verve: {
+      sizes: [16, 19],
+      prefixes: [(506099..506198), (650002..650027)]
+    },
+    visa: {
+      sizes: [16],
+      prefixes: [4]
+    }
+  }.freeze
+
+  private
+
+  def checksum(value)
+    sum = luhn_doubled(value).inject(0) { |a, b| a + sum(b) }
+    checksum = 10 - (sum % 10)
+    checksum == 10 ? 0 : checksum
+  end
+
+  def digits(value)
+    value.to_s.chars.map(&:to_i)
+  end
+
+  def encompasses?(subject, value)
+    case subject
+    when Array then subject.include?(value)
+    when Range then subject.cover?(value)
+    else subject == value
+    end
+  end
+
+  def luhn_doubled(value)
+    values = digits(value).reverse
+    values.map.with_index { |n, i| i.even? ? n*2 : n }.reverse
+  end
+
+  def prefix(subject, value)
+    nums = case subject
+           when Array, Range then subject.first
+           else subject
+           end
+
+    value.to_s[0..(nums.to_s.size - 1)].to_i
+  end
+
+  def provider
+    (options[:provider] || :all).to_sym
+  end
+
+  def sum(value)
+    digits(value).inject(:+)
+  end
+
+  def valid_format?(value)
+    valid_size?(value) && valid_prefix?(value) && valid_luhn?(value)
+  end
+
+  def valid_luhn?(value)
+    nums = digits(value)
+    nums.pop == checksum(nums.join)
+  end
+
+  def valid_prefix?(value)
+    prefixes = PROVIDERS.dig(provider, :prefixes) || PROVIDERS.flat_map { |_, h| h[:prefixes] }
+
+    prefixes.any? do |subject|
+      iin = prefix(subject, value)
+      encompasses?(subject, iin)
+    end
+  end
+
+  def valid_size?(value)
+    sizes = PROVIDERS.dig(provider, :sizes) || (12..19)
+    encompasses?(sizes, value.to_s.size)
+  end
+
+end
