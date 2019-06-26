@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
-class AlphaNumericValidator < ActiveModel::EachValidator
-
-  def validate_each(record, attribute, value)
-    return if valid?(value.to_s)
-
-    record.errors.add(attribute, :invalid, valid_format: format_regexp)
-  end
+class AlphaNumericValidator < BaseValidator
 
   private
+
+  def error_message
+    [options[:message] || [:invalid, valid_format: format_regexp]].flatten
+  end
 
   def format_regexp
     regexp = case options[:case].to_s
