@@ -4,9 +4,11 @@ require 'bundler/setup'
 require 'lite/validators'
 
 class MockedUser
+
   include ActiveModel::Validations
 
   attr_accessor :input
+
 end
 
 RSpec.configure do |config|

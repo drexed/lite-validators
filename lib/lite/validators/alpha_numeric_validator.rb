@@ -24,7 +24,7 @@ class AlphaNumericValidator < BaseValidator
 
   def valid_format?(value)
     regexp = "^[#{format_regexp}]+$"
-    value =~ %r[#{regexp}]
+    value =~ /#{regexp}/
   end
 
   def valid_length?(value)
