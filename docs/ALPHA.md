@@ -2,8 +2,6 @@
 
 #### Rules
 
-REGEXP:
-
 ```ruby
 'any_with_space'      => /^[A-Za-z ]+$/
 'any_without_space'   => /^[A-Za-z]+$/
