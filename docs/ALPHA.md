@@ -1,6 +1,6 @@
 # Alpha
 
-## Rules
+### Rules
 
 REGEXP:
 
@@ -13,14 +13,14 @@ REGEXP:
 'upper_without_space' => /^[A-Z]+$/
 ```
 
-## Options
+### Options
 
 Option | Type | Available | Default
 --- | --- | --- | ---
 case | symbol | any, lower, upper | any
 allow_space | boolean | true, false | false
 
-## Usage
+### Usage
 
 ```ruby
 class User < ActiveRecord::Base
