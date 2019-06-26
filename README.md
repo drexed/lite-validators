@@ -29,7 +29,7 @@ Or install it yourself as:
 ## Validators
 
 * [AlphaNumeric](https://github.com/drexed/lite-validators/blob/master/docs/ALPHA_NUMERIC.md)
-* [Alpha](#alphavalidator)
+* [Alpha](https://github.com/drexed/lite-validators/blob/master/docs/ALPHA.md)
 * [Base64](#base64validator)
 * [Boolean](#booleanvalidator)
 * [Coordinates](#coordinatesvalidator)

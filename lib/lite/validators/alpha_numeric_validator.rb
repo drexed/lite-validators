@@ -5,7 +5,9 @@ class AlphaNumericValidator < BaseValidator
   private
 
   def error_message
-    [options[:message] || [:invalid, valid_format: format_regexp]].flatten
+    [
+      options[:message] || [:invalid, valid_format: format_regexp]
+    ].flatten
   end
 
   def format_regexp
