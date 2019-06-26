@@ -4,7 +4,7 @@ class CoordinateValidator < BaseValidator
 
   private
 
-  def valid_format?(value)
+  def valid_attr?(value)
     case options[:boundary].to_s
     when 'latitude' then valid_latitude?(value)
     when 'longitude' then valid_longitude?(value)

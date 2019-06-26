@@ -19,7 +19,7 @@ class AlphaValidator < BaseValidator
 
   def message
     [
-      options[:message] || [:invalid, valid_format: message_format]
+      options[:message] || [:invalid, valid_attr: message_format]
     ].flatten
   end
 
@@ -31,7 +31,7 @@ class AlphaValidator < BaseValidator
     REGEXP[key]
   end
 
-  def valid_format?(value)
+  def valid_regexp?(value)
     value.to_s =~ regexp
   end
 

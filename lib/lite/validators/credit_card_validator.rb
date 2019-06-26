@@ -117,7 +117,7 @@ class CreditCardValidator < BaseValidator
     digits(value).inject(:+)
   end
 
-  def valid_format?(value)
+  def valid_attr?(value)
     valid_size?(value) && valid_prefix?(value) && valid_luhn?(value)
   end
 

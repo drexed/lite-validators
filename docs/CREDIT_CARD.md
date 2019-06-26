@@ -5,8 +5,6 @@
 The rules are for length and prefixes are dynamic based on the provider
 [view list](https://github.com/drexed/lite-validators/blob/master/lib/lite/validators/credit_card_validator.rb).
 
-The Luhn validation rule is the only that is consistent across all checks.
-
 #### Options
 
 Option | Type | Available | Default

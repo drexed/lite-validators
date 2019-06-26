@@ -15,15 +15,19 @@ class BaseValidator < ActiveModel::EachValidator
   end
 
   def valid?(value)
-    valid_length?(value) && valid_format?(value)
+    valid_length?(value) && valid_attr?(value)
   end
 
-  def valid_format?(value)
-    value.to_s =~ self.class::REGEXP
+  def valid_attr?(value)
+    valid_regexp?(value)
   end
 
   def valid_length?(value)
     !value.to_s.strip.empty?
+  end
+
+  def valid_regexp?(value)
+    value.to_s =~ self.class::REGEXP
   end
 
 end
