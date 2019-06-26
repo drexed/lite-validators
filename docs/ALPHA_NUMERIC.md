@@ -1,8 +1,6 @@
 ## AlphaNumeric
 
-**Rules:**
-
-REGEXP:
+#### Rules
 
 ```ruby
 'any_with_space'      => /^[A-Za-z0-9 ]+$/
@@ -13,14 +11,14 @@ REGEXP:
 'upper_without_space' => /^[A-Z0-9]+$/
 ```
 
-**Options:**
+#### Options
 
 Option | Type | Available | Default
 --- | --- | --- | ---
 case | symbol | any, lower, upper | any
 allow_space | boolean | true, false | false
 
-**Usage:**
+#### Usage
 
 ```ruby
 class User < ActiveRecord::Base
