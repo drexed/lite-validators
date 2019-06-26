@@ -24,11 +24,11 @@ Or install it yourself as:
 ## Table of Contents
 
 * [Validators](#validators)
-* [3rd party](#3rd party)
+* [3rd-party](#3rd-party)
 
 ## Validators
 
-* [AlphaNumeric](https://github.com/drexed/lite-validators/blob/master/ALPHA_NUMERIC.md)
+* [AlphaNumeric](https://github.com/drexed/lite-validators/blob/master/docs/ALPHA_NUMERIC.md)
 * [Alpha](#alphavalidator)
 * [Base64](#base64validator)
 * [Boolean](#booleanvalidator)
@@ -59,9 +59,9 @@ Or install it yourself as:
 * [Username](#usernamevalidator)
 * [UUID](#uuidvalidator)
 
-## 3rd party
+## 3rd-party
 
-The following are highly recommended 3rd party validators to supplement your workflow.
+The following are highly recommended 3rd party validators to supplement your workflow:
 
 * **DateTime:** Validates Timeliness - https://github.com/adzap/validates_timeliness
 * **Existence:** Validates Existence - https://github.com/perfectline/validates_existence
