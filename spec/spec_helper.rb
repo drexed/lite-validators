@@ -2,27 +2,14 @@
 
 require 'bundler/setup'
 require 'lite/validators'
+require 'action_dispatch'
 
-class MockedKlass
+spec_path = Pathname.new(File.expand_path('../spec', File.dirname(__FILE__)))
 
-  include ActiveModel::Validations
-
-  attr_accessor :input
-
-end
-
-module SyntaxHelpers
-
-  def fail!(value)
-    klass.input = value
-    expect(klass).not_to be_valid
+%w[helpers models].each do |dir|
+  Dir.each_child(spec_path.join("support/#{dir}")) do |f|
+    load(spec_path.join("support/#{dir}/#{f}"))
   end
-
-  def pass!(value)
-    klass.input = value
-    expect(klass).to be_valid
-  end
-
 end
 
 RSpec.configure do |config|
@@ -36,5 +23,6 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.include SyntaxHelpers
+  config.include FileHelper
+  config.include ValidationHelper
 end
