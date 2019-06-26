@@ -1,36 +1,20 @@
 # frozen_string_literal: true
 
-class AlphaNumericValidator < BaseValidator
+class AlphaNumericValidator < AlphaValidator
+
+  REGEXP = {
+    'any_with_space'      => /^[A-Za-z0-9 ]+$/,
+    'any_without_space'   => /^[A-Za-z0-9]+$/,
+    'lower_with_space'    => /^[a-z0-9 ]+$/,
+    'lower_without_space' => /^[a-z0-9]+$/,
+    'upper_with_space'    => /^[A-Z0-9 ]+$/,
+    'upper_without_space' => /^[A-Z0-9]+$/
+  }.freeze
 
   private
 
-  def error_message
-    [
-      options[:message] || [:invalid, valid_format: format_regexp]
-    ].flatten
-  end
-
-  def format_regexp
-    regexp = case options[:case].to_s
-             when 'lower' then 'a-z0-9'
-             when 'upper' then 'A-Z0-9'
-             else 'A-Za-z0-9'
-             end
-
-    "#{regexp}#{' ' if options[:allow_space]}"
-  end
-
-  def valid?(value)
-    valid_length?(value) && valid_format?(value)
-  end
-
-  def valid_format?(value)
-    regexp = "^[#{format_regexp}]+$"
-    value =~ /#{regexp}/
-  end
-
-  def valid_length?(value)
-    !value.empty?
+  def regexp
+    REGEXP[key]
   end
 
 end

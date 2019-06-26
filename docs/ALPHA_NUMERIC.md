@@ -2,20 +2,23 @@
 
 **Rules:**
 
+REGEXP:
+
 ```ruby
-case:
-  any:   A-Za-z0-9
-  lower: a-z0-9
-  upper: A-Z0-9
+'any_with_space'      => /^[A-Za-z0-9 ]+$/
+'any_without_space'   => /^[A-Za-z0-9]+$/
+'lower_with_space'    => /^[a-z0-9 ]+$/
+'lower_without_space' => /^[a-z0-9]+$/
+'upper_with_space'    => /^[A-Z0-9 ]+$/
+'upper_without_space' => /^[A-Z0-9]+$/
 ```
 
 **Options:**
 
-```ruby
-case:         symbol    (default: any)
-allow_space:  boolean   (default: false)
-message:      string
-```
+Option | Type | Available | Default
+--- | --- | --- | ---
+case | symbol | any, lower, upper | any
+allow_space | boolean | true, false | false
 
 **Usage:**
 
