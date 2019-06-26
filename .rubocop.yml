@@ -18,6 +18,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/**/*'
     - '*.gemspec'
+Metrics/ClassLength:
+  Exclude:
+    - 'lib/lite/validators/credit_card_validator.rb'
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:

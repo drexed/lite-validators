@@ -19,7 +19,7 @@ class CreditCardValidator < BaseValidator
     },
     discover: {
       sizes: (16..19),
-      prefixes: [(64..65), 6011, (622126..622925), (624000..626999), (628200..628899)]
+      prefixes: [(64..65), 6011, (622_126..622_925), (624_000..626_999), (628_200..628_899)]
     },
     interpayment: {
       sizes: (16..19),
@@ -39,7 +39,7 @@ class CreditCardValidator < BaseValidator
     },
     maestro_uk: {
       sizes: (12..19),
-      prefixes: [6759, 676770, 676774]
+      prefixes: [6759, 676_770, 676_774]
     },
     mastercard: {
       sizes: [16],
@@ -51,11 +51,11 @@ class CreditCardValidator < BaseValidator
     },
     nps_pridnestrovie: {
       sizes: [16],
-      prefixes: [(6054740..6054744)]
+      prefixes: [(6_054_740..6_054_744)]
     },
     troy: {
       sizes: [16],
-      prefixes: [(979200..979289)]
+      prefixes: [(979_200..979_289)]
     },
     uatp: {
       sizes: [16],
@@ -67,7 +67,7 @@ class CreditCardValidator < BaseValidator
     },
     verve: {
       sizes: [16, 19],
-      prefixes: [(506099..506198), (650002..650027)]
+      prefixes: [(506_099..506_198), (650_002..650_027)]
     },
     visa: {
       sizes: [16],
@@ -97,7 +97,7 @@ class CreditCardValidator < BaseValidator
 
   def luhn_doubled(value)
     values = digits(value).reverse
-    values.map.with_index { |n, i| i.even? ? n*2 : n }.reverse
+    values.map.with_index { |n, i| i.even? ? n * 2 : n }.reverse
   end
 
   def prefix(subject, value)

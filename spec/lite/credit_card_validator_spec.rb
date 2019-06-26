@@ -17,14 +17,14 @@ RSpec.describe CreditCardValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(4242424242424242)
+        pass!(4_242_424_242_424_242)
         pass!('4242424242424242')
       end
 
       it 'to not be valid' do
         fail!(4242)
-        fail!(7242424242424242)
-        fail!(4242424242424241)
+        fail!(7_242_424_242_424_242)
+        fail!(4_242_424_242_424_241)
       end
     end
   end
@@ -42,14 +42,14 @@ RSpec.describe CreditCardValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(5555555555554444)
+        pass!(5_555_555_555_554_444)
       end
 
       it 'to not be valid' do
-        fail!(4242424242424242)
-        fail!(565555555555444)
-        fail!(555555555555443)
-        fail!(555555555555444)
+        fail!(4_242_424_242_424_242)
+        fail!(565_555_555_555_444)
+        fail!(555_555_555_555_443)
+        fail!(555_555_555_555_444)
       end
     end
   end
