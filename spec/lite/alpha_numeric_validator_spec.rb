@@ -4,205 +4,166 @@ require 'spec_helper'
 
 RSpec.describe AlphaNumericValidator do
 
-  context 'with anycase without space (default)' do
+  context 'with base options' do
     before do
-      class AlphaNumeric1 < MockedUser
+      class AlphaNumericAnyWithoutSpaceKlass < MockedKlass
 
         validates :input, alpha_numeric: true
 
       end
     end
 
-    let(:klass) { AlphaNumeric1.new }
+    let(:klass) { AlphaNumericAnyWithoutSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'Test123'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with nil' do
-        klass.input = nil
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with space' do
+      it 'to not be valid' do
         klass.input = 'Test 123'
-
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with dash' do
         klass.input = 'Test-123'
-
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with anycase with space' do
+  context 'with options { allow_space: true }' do
     before do
-      class AlphaNumeric2 < MockedUser
+      class AlphaNumericAnyWithSpaceKlass < MockedKlass
 
         validates :input, alpha_numeric: { allow_space: true }
 
       end
     end
 
-    let(:klass) { AlphaNumeric2.new }
+    let(:klass) { AlphaNumericAnyWithSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'Test 123'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
+      it 'to not be valid' do
         klass.input = 'Test-123'
-
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with lowercase without space' do
+  context 'with options { case: :lower }' do
     before do
-      class AlphaNumeric3 < MockedUser
+      class AlphaNumericLowerWithoutSpaceKlass < MockedKlass
 
         validates :input, alpha_numeric: { case: :lower }
 
       end
     end
 
-    let(:klass) { AlphaNumeric3.new }
+    let(:klass) { AlphaNumericLowerWithoutSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'test123'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'test-123'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with space' do
-        klass.input = 'test 123'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with uppercase letter' do
+      it 'to not be valid' do
         klass.input = 'Test123'
+        expect(klass).not_to be_valid
 
+        klass.input = 'test 123'
+        expect(klass).not_to be_valid
+
+        klass.input = 'test-123'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with lowercase with space' do
+  context 'with options { case: :lower, allow_space: true }' do
     before do
-      class AlphaNumeric4 < MockedUser
+      class AlphaNumericLowerWithSpaceKlass < MockedKlass
 
         validates :input, alpha_numeric: { case: :lower, allow_space: true }
 
       end
     end
 
-    let(:klass) { AlphaNumeric4.new }
+    let(:klass) { AlphaNumericLowerWithSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'test 123'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'Test-123'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with uppercase letter' do
+      it 'to not be valid' do
         klass.input = 'Test 123'
+        expect(klass).not_to be_valid
 
+        klass.input = 'test-123'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with uppercase without space' do
+  context 'with options { case: :upper }' do
     before do
-      class AlphaNumeric5 < MockedUser
+      class AlphaNumericUpperWithoutSpaceKlass < MockedKlass
 
         validates :input, alpha_numeric: { case: :upper }
 
       end
     end
 
-    let(:klass) { AlphaNumeric5.new }
+    let(:klass) { AlphaNumericUpperWithoutSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'TEST123'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'TEST-123'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with space' do
-        klass.input = 'TEST 123'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with lowercase letter' do
+      it 'to not be valid' do
         klass.input = 'Test123'
+        expect(klass).not_to be_valid
 
+        klass.input = 'TEST 123'
+        expect(klass).not_to be_valid
+
+        klass.input = 'TEST-123'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with uppercase with space' do
+  context 'with options { case: :upper, allow_space: true }' do
     before do
-      class AlphaNumeric6 < MockedUser
+      class AlphaNumericUpperWithSpaceKlass < MockedKlass
 
         validates :input, alpha_numeric: { case: :upper, allow_space: true }
 
       end
     end
 
-    let(:klass) { AlphaNumeric6.new }
+    let(:klass) { AlphaNumericUpperWithSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'TEST 123'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'TEST-123'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with lowercase letter' do
+      it 'to not be valid' do
         klass.input = 'Test 123'
+        expect(klass).not_to be_valid
 
+        klass.input = 'TEST-123'
         expect(klass).not_to be_valid
       end
     end

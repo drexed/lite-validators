@@ -4,14 +4,14 @@ require 'spec_helper'
 
 RSpec.describe Base64Validator do
   before do
-    class Base64User < MockedUser
+    class Base64Klass < MockedKlass
 
       validates :input, base64: true
 
     end
   end
 
-  let(:klass) { Base64User.new }
+  let(:klass) { Base64Klass.new }
 
   describe '#validate' do
     it 'to be valid' do
@@ -32,15 +32,6 @@ RSpec.describe Base64Validator do
     end
 
     it 'to not be valid' do
-      klass.input = nil
-      expect(klass).not_to be_valid
-
-      klass.input = ''
-      expect(klass).not_to be_valid
-
-      klass.input = ' '
-      expect(klass).not_to be_valid
-
       klass.input = '1ab2=='
       expect(klass).not_to be_valid
     end

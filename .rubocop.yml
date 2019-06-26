@@ -18,9 +18,6 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/**/*'
     - '*.gemspec'
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - 'spec/lite/base_validator_spec.rb'
 Style/Documentation:
   Enabled: false
 Style/ExpandPathArguments:

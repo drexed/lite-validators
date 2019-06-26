@@ -23,7 +23,7 @@ class BaseValidator < ActiveModel::EachValidator
   end
 
   def valid_length?(value)
-    !value.empty?
+    !value.strip.empty?
   end
 
 end

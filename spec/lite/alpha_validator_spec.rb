@@ -4,241 +4,184 @@ require 'spec_helper'
 
 RSpec.describe AlphaValidator do
 
-  context 'with anycase without space (default)' do
+  context 'with base options' do
     before do
-      class Alpha1 < MockedUser
+      class AlphaAnyWithoutSpaceKlass < MockedKlass
 
         validates :input, alpha: true
 
       end
     end
 
-    let(:klass) { Alpha1.new }
+    let(:klass) { AlphaAnyWithoutSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'Test'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with nil' do
-        klass.input = nil
-
+      it 'to not be valid' do
+        klass.input = 'Test text'
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with space' do
-        klass.input = 'Test '
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with dash' do
-        klass.input = 'Test-'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with numbers' do
         klass.input = 'Test123'
+        expect(klass).not_to be_valid
 
+        klass.input = 'Test-text'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with anycase with space' do
+  context 'with options { allow_space: true }' do
     before do
-      class Alpha2 < MockedUser
+      class AlphaAnyWithSpaceKlass < MockedKlass
 
         validates :input, alpha: { allow_space: true }
 
       end
     end
 
-    let(:klass) { Alpha2.new }
+    let(:klass) { AlphaAnyWithSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
-        klass.input = 'Test '
-
+      it 'to be valid' do
+        klass.input = 'Test text'
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'Test-'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with numbers' do
+      it 'to not be valid' do
         klass.input = 'Test123'
+        expect(klass).not_to be_valid
 
+        klass.input = 'Test-text'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with lowercase without space' do
+  context 'with options { case: :lower }' do
     before do
-      class Alpha3 < MockedUser
+      class AlphaLowerWithoutSpaceKlass < MockedKlass
 
         validates :input, alpha: { case: :lower }
 
       end
     end
 
-    let(:klass) { Alpha3.new }
+    let(:klass) { AlphaLowerWithoutSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'test'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'test-'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with space' do
-        klass.input = 'test '
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with uppercase letter' do
+      it 'to not be valid' do
         klass.input = 'Test'
-
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with numbers' do
-        klass.input = 'test123'
+        klass.input = 'test text'
+        expect(klass).not_to be_valid
 
+        klass.input = 'test 123'
+        expect(klass).not_to be_valid
+
+        klass.input = 'test-text'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with lowercase with space' do
+  context 'with options { case: :lower, allow_space: true }' do
     before do
-      class Alpha4 < MockedUser
+      class AlphaLowerWithSpaceKlass < MockedKlass
 
         validates :input, alpha: { case: :lower, allow_space: true }
 
       end
     end
 
-    let(:klass) { Alpha4.new }
+    let(:klass) { AlphaLowerWithSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
-        klass.input = 'test '
-
+      it 'to be valid' do
+        klass.input = 'test text'
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'Test-'
-
+      it 'to not be valid' do
+        klass.input = 'Test text'
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with uppercase letter' do
-        klass.input = 'Test '
-
+        klass.input = 'test 123'
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with numbers' do
-        klass.input = 'test123'
-
+        klass.input = 'test-text'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with uppercase without space' do
+  context 'with options { case: :upper }' do
     before do
-      class Alpha5 < MockedUser
+      class AlphaUpperWithoutSpaceKlass < MockedKlass
 
         validates :input, alpha: { case: :upper }
 
       end
     end
 
-    let(:klass) { Alpha5.new }
+    let(:klass) { AlphaUpperWithoutSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
+      it 'to be valid' do
         klass.input = 'TEST'
-
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'TEST-'
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with space' do
-        klass.input = 'TEST '
-
-        expect(klass).not_to be_valid
-      end
-
-      it 'to not be valid with lowercase letter' do
+      it 'to not be valid' do
         klass.input = 'Test'
-
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with numbers' do
-        klass.input = 'Test123'
+        klass.input = 'TEST TEXT'
+        expect(klass).not_to be_valid
 
+        klass.input = 'TEST 123'
+        expect(klass).not_to be_valid
+
+        klass.input = 'TEST-TEXT'
         expect(klass).not_to be_valid
       end
     end
   end
 
-  context 'with uppercase with space' do
+  context 'with options { case: :upper, allow_space: true }' do
     before do
-      class Alpha6 < MockedUser
+      class AlphaUpperWithSpaceKlass < MockedKlass
 
         validates :input, alpha: { case: :upper, allow_space: true }
 
       end
     end
 
-    let(:klass) { Alpha6.new }
+    let(:klass) { AlphaUpperWithSpaceKlass.new }
 
     describe '#validate' do
-      it 'to be valid will correct value' do
-        klass.input = 'TEST '
-
+      it 'to be valid' do
+        klass.input = 'TEST TEXT'
         expect(klass).to be_valid
       end
 
-      it 'to not be valid with dash' do
-        klass.input = 'TEST-'
-
+      it 'to not be valid' do
+        klass.input = 'Test Text'
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with lowercase letter' do
-        klass.input = 'Test '
-
+        klass.input = 'TEST 123'
         expect(klass).not_to be_valid
-      end
 
-      it 'to not be valid with numbers' do
-        klass.input = 'Test123'
-
+        klass.input = 'TEST-TEXT'
         expect(klass).not_to be_valid
       end
     end

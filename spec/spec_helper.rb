@@ -3,7 +3,7 @@
 require 'bundler/setup'
 require 'lite/validators'
 
-class MockedUser
+class MockedKlass
 
   include ActiveModel::Validations
 
