@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'lite/validators/version'
+require 'active_model'
 
-module Lite
-  module Validators
-    class Error < StandardError; end
-    # Your code goes here...
-  end
+%w[
+  version
+  alpha_numeric_validator
+].each do |name|
+  require "lite/validators/#{name}"
 end
