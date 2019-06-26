@@ -1,8 +1,9 @@
 # Lite::Validators
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lite/validators`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](https://badge.fury.io/rb/lite-validators.svg)](http://badge.fury.io/rb/lite-validators)
+[![Build Status](https://travis-ci.org/drexed/lite-validators.svg?branch=master)](https://travis-ci.org/drexed/lite-validators)
 
-TODO: Delete this and the text above, and describe your gem
+Lite::Validators is a collection of validators useful for any Rails application.
 
 ## Installation
 
@@ -20,9 +21,52 @@ Or install it yourself as:
 
     $ gem install lite-validators
 
-## Usage
+## Table of Contents
 
-TODO: Write usage instructions here
+* [Validators](#validators)
+* [3rd party](#3rd party)
+
+## Validators
+
+* [AlphaNumeric](https://github.com/drexed/lite-validators/blob/master/ALPHA_NUMERIC.md)
+* [Alpha](#alphavalidator)
+* [Base64](#base64validator)
+* [Boolean](#booleanvalidator)
+* [Coordinates](#coordinatesvalidator)
+* [Credit Card](#creditcardvalidator)
+* [Csv](#csvvalidator)
+* [Currency](#currencyvalidator)
+* [CUSIP](#cusipvalidator)
+* [Email](#emailvalidator)
+* [Equality](#equalityvalidator)
+* [FileSize](#filesizevalidator)
+* [Hex](#hexvalidator)
+* [IMEI](#imeivalidator)
+* [IP](#ipvalidator)
+* [ISBN](#isbnvalidator)
+* [ISIN](#isinvalidator)
+* [MAC Address](#macaddressvalidator)
+* [Name](#namevalidator)
+* [Password](#passwordvalidator)
+* [Phone](#phonevalidator)
+* [SEDOL](#sedolvalidator)
+* [Slug](#slugvalidator)
+* [SSN](#ssnvalidator)
+* [Time Zone](#timezonevalidator)
+* [Tracking Number](#trackingnumbervalidator)
+* [Type](#typevalidator)
+* [URL](#urlvalidator)
+* [Username](#usernamevalidator)
+* [UUID](#uuidvalidator)
+
+## 3rd party
+
+The following are highly recommended 3rd party validators to supplement your workflow.
+
+* **DateTime:** Validates Timeliness - https://github.com/adzap/validates_timeliness
+* **Existence:** Validates Existence - https://github.com/perfectline/validates_existence
+* **Group:** Group Validations - https://github.com/adzap/grouped_validations
+* **Overlap:** Validates Overlap - https://github.com/robinbortlik/validates_overlap
 
 ## Development
 
