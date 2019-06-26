@@ -6,6 +6,10 @@ class CusipValidator < BaseValidator
 
   private
 
+  def valid_attr?(value)
+    valid_regexp?(value) && valid_checksum?(value)
+  end
+
   # rubocop:disable Metrics/AbcSize
   def valid_checksum?(value)
     digits = value.chars.map { |chr| /[A-Z]/.match?(chr) ? (chr.ord - 55) : chr.to_i }
@@ -16,9 +20,5 @@ class CusipValidator < BaseValidator
     ((10 - values) % 10) % 10
   end
   # rubocop:enable Metrics/AbcSize
-
-  def valid_attr?(value)
-    valid_regexp?(value) && valid_checksum?(value)
-  end
 
 end
