@@ -3,11 +3,11 @@
 class AlphaValidator < BaseValidator
 
   REGEXP ||= {
-    'any_with_space'      => /^[A-Za-z ]+$/,
-    'any_without_space'   => /^[A-Za-z]+$/,
-    'lower_with_space'    => /^[a-z ]+$/,
+    'any_with_space' => /^[A-Za-z ]+$/,
+    'any_without_space' => /^[A-Za-z]+$/,
+    'lower_with_space' => /^[a-z ]+$/,
     'lower_without_space' => /^[a-z]+$/,
-    'upper_with_space'    => /^[A-Z ]+$/,
+    'upper_with_space' => /^[A-Z ]+$/,
     'upper_without_space' => /^[A-Z]+$/
   }.freeze
 
