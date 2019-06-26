@@ -11,7 +11,7 @@
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_1, base64: true
+  validates :input, base64: true
 
 end
 ```
