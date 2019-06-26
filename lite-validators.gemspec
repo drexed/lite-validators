@@ -39,7 +39,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'activemodel'
 
-  spec.add_development_dependency 'actionpack'
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'fasterer'
   spec.add_development_dependency 'rake'
