@@ -17,16 +17,12 @@ RSpec.describe AlphaNumericValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        klass.input = 'Test123'
-        expect(klass).to be_valid
+        pass!('Test123')
       end
 
       it 'to not be valid' do
-        klass.input = 'Test 123'
-        expect(klass).not_to be_valid
-
-        klass.input = 'Test-123'
-        expect(klass).not_to be_valid
+        fail!('Test 123')
+        fail!('Test-123')
       end
     end
   end
@@ -44,13 +40,11 @@ RSpec.describe AlphaNumericValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        klass.input = 'Test 123'
-        expect(klass).to be_valid
+        pass!('Test 123')
       end
 
       it 'to not be valid' do
-        klass.input = 'Test-123'
-        expect(klass).not_to be_valid
+        fail!('Test-123')
       end
     end
   end
@@ -68,19 +62,13 @@ RSpec.describe AlphaNumericValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        klass.input = 'test123'
-        expect(klass).to be_valid
+        pass!('test123')
       end
 
       it 'to not be valid' do
-        klass.input = 'Test123'
-        expect(klass).not_to be_valid
-
-        klass.input = 'test 123'
-        expect(klass).not_to be_valid
-
-        klass.input = 'test-123'
-        expect(klass).not_to be_valid
+        fail!('Test123')
+        fail!('test 123')
+        fail!('test-123')
       end
     end
   end
@@ -98,16 +86,12 @@ RSpec.describe AlphaNumericValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        klass.input = 'test 123'
-        expect(klass).to be_valid
+        pass!('test 123')
       end
 
       it 'to not be valid' do
-        klass.input = 'Test 123'
-        expect(klass).not_to be_valid
-
-        klass.input = 'test-123'
-        expect(klass).not_to be_valid
+        fail!('Test 123')
+        fail!('test-123')
       end
     end
   end
@@ -125,19 +109,13 @@ RSpec.describe AlphaNumericValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        klass.input = 'TEST123'
-        expect(klass).to be_valid
+        pass!('TEST123')
       end
 
       it 'to not be valid' do
-        klass.input = 'Test123'
-        expect(klass).not_to be_valid
-
-        klass.input = 'TEST 123'
-        expect(klass).not_to be_valid
-
-        klass.input = 'TEST-123'
-        expect(klass).not_to be_valid
+        fail!('Test123')
+        fail!('TEST 123')
+        fail!('TEST-123')
       end
     end
   end
@@ -155,16 +133,12 @@ RSpec.describe AlphaNumericValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        klass.input = 'TEST 123'
-        expect(klass).to be_valid
+        pass!('TEST 123')
       end
 
       it 'to not be valid' do
-        klass.input = 'Test 123'
-        expect(klass).not_to be_valid
-
-        klass.input = 'TEST-123'
-        expect(klass).not_to be_valid
+        fail!('Test 123')
+        fail!('TEST-123')
       end
     end
   end

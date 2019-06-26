@@ -11,6 +11,20 @@ class MockedKlass
 
 end
 
+module SyntaxHelpers
+
+  def fail!(value)
+    klass.input = value
+    expect(klass).not_to be_valid
+  end
+
+  def pass!(value)
+    klass.input = value
+    expect(klass).to be_valid
+  end
+
+end
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
@@ -21,4 +35,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include SyntaxHelpers
 end

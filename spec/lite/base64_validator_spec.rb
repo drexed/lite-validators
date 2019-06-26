@@ -15,25 +15,15 @@ RSpec.describe Base64Validator do
 
   describe '#validate' do
     it 'to be valid' do
-      klass.input = 'YW55IGNhcm5hbCBwbGVhcw=='
-      expect(klass).to be_valid
-
-      klass.input = 'YW55IGNhcm5hbCBwbGVhc3U='
-      expect(klass).to be_valid
-
-      klass.input = 'YW55IGNhcm5hbCBwbGVhc3Vy'
-      expect(klass).to be_valid
-
-      klass.input = 'YW55IGNhcm5hbCBwbGVhc3VyZQ=='
-      expect(klass).to be_valid
-
-      klass.input = 'YW55IGNhcm5hbCBwbGVhc3VyZS4='
-      expect(klass).to be_valid
+      pass!('YW55IGNhcm5hbCBwbGVhcw==')
+      pass!('YW55IGNhcm5hbCBwbGVhc3U=')
+      pass!('YW55IGNhcm5hbCBwbGVhc3Vy')
+      pass!('YW55IGNhcm5hbCBwbGVhc3VyZQ==')
+      pass!('YW55IGNhcm5hbCBwbGVhc3VyZS4=')
     end
 
     it 'to not be valid' do
-      klass.input = '1ab2=='
-      expect(klass).not_to be_valid
+      fail!('1ab2==')
     end
   end
 

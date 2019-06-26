@@ -15,14 +15,9 @@ RSpec.describe BaseValidator do
 
   describe '#validate' do
     it 'to not be valid' do
-      klass.input = nil
-      expect(klass).not_to be_valid
-
-      klass.input = ''
-      expect(klass).not_to be_valid
-
-      klass.input = ' '
-      expect(klass).not_to be_valid
+      fail!(nil)
+      fail!('')
+      fail!(' ')
     end
   end
 
