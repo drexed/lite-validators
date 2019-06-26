@@ -1,6 +1,7 @@
 # Alpha
 
 ### Rules
+---
 
 REGEXP:
 
@@ -14,6 +15,7 @@ REGEXP:
 ```
 
 ### Options
+---
 
 Option | Type | Available | Default
 --- | --- | --- | ---
@@ -21,6 +23,7 @@ case | symbol | any, lower, upper | any
 allow_space | boolean | true, false | false
 
 ### Usage
+---
 
 ```ruby
 class User < ActiveRecord::Base
