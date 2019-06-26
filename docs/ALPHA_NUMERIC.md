@@ -2,16 +2,20 @@
 
 **Rules:**
 
-* Case:
-  * any:   `A-Za-z0-9`
-  * lower: `a-z0-9`
-  * upper: `A-Z0-9`
+```ruby
+case:
+  any:   A-Za-z0-9
+  lower: a-z0-9
+  upper: A-Z0-9
+```
 
 **Options:**
 
-* `case: type`            (default: any)
-* `allow_space: boolean`  (default: false)
-* `message: string`
+```ruby
+case:         symbol    (default: any)
+allow_space:  boolean   (default: false)
+message:      string
+```
 
 **Usage:**
 
