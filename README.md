@@ -48,7 +48,7 @@ Or install it yourself as:
 * [MAC Address](https://github.com/drexed/lite-validators/blob/master/docs/MAC.md)
 * [Name](https://github.com/drexed/lite-validators/blob/master/docs/NAME.md)
 * [Password](https://github.com/drexed/lite-validators/blob/master/docs/PASSWORD.md)
-* [Phone](https://github.com/drexed/lite-validators/blob/master/docs/PHONE.md)
+* [Phone Number](https://github.com/drexed/lite-validators/blob/master/docs/PHONE_NUMBER.md)
 * [SEDOL](https://github.com/drexed/lite-validators/blob/master/docs/SEDOL.md)
 * [Slug](https://github.com/drexed/lite-validators/blob/master/docs/SLUG.md)
 * [SSN](https://github.com/drexed/lite-validators/blob/master/docs/SSN.md)
