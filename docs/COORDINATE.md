@@ -3,9 +3,9 @@
 #### Rules
 
 ```ruby
-'pair'      => [-90.0..90.0, -180.0..180.0]
 'latitude'  => -90.0..90.0
 'longitude' => -180.0..180.0
+'pair'      => ['latitude', 'longitude']
 ```
 
 #### Options

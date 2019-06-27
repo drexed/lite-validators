@@ -2,6 +2,11 @@
 
 class CoordinateValidator < BaseValidator
 
+  BOUNDARIES ||= {
+    latitude: 90.0,
+    longitude: 180.0
+  }.freeze
+
   def validate_each(record, attribute, value)
     validate_boundary!
     super
@@ -15,27 +20,18 @@ class CoordinateValidator < BaseValidator
 
   def valid_attr?(value)
     case boundary
-    when :latitude then valid_latitude?(value)
-    when :longitude then valid_longitude?(value)
-    else valid_latitude?(value.first) && valid_longitude?(value.last)
+    when :latitude then valid_boundary?(:latitude, value)
+    when :longitude then valid_boundary?(:longitude, value)
+    else valid_boundary?(:latitude, value.first) && valid_boundary?(:longitude, value.last)
     end
   end
 
-  def valid_latitude?(value)
-    value.to_f.abs <= 90.0
+  def valid_boundary?(key, value)
+    value.to_f.abs <= BOUNDARIES[key]
   end
 
-  def valid_longitude?(value)
-    value.to_f.abs <= 180.0
-  end
-
-  # rubocop:disable Metrics/LineLength
   def validate_boundary!
-    boundaries = %i[pair latitude longitude]
-    return if boundaries.include?(boundary)
-
-    raise ArgumentError, "Unknown boundary: #{boundary.inspect}. Valid boundaries are: #{boundaries.map(&:inspect).join(', ')}"
+    validate_option!(:boundary, BOUNDARIES.keys.push(:pair))
   end
-  # rubocop:enable Metrics/LineLength
 
 end

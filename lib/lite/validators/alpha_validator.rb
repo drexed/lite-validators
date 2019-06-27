@@ -2,13 +2,10 @@
 
 class AlphaValidator < BaseValidator
 
-  REGEXP ||= {
-    'any_with_space' => /^[A-Za-z ]+$/,
-    'any_without_space' => /^[A-Za-z]+$/,
-    'lower_with_space' => /^[a-z ]+$/,
-    'lower_without_space' => /^[a-z]+$/,
-    'upper_with_space' => /^[A-Z ]+$/,
-    'upper_without_space' => /^[A-Z]+$/
+  CASES ||= {
+    lower: 'a-z',
+    upper: 'A-Z',
+    any: 'A-Za-z'
   }.freeze
 
   def validate_each(record, attribute, value)
@@ -20,10 +17,6 @@ class AlphaValidator < BaseValidator
 
   def kase
     options[:case] || :any
-  end
-
-  def key
-    "#{kase}_with#{:out unless options[:allow_space]}_space"
   end
 
   def message
@@ -39,20 +32,15 @@ class AlphaValidator < BaseValidator
   end
 
   def regexp
-    REGEXP[key]
+    /^[#{CASES[kase]}#{' ' if options[:allow_space]}]+$/
   end
 
   def valid_regexp?(value)
     value.to_s =~ regexp
   end
 
-  # rubocop:disable Metrics/LineLength
   def validate_case!
-    kases = %i[any lower upper]
-    return if kases.include?(kase)
-
-    raise ArgumentError, "Unknown case: #{kase.inspect}. Valid cases are: #{kases.map(&:inspect).join(', ')}"
+    validate_option!(:case, CASES.keys, as: :kase)
   end
-  # rubocop:enable Metrics/LineLength
 
 end

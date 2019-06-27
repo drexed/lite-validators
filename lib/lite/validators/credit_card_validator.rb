@@ -83,8 +83,9 @@ class CreditCardValidator < BaseValidator
   private
 
   def checksum(value)
-    sum = luhn_doubled(value).inject(0) { |a, b| a + sum(b) }
-    checksum = 10 - (sum % 10)
+    values = digits(value).reverse.map.with_index { |n, i| i.even? ? n * 2 : n }
+    total = values.reverse.inject(0) { |a, b| a + digits(b).inject(:+) }
+    checksum = 10 - (total % 10)
     checksum == 10 ? 0 : checksum
   end
 
@@ -100,11 +101,6 @@ class CreditCardValidator < BaseValidator
     end
   end
 
-  def luhn_doubled(value)
-    values = digits(value).reverse
-    values.map.with_index { |n, i| i.even? ? n * 2 : n }.reverse
-  end
-
   def prefix(subject, value)
     nums = case subject
            when Array, Range then subject.first
@@ -116,10 +112,6 @@ class CreditCardValidator < BaseValidator
 
   def provider
     options[:provider] || :all
-  end
-
-  def sum(value)
-    digits(value).inject(:+)
   end
 
   def valid_attr?(value)
@@ -145,13 +137,8 @@ class CreditCardValidator < BaseValidator
     encompasses?(sizes, value.to_s.size)
   end
 
-  # rubocop:disable Metrics/LineLength
   def validate_provider!
-    providers = PROVIDERS.keys.push(:all)
-    return if providers.include?(provider)
-
-    raise ArgumentError, "Unknown provider: #{provider.inspect}. Valid providers are: #{providers.map(&:inspect).join(', ')}"
+    validate_option!(:provider, PROVIDERS.keys.push(:all))
   end
-  # rubocop:enable Metrics/LineLength
 
 end

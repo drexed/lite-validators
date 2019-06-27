@@ -33,7 +33,7 @@ RSpec.describe CreditCardValidator do
     before do
       class CreditCardInvalidProviderKlass < MockedKlass
 
-        validates :input_0, credit_card: { provider: :testcard }
+        validates :input_0, credit_card: { provider: :test }
 
       end
     end

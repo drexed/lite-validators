@@ -30,4 +30,13 @@ class BaseValidator < ActiveModel::EachValidator
     value.to_s =~ self.class::REGEXP
   end
 
+  # rubocop:disable Metrics/LineLength
+  def validate_option!(name, collection, as: nil)
+    option = send(as || name)
+    return if collection.include?(option)
+
+    raise ArgumentError, "Unknown #{name}: #{option.inspect}. Valid options are: #{collection.map(&:inspect).join(', ')}"
+  end
+  # rubocop:enable Metrics/LineLength
+
 end

@@ -30,14 +30,9 @@ class EqualityValidator < BaseValidator
     value.send(OPERATORS[operator], other)
   end
 
-  # rubocop:disable Metrics/LineLength
   def validate_operator!
-    operators = OPERATORS.keys
-    return if operators.include?(operator)
-
-    raise ArgumentError, "Unknown operator: #{operator.inspect}. Valid operators are: #{operators.map(&:inspect).join(', ')}"
+    validate_option!(:operator, OPERATORS.keys)
   end
-  # rubocop:enable Metrics/LineLength
 
   def validate_to!
     return if options.key?(:to)
