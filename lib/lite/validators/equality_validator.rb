@@ -21,19 +21,18 @@ class EqualityValidator < BaseValidator
 
   private
 
-  def valid_attr?(record, value)
-    to = options[:to]
-    operator = options[:operator]
-    operator = OPERATORS[operator]
+  def operator
+    options[:operator] || :equal_to
+  end
 
-    return if value.send(operator, record.send(to))
+  def valid_attr?(record, value)
+    other = record.send(options[:to])
+    value.send(OPERATORS[operator], other)
   end
 
   # rubocop:disable Metrics/LineLength
   def validate_operator!
     operators = OPERATORS.keys
-    operator = options[:operator]
-
     return if operators.include?(operator)
 
     raise ArgumentError, "Unknown operator: #{operator.inspect}. Valid operators are: #{operators.map(&:inspect).join(', ')}"

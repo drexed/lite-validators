@@ -115,7 +115,7 @@ class CreditCardValidator < BaseValidator
   end
 
   def provider
-    (options[:provider] || :all).to_sym
+    options[:provider] || :all
   end
 
   def sum(value)
@@ -150,7 +150,6 @@ class CreditCardValidator < BaseValidator
     return unless options.key?(:provider)
 
     providers = PROVIDERS.keys.push(:all)
-    provider = options[:provider]
     return if providers.include?(provider)
 
     raise ArgumentError, "Unknown provider: #{provider.inspect}. Valid providers are: #{providers.map(&:inspect).join(', ')}"

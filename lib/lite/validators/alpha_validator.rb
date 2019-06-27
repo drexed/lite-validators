@@ -18,8 +18,12 @@ class AlphaValidator < BaseValidator
 
   private
 
+  def kase
+    options[:case] || :any
+  end
+
   def key
-    "#{options[:case] || :any}_with#{:out unless options[:allow_space]}_space"
+    "#{kase}_with#{:out unless options[:allow_space]}_space"
   end
 
   def message
@@ -47,7 +51,6 @@ class AlphaValidator < BaseValidator
     return unless options.key?(:case)
 
     kases = %i[any lower upper]
-    kase = options[:case]
     return if kases.include?(kase)
 
     raise ArgumentError, "Unknown case: #{kase.inspect}. Valid cases are: #{kases.map(&:inspect).join(', ')}"

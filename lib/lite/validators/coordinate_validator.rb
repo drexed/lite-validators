@@ -9,10 +9,14 @@ class CoordinateValidator < BaseValidator
 
   private
 
+  def boundary
+    options[:boundary] || :pair
+  end
+
   def valid_attr?(value)
-    case options[:boundary].to_s
-    when 'latitude' then valid_latitude?(value)
-    when 'longitude' then valid_longitude?(value)
+    case boundary
+    when :latitude then valid_latitude?(value)
+    when :longitude then valid_longitude?(value)
     else valid_latitude?(value.first) && valid_longitude?(value.last)
     end
   end
@@ -30,7 +34,6 @@ class CoordinateValidator < BaseValidator
     return unless options.key?(:boundary)
 
     boundaries = %i[pair latitude longitude]
-    boundary = options[:boundary]
     return if boundaries.include?(boundary)
 
     raise ArgumentError, "Unknown boundary: #{boundary.inspect}. Valid boundaries are: #{boundaries.map(&:inspect).join(', ')}"
