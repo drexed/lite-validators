@@ -2,13 +2,13 @@
 
 module ValidationHelper
 
-  def fail!(value)
-    klass.input = value
+  def fail!(*values)
+    values.each_with_index { |value, i| klass.send("input_#{i}=", value) }
     expect(klass).not_to be_valid
   end
 
-  def pass!(value)
-    klass.input = value
+  def pass!(*values)
+    values.each_with_index { |value, i| klass.send("input_#{i}=", value) }
     expect(klass).to be_valid
   end
 

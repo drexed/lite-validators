@@ -6,7 +6,7 @@ RSpec.describe BaseValidator do
   before do
     class BaseKlass < MockedKlass
 
-      validates :input, alpha: true
+      validates :input_0, alpha: true
 
     end
   end

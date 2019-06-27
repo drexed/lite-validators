@@ -6,7 +6,7 @@ RSpec.describe BooleanValidator do
   before do
     class BooleanKlass < MockedKlass
 
-      validates :input, boolean: true
+      validates :input_0, boolean: true
 
     end
   end

@@ -8,7 +8,7 @@ RSpec.describe EqualityValidator do
   #   before do
   #     class EqualityKlass < MockedKlass
   #
-  #       validates :input, email: true
+  #       validates :input_0, email: true
   #
   #     end
   #   end

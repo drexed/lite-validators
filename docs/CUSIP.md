@@ -11,7 +11,7 @@
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input, cusip: true
+  validates :input_0, cusip: true
 
 end
 ```

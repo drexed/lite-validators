@@ -8,7 +8,7 @@ RSpec.describe CoordinateValidator do
     before do
       class CoordinateKlass < MockedKlass
 
-        validates :input, coordinate: true
+        validates :input_0, coordinate: true
 
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe CoordinateValidator do
     before do
       class CoordinateInvalidBoundaryKlass < MockedKlass
 
-        validates :input, coordinate: { boundary: :test }
+        validates :input_0, coordinate: { boundary: :test }
 
       end
     end
@@ -51,7 +51,7 @@ RSpec.describe CoordinateValidator do
     before do
       class CoordinateLatitudeKlass < MockedKlass
 
-        validates :input, coordinate: { boundary: :latitude }
+        validates :input_0, coordinate: { boundary: :latitude }
 
       end
     end
@@ -76,7 +76,7 @@ RSpec.describe CoordinateValidator do
     before do
       class CoordinateLongitudeKlass < MockedKlass
 
-        validates :input, coordinate: { boundary: :longitude }
+        validates :input_0, coordinate: { boundary: :longitude }
 
       end
     end

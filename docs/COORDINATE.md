@@ -19,8 +19,8 @@ boundary | symbol | pair, latitude, longitude | pair
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_1, coordinate: true
-  validates :input_2, coordinate: { boundary: :latitude }
+  validates :input_0, coordinate: true
+  validates :input_1, coordinate: { boundary: :latitude }
 
 end
 ```

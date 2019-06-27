@@ -6,7 +6,7 @@ RSpec.describe CurrencyValidator do
   before do
     class CurrencyKlass < MockedKlass
 
-      validates :input, currency: true
+      validates :input_0, currency: true
 
     end
   end
