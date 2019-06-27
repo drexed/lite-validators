@@ -27,6 +27,24 @@ RSpec.describe AlphaNumericValidator do
     end
   end
 
+  context 'with invalid case options' do
+    before do
+      class AlphaNumericInvalidCaseKlass < MockedKlass
+
+        validates :input, alpha_numeric: { case: :camel }
+
+      end
+    end
+
+    let(:klass) { AlphaNumericInvalidCaseKlass.new }
+
+    describe '#validate' do
+      it 'to raise ArgumentError' do
+        expect { klass.valid? }.to raise_error(ArgumentError)
+      end
+    end
+  end
+
   context 'with options { allow_space: true }' do
     before do
       class AlphaNumericAnyWithSpaceKlass < MockedKlass

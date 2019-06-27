@@ -29,6 +29,24 @@ RSpec.describe CoordinateValidator do
     end
   end
 
+  context 'with invalid boundary options' do
+    before do
+      class CoordinateInvalidBoundaryKlass < MockedKlass
+
+        validates :input, coordinate: { boundary: :test }
+
+      end
+    end
+
+    let(:klass) { CoordinateInvalidBoundaryKlass.new }
+
+    describe '#validate' do
+      it 'to raise ArgumentError' do
+        expect { klass.valid? }.to raise_error(ArgumentError)
+      end
+    end
+  end
+
   context 'with options { boundary: :latitude }' do
     before do
       class CoordinateLatitudeKlass < MockedKlass

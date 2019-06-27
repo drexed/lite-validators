@@ -29,6 +29,24 @@ RSpec.describe CreditCardValidator do
     end
   end
 
+  context 'with invalid provider options' do
+    before do
+      class CreditCardInvalidProviderKlass < MockedKlass
+
+        validates :input, credit_card: { provider: :testcard }
+
+      end
+    end
+
+    let(:klass) { CreditCardInvalidProviderKlass.new }
+
+    describe '#validate' do
+      it 'to raise ArgumentError' do
+        expect { klass.valid? }.to raise_error(ArgumentError)
+      end
+    end
+  end
+
   context 'with options { provider: :mastercard }' do
     before do
       class CreditCardMastercardKlass < MockedKlass

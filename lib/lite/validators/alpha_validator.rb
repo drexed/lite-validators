@@ -11,6 +11,11 @@ class AlphaValidator < BaseValidator
     'upper_without_space' => /^[A-Z]+$/
   }.freeze
 
+  def validate_each(record, attribute, value)
+    validate_case!
+    super
+  end
+
   private
 
   def key
@@ -24,6 +29,8 @@ class AlphaValidator < BaseValidator
   end
 
   def message_format
+    return 'unknown' if regexp.nil?
+
     regexp.to_s.split('[').last.split(']').first
   end
 
@@ -34,5 +41,17 @@ class AlphaValidator < BaseValidator
   def valid_regexp?(value)
     value.to_s =~ regexp
   end
+
+  # rubocop:disable Metrics/LineLength
+  def validate_case!
+    return unless options.key?(:case)
+
+    kases = %i[any lower upper]
+    kase = options[:case]
+    return if kases.include?(kase)
+
+    raise ArgumentError, "Unknown case: #{kase.inspect}. Valid cases are: #{kases.map(&:inspect).join(', ')}"
+  end
+  # rubocop:enable Metrics/LineLength
 
 end

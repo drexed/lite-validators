@@ -75,6 +75,11 @@ class CreditCardValidator < BaseValidator
     }
   }.freeze
 
+  def validate_each(record, attribute, value)
+    validate_provider!
+    super
+  end
+
   private
 
   def checksum(value)
@@ -139,5 +144,17 @@ class CreditCardValidator < BaseValidator
     sizes = PROVIDERS.dig(provider, :sizes) || (12..19)
     encompasses?(sizes, value.to_s.size)
   end
+
+  # rubocop:disable Metrics/LineLength
+  def validate_provider!
+    return unless options.key?(:provider)
+
+    providers = PROVIDERS.keys.push(:all)
+    provider = options[:provider]
+    return if providers.include?(provider)
+
+    raise ArgumentError, "Unknown provider: #{provider.inspect}. Valid providers are: #{providers.map(&:inspect).join(', ')}"
+  end
+  # rubocop:enable Metrics/LineLength
 
 end
