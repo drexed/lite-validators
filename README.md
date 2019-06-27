@@ -40,7 +40,7 @@ Or install it yourself as:
 * [Email](https://github.com/drexed/lite-validators/blob/master/docs/EMAIL.md)
 * [Equality](https://github.com/drexed/lite-validators/blob/master/docs/EQUALITY.md)
 * [File Size](https://github.com/drexed/lite-validators/blob/master/docs/FILE_SIZE.md)
-* [Hex](https://github.com/drexed/lite-validators/blob/master/docs/HEX.md)
+* [HEX](https://github.com/drexed/lite-validators/blob/master/docs/HEX.md)
 * [IMEI](https://github.com/drexed/lite-validators/blob/master/docs/IMEI.md)
 * [IP](https://github.com/drexed/lite-validators/blob/master/docs/IP.md)
 * [ISBN](https://github.com/drexed/lite-validators/blob/master/docs/ISBN.md)
