@@ -147,8 +147,6 @@ class CreditCardValidator < BaseValidator
 
   # rubocop:disable Metrics/LineLength
   def validate_provider!
-    return unless options.key?(:provider)
-
     providers = PROVIDERS.keys.push(:all)
     return if providers.include?(provider)
 

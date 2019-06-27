@@ -15,7 +15,7 @@ RSpec.describe ImeiValidator do
 
   describe '#validate' do
     it 'to be valid' do
-      pass!(356843052637512)
+      pass!(356_843_052_637_512)
       pass!('356843052637512')
       pass!('35-684305-2637512')
       pass!('35-684305.263.7512')

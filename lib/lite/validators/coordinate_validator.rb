@@ -31,8 +31,6 @@ class CoordinateValidator < BaseValidator
 
   # rubocop:disable Metrics/LineLength
   def validate_boundary!
-    return unless options.key?(:boundary)
-
     boundaries = %i[pair latitude longitude]
     return if boundaries.include?(boundary)
 

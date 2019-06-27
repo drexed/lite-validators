@@ -48,8 +48,6 @@ class AlphaValidator < BaseValidator
 
   # rubocop:disable Metrics/LineLength
   def validate_case!
-    return unless options.key?(:case)
-
     kases = %i[any lower upper]
     return if kases.include?(kase)
 

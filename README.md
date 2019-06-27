@@ -42,7 +42,7 @@ Or install it yourself as:
 * [File Size](https://github.com/drexed/lite-validators/blob/master/docs/FILE_SIZE.md)
 * [HEX](https://github.com/drexed/lite-validators/blob/master/docs/HEX.md)
 * [IMEI](https://github.com/drexed/lite-validators/blob/master/docs/IMEI.md)
-* [IP](https://github.com/drexed/lite-validators/blob/master/docs/IP.md)
+* [IP Address](https://github.com/drexed/lite-validators/blob/master/docs/IP_ADDRESS.md)
 * [ISBN](https://github.com/drexed/lite-validators/blob/master/docs/ISBN.md)
 * [ISIN](https://github.com/drexed/lite-validators/blob/master/docs/ISIN.md)
 * [MAC Address](https://github.com/drexed/lite-validators/blob/master/docs/MAC.md)
