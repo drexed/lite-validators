@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require 'lite/validators'
+require 'action_dispatch'
 
 spec_path = Pathname.new(File.expand_path('../spec', File.dirname(__FILE__)))
 
