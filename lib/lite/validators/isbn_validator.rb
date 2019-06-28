@@ -9,8 +9,8 @@ class IsbnValidator < BaseValidator
   private
 
   def valid_attr?
-    array = value.to_s.gsub(%r{-| }, '').downcase.chars
-    [10, 13].include?(array.size) && array.all? { |chr| CHARACTERS.include?(chr) }
+    values = value.to_s.gsub(%r{-| }, '').downcase.chars
+    [10, 13].include?(values.size) && values.all? { |chr| CHARACTERS.include?(chr) }
   end
 
 end

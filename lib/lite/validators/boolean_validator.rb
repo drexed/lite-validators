@@ -2,17 +2,14 @@
 
 class BooleanValidator < BaseValidator
 
-  FALSE_VALUES ||= [
-    false, 0, '0', 'f', 'F', 'false', 'FALSE'
-  ].freeze
-  TRUE_VALUES ||= [
-    true, 1, '1', 't', 'T', 'true', 'TRUE'
+  VALUES ||= [
+    '1', '0', 't', 'f', 'true', 'false'
   ].freeze
 
   private
 
   def valid_attr?
-    TRUE_VALUES.include?(value) || FALSE_VALUES.include?(value)
+    VALUES.include?(value.to_s.downcase)
   end
 
 end

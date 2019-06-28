@@ -26,13 +26,13 @@ class IpAddressValidator < BaseValidator
 
   def valid_attr?
     case protocol
-    when :ipv4 then valid_regexp?(:ipv4, value)
-    when :ipv6 then valid_regexp?(:ipv6, value)
-    else valid_regexp?(:ipv4, value) || valid_regexp?(:ipv6, value)
+    when :ipv4 then valid_regexp?(:ipv4)
+    when :ipv6 then valid_regexp?(:ipv6)
+    else valid_regexp?(:ipv4) || valid_regexp?(:ipv6)
     end
   end
 
-  def valid_regexp?(key, value)
+  def valid_regexp?(key)
     value.to_s =~ REGEXP[key]
   end
 

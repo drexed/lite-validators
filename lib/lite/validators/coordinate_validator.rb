@@ -24,14 +24,14 @@ class CoordinateValidator < BaseValidator
 
   def valid_attr?
     case boundary
-    when :latitude then valid_boundary?(:latitude, value)
-    when :longitude then valid_boundary?(:longitude, value)
+    when :latitude then valid_boundary?(:latitude)
+    when :longitude then valid_boundary?(:longitude)
     else valid_boundary?(:latitude, value.first) && valid_boundary?(:longitude, value.last)
     end
   end
 
-  def valid_boundary?(key, value)
-    value.to_f.abs <= BOUNDARIES[key]
+  def valid_boundary?(key, coordinate = nil)
+    (coordinate || value).to_f.abs <= BOUNDARIES[key]
   end
 
 end

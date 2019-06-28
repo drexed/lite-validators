@@ -10,10 +10,10 @@ class SedolValidator < BaseValidator
   private
 
   def valid_attr?
-    valid_regexp? && valid_checksum?(value)
+    valid_regexp? && valid_checksum?
   end
 
-  def valid_checksum?(value)
+  def valid_checksum?
     total = 0
     digits = value.chars.map { |dgt| %r{[A-Z]}.match?(dgt) ? (dgt.ord - 55) : dgt.to_i }
     digits.each_with_index { |dgt, idx| total += (WEIGHTS[idx] * dgt) }

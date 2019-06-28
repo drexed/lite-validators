@@ -9,11 +9,11 @@ class IsinValidator < BaseValidator
   private
 
   def valid_attr?
-    valid_regexp? && valid_checksum?(value)
+    valid_regexp? && valid_checksum?
   end
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
-  def valid_checksum?(value)
+  def valid_checksum?
     characters = value.chars
     digits = characters.map { |chr| %r{[A-Z]}.match?(chr) ? (chr.ord - 55) : chr.to_i }
     even_values = digits.values_at(*digits.each_index.select(&:even?))

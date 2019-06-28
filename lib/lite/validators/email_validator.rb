@@ -7,10 +7,10 @@ class EmailValidator < BaseValidator
   private
 
   def valid_attr?
-    valid_regexp? && valid_domain?(value)
+    valid_regexp? && valid_domain?
   end
 
-  def valid_domain?(value)
+  def valid_domain?
     return true unless options.key?(:domain)
 
     [options[:domain]].flatten.any? { |domain| value.downcase.end_with?(".#{domain.downcase}") }
