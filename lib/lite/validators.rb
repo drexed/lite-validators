@@ -12,7 +12,7 @@ require 'active_model'
   coordinate_validator credit_card_validator currency_validator cusip_validator email_validator
   equality_validator hex_validator imei_validator ip_address_validator isbn_validator isin_validator
   mac_address_validator name_validator password_validator phone_number_validator sedol_validator
-  slug_validator
+  slug_validator ssn_validator
 ].each do |name|
   require "lite/validators/#{name}"
 end
