@@ -12,7 +12,7 @@ class FileSizeValidator < BaseValidator
     not_equal_to: :!=
   }.freeze
 
-  def validate_each(record, attribute, value)
+  def validate_each(_record, _attribute, value)
     assert_valid_check!
     valid?(value)
   end

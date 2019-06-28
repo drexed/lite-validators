@@ -2,7 +2,7 @@
 
 class CusipValidator < BaseValidator
 
-  REGEXP ||= %r{^[0-9A-Z]{9}$}.freeze
+  REGEXP ||= /^[0-9A-Z]{9}$/.freeze
 
   private
 
@@ -12,7 +12,7 @@ class CusipValidator < BaseValidator
 
   # rubocop:disable Metrics/AbcSize
   def valid_checksum?
-    digits = value.chars.map { |chr| %r{[A-Z]}.match?(chr) ? (chr.ord - 55) : chr.to_i }
+    digits = value.chars.map { |chr| /[A-Z]/.match?(chr) ? (chr.ord - 55) : chr.to_i }
 
     even_values = digits.values_at(*digits.each_index.select(&:even?))
     odd_values = digits.values_at(*digits.each_index.select(&:odd?))

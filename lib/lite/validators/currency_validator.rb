@@ -2,6 +2,6 @@
 
 class CurrencyValidator < BaseValidator
 
-  REGEXP ||= %r{^\d*+(\.\d{1,2})$}.freeze
+  REGEXP ||= /^\d*+(\.\d{1,2})$/.freeze
 
 end

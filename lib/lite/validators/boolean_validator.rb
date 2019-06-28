@@ -2,8 +2,8 @@
 
 class BooleanValidator < BaseValidator
 
-  VALUES ||= [
-    '1', '0', 't', 'f', 'true', 'false'
+  VALUES ||= %w[
+    1 0 t f true false
   ].freeze
 
   private
