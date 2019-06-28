@@ -1,5 +1,11 @@
 ## Time Zone
 
+#### Rules
+
+```ruby
+# 1. Pattern
+```
+
 #### Usage
 
 ```ruby

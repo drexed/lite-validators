@@ -74,13 +74,13 @@ RSpec.describe TypeValidator do
     end
   end
 
-  context 'with options { is: CustomKlass }' do
+  context 'with options { is: [CustomKlass, Hash] }' do
     before do
       class CustomKlass; end
 
       class TypeCustomKlass < MockedKlass
 
-        validates :input_0, type: { is: CustomKlass }
+        validates :input_0, type: { is: [CustomKlass, Hash] }
 
       end
     end
@@ -89,16 +89,42 @@ RSpec.describe TypeValidator do
 
     describe '#validate' do
       it 'to be valid' do
+        pass!({})
         pass!(CustomKlass.new)
       end
 
       it 'to not be valid' do
         fail!(1)
         fail!('test')
-        fail!({})
         fail!([])
         fail!(true)
         fail!(false)
+      end
+    end
+  end
+
+  context 'with options { is: Array, not: true }' do
+    before do
+      class TypeNotArrayKlass < MockedKlass
+
+        validates :input_0, type: { is: Array, not: true }
+
+      end
+    end
+
+    let(:klass) { TypeNotArrayKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass!(1)
+        pass!('test')
+        pass!({})
+        pass!(true)
+        pass!(false)
+      end
+
+      it 'to not be valid' do
+        fail!([])
       end
     end
   end

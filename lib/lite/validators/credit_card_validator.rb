@@ -115,10 +115,10 @@ class CreditCardValidator < BaseValidator
   end
 
   def valid_attr?(value)
-    valid_size?(value) && valid_prefix?(value) && valid_luhn?(value)
+    valid_size?(value) && valid_prefix?(value) && valid_checksum?(value)
   end
 
-  def valid_luhn?(value)
+  def valid_checksum?(value)
     nums = digits(value)
     nums.pop == checksum(nums.join)
   end

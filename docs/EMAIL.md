@@ -3,6 +3,7 @@
 #### Rules
 
 ```ruby
+# 1. Pattern
 /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 ```
 
@@ -10,7 +11,7 @@
 
 Option | Type | Available | Default
 --- | --- | --- | ---
-domain | string, array | | all
+domain | array, string, symbol | |
 
 #### Usage
 

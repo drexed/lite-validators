@@ -3,16 +3,17 @@
 #### Rules
 
 ```ruby
-'latitude'  => -90.0..90.0
-'longitude' => -180.0..180.0
-'pair'      => ['latitude', 'longitude']
+# 1. Pattern
+:latitude  => -90.0..90.0             #=> Value must be a number in this range
+:longitude => -180.0..180.0           #=> Value must be a number in this range
+:pair      => [:latitude, :longitude] #=> Array of corresponding range value
 ```
 
 #### Options
 
 Option | Type | Available | Default
 --- | --- | --- | ---
-boundary | symbol | pair, latitude, longitude | pair
+boundary | symbol | latitude, longitude, pair | pair
 
 #### Usage
 

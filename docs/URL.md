@@ -1,12 +1,18 @@
 ## URL
 
+#### Rules
+
+```ruby
+# 1. Pattern
+```
+
 #### Options
 
 Option | Type | Available | Default
 --- | --- | --- | ---
-domain | symbol, string, array | |
+domain | array, string, symbol | |
 root_only | boolean | true, false | false
-scheme | symbol, string, array | |
+scheme | array, string, symbol | |
 
 #### Usage
 
@@ -14,9 +20,9 @@ scheme | symbol, string, array | |
 class User < ActiveRecord::Base
 
   validates :input_0, url: true
-  validates :input_0, url: { domain: [:com, 'org'] }
-  validates :input_0, url: { scheme: :https }
-  validates :input_0, url: { root_only: true }
+  validates :input_1, url: { domain: [:com, 'org'] }
+  validates :input_2, url: { scheme: :https }
+  validates :input_3, url: { root_only: true }
 
 end
 ```

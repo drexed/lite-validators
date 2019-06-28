@@ -19,18 +19,6 @@ class AlphaValidator < BaseValidator
     options[:case] || :any
   end
 
-  def message
-    [
-      options[:message] || [:invalid, valid_attr: message_format]
-    ].flatten
-  end
-
-  def message_format
-    return 'unknown' if regexp.nil?
-
-    regexp.to_s.split('[').last.split(']').first
-  end
-
   def regexp
     /^[#{CASES[kase]}#{' ' if options[:allow_space]}]+$/
   end

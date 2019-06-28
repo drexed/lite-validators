@@ -3,6 +3,7 @@
 #### Rules
 
 ```ruby
+# 1. Pattern
 /^[A-Za-z0-9_-]+$/i
 ```
 

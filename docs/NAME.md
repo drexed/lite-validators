@@ -3,6 +3,7 @@
 #### Rules
 
 ```ruby
+# 1. Pattern
 /^([A-Za-z'"-]+\s+){1,4}[A-Za-z'"-]*\z/
 ```
 

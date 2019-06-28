@@ -3,7 +3,9 @@
 #### Rules
 
 ```ruby
+# 1. Pattern
 /^[0-9A-Z]{9}$/
+# 2. Checksum
 ```
 
 #### Usage

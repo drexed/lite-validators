@@ -1,5 +1,12 @@
 ## ISBN
 
+#### Rules
+
+```ruby
+# 1. Length
+# 2. Pattern
+```
+
 #### Usage
 
 ```ruby

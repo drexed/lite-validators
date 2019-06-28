@@ -3,12 +3,10 @@
 #### Rules
 
 ```ruby
-'any_with_space'      => /^[A-Za-z ]+$/
-'any_without_space'   => /^[A-Za-z]+$/
-'lower_with_space'    => /^[a-z ]+$/
-'lower_without_space' => /^[a-z]+$/
-'upper_with_space'    => /^[A-Z ]+$/
-'upper_without_space' => /^[A-Z]+$/
+# 1. Pattern
+:any   => /^[A-Za-z]+$/
+:lower => /^[a-z]+$/
+:upper => /^[A-Z]+$/
 ```
 
 #### Options
@@ -24,7 +22,8 @@ allow_space | boolean | true, false | false
 class User < ActiveRecord::Base
 
   validates :input_0, alpha: true
-  validates :input_1, alpha: { case: :lower, allow_space: true }
+  validates :input_1, alpha: { case: :lower }
+  validates :input_2, alpha: { allow_space: true }
 
 end
 ```

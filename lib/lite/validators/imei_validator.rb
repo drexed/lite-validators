@@ -7,10 +7,10 @@ class ImeiValidator < BaseValidator
   private
 
   def valid_attr?(value)
-    valid_regexp?(value) && valid_luhn?(value)
+    valid_regexp?(value) && valid_checksum?(value)
   end
 
-  def valid_luhn?(value)
+  def valid_checksum?(value)
     number = value.to_s.gsub(/\D/, '').reverse
 
     total = 0
