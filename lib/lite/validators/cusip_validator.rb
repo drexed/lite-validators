@@ -6,8 +6,8 @@ class CusipValidator < BaseValidator
 
   private
 
-  def valid_attr?(value)
-    valid_regexp?(value) && valid_checksum?(value)
+  def valid_attr?
+    valid_regexp? && valid_checksum?(value)
   end
 
   # rubocop:disable Metrics/AbcSize

@@ -22,7 +22,7 @@ class PasswordValidator < BaseValidator
     options[:strength] || :weak
   end
 
-  def valid_regexp?(value)
+  def valid_regexp?
     value.to_s =~ REGEXP[strength]
   end
 

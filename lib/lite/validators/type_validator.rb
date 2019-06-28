@@ -18,7 +18,7 @@ class TypeValidator < BaseValidator
     raise ArgumentError, 'ArgumentError: missing ":is" attribute for comparison.'
   end
 
-  def valid_attr?(value)
+  def valid_attr?
     return !valid_type?(value) if options[:not]
 
     valid_type?(value)

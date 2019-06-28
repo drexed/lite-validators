@@ -22,7 +22,7 @@ class CoordinateValidator < BaseValidator
     options[:boundary] || :pair
   end
 
-  def valid_attr?(value)
+  def valid_attr?
     case boundary
     when :latitude then valid_boundary?(:latitude, value)
     when :longitude then valid_boundary?(:longitude, value)

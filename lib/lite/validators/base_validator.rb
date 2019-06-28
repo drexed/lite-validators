@@ -6,7 +6,7 @@ class BaseValidator < ActiveModel::EachValidator
     assign_attr_readers(record, attribute, value)
     return if valid?
 
-    record.errors.add(attribute, *message)
+    record.errors.add(attribute, *error_message)
   end
 
   private
@@ -28,23 +28,23 @@ class BaseValidator < ActiveModel::EachValidator
   end
   # rubocop:enable Metrics/LineLength, Naming/UncommunicativeMethodParamName
 
-  def message
+  def error_message
     [options[:message] || :invalid]
   end
 
   def valid?
-    valid_length? && valid_attr?(value)
+    valid_length? && valid_attr?
   end
 
-  def valid_attr?(value)
-    valid_regexp?(value)
+  def valid_attr?
+    valid_regexp?
   end
 
   def valid_length?
     !value.to_s.strip.empty?
   end
 
-  def valid_regexp?(value)
+  def valid_regexp?
     value.to_s =~ self.class::REGEXP
   end
 

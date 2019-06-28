@@ -6,8 +6,8 @@ class EmailValidator < BaseValidator
 
   private
 
-  def valid_attr?(value)
-    valid_regexp?(value) && valid_domain?(value)
+  def valid_attr?
+    valid_regexp? && valid_domain?(value)
   end
 
   def valid_domain?(value)

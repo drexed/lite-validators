@@ -27,7 +27,7 @@ class AlphaValidator < BaseValidator
     /^[#{CASES[kase]}#{' ' if options[:allow_space]}]+$/
   end
 
-  def valid_regexp?(value)
+  def valid_regexp?
     value.to_s =~ regexp
   end
 

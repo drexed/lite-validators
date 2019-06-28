@@ -15,7 +15,7 @@ class TimeZoneValidator < BaseValidator
     raise 'RuntimeError: ActiveSupport::TimeZone must be loaded.'
   end
 
-  def valid_attr?(value)
+  def valid_attr?
     !ActiveSupport::TimeZone[value].nil?
   end
 

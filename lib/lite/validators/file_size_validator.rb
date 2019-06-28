@@ -25,7 +25,7 @@ class FileSizeValidator < BaseValidator
     assert_valid_option!(:check, CHECKS.keys)
   end
 
-  def valid_attr?(value)
+  def valid_attr?
     options.slice(*CHECKS.keys).each do |option, option_value|
       check_errors(record, attribute, values, option, option_value)
     end

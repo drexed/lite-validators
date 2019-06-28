@@ -21,7 +21,7 @@ class UrlValidator < BaseValidator
     options[:scheme] || UrlValidator::SCHEMES
   end
 
-  def valid_attr?(value)
+  def valid_attr?
     valid_uri?(value) && valid_domain?(value) && valid_scheme?(value) && valid_root?(value)
   end
 

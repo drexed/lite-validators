@@ -118,7 +118,7 @@ class CreditCardValidator < BaseValidator
     options[:provider] || :all
   end
 
-  def valid_attr?(value)
+  def valid_attr?
     valid_size?(value) && valid_prefix?(value) && valid_checksum?(value)
   end
 

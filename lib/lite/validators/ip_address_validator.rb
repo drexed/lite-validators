@@ -24,7 +24,7 @@ class IpAddressValidator < BaseValidator
     options[:protocol] || :any
   end
 
-  def valid_attr?(value)
+  def valid_attr?
     case protocol
     when :ipv4 then valid_regexp?(:ipv4, value)
     when :ipv6 then valid_regexp?(:ipv6, value)

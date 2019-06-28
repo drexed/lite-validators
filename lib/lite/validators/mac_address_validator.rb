@@ -11,7 +11,7 @@ class MacAddressValidator < BaseValidator
 
   private
 
-  def valid_regexp?(value)
+  def valid_regexp?
     REGEXP.any? { |regexp| value.to_s =~ regexp }
   end
 

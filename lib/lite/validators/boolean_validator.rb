@@ -11,7 +11,7 @@ class BooleanValidator < BaseValidator
 
   private
 
-  def valid_attr?(value)
+  def valid_attr?
     TRUE_VALUES.include?(value) || FALSE_VALUES.include?(value)
   end
 

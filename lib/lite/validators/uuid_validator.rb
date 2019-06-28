@@ -26,7 +26,7 @@ class UuidValidator < BaseValidator
     options[:version] || :any
   end
 
-  def valid_regexp?(value)
+  def valid_regexp?
     if options.key?(:version)
       value.to_s =~ VERSIONS[version]
     else
