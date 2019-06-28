@@ -19,12 +19,12 @@ class TypeValidator < BaseValidator
   end
 
   def valid_attr?
-    return !valid_type?(value) if options[:not]
+    return !valid_type? if options[:not]
 
-    valid_type?(value)
+    valid_type?
   end
 
-  def valid_type?(value)
+  def valid_type?
     if options[:is] == Boolean
       value.is_a?(TrueClass) || value.is_a?(FalseClass)
     else

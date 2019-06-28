@@ -12,13 +12,9 @@ class EqualityValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    assign_attr_readers(record, attribute, value)
-
     assert_valid_to!
     assert_valid_operator!
-    return if valid_length? && valid_attr?(record, value)
-
-    record.errors.add(attribute, *message)
+    super
   end
 
   private
@@ -37,7 +33,7 @@ class EqualityValidator < BaseValidator
     options[:operator] || :equal_to
   end
 
-  def valid_attr?(record, value)
+  def valid_attr?
     other = record.send(options[:to])
     value.send(OPERATORS[operator], other)
   end
