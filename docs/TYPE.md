@@ -1,5 +1,11 @@
 ## Type
 
+#### Options
+
+Option | Type | Available | Default
+--- | --- | --- | ---
+is | symbol | any object class |
+
 #### Usage
 
 ```ruby

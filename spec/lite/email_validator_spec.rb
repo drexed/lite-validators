@@ -63,7 +63,7 @@ RSpec.describe EmailValidator do
     before do
       class EmailMultipleDomainsKlass < MockedKlass
 
-        validates :input_0, email: { domain: %w[com org] }
+        validates :input_0, email: { domain: [:com, 'org'] }
 
       end
     end
