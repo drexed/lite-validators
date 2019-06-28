@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe TypeValidator do
+RSpec.describe UrlValidator do
 
   context 'with base options' do
     before do

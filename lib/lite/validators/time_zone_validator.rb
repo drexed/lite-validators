@@ -16,7 +16,7 @@ class TimeZoneValidator < BaseValidator
   def validate_active_support!
     return if defined?(ActiveSupport::TimeZone)
 
-    raise RuntimeError, 'RuntimeError: ActiveSupport::TimeZone must be loaded.'
+    raise 'RuntimeError: ActiveSupport::TimeZone must be loaded.'
   end
 
 end

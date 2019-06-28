@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class Boolean; end # Implements pseudo-boolean class
+# NOTE: Implements pseudo-boolean class
+class Boolean; end
 
 class TypeValidator < BaseValidator
 

@@ -2,6 +2,6 @@
 
 class SlugValidator < BaseValidator
 
-  REGEXP ||= /^[A-Za-z0-9_-]+$/i.freeze
+  REGEXP ||= %r{^[A-Za-z0-9_-]+$}i.freeze
 
 end

@@ -2,7 +2,7 @@
 
 class ImeiValidator < BaseValidator
 
-  REGEXP ||= /\A[\d\.\:\-\s]+\z/i.freeze
+  REGEXP ||= %r{\A[\d\.\:\-\s]+\z}i.freeze
 
   private
 
@@ -11,7 +11,7 @@ class ImeiValidator < BaseValidator
   end
 
   def valid_checksum?(value)
-    number = value.to_s.gsub(/\D/, '').reverse
+    number = value.to_s.gsub(%r{\D}, '').reverse
 
     total = 0
     number.chars.each_with_index do |chr, idx|

@@ -15,7 +15,7 @@ RSpec.describe PhoneNumberValidator do
 
   describe '#validate' do
     it 'to be valid' do
-      pass!(1234567)
+      pass!(1_234_567)
       pass!('1234567')
       pass!('123-4567')
       pass!('123 4567')

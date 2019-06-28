@@ -2,12 +2,9 @@
 
 require 'active_model'
 
-# TODO: Add locale file
 # TODO: Add following validators
 #       - csv_validator
 #       - file_size_validator
-#       - tracking_number_validator
-#       - ulid_validator
 
 %w[
   version base_validator alpha_validator alpha_numeric_validator base64_validator boolean_validator

@@ -15,7 +15,7 @@ RSpec.describe SsnValidator do
 
   describe '#validate' do
     it 'to be valid' do
-      pass!(333224444)
+      pass!(333_224_444)
       pass!('333224444')
       pass!('333-22-4444')
     end
