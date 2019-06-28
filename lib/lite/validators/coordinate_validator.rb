@@ -8,11 +8,15 @@ class CoordinateValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_boundary!
+    assert_valid_boundary!
     super
   end
 
   private
+
+  def assert_valid_boundary!
+    assert_valid_option!(:boundary, BOUNDARIES.keys.push(:pair))
+  end
 
   def boundary
     options[:boundary] || :pair
@@ -28,10 +32,6 @@ class CoordinateValidator < BaseValidator
 
   def valid_boundary?(key, value)
     value.to_f.abs <= BOUNDARIES[key]
-  end
-
-  def validate_boundary!
-    validate_option!(:boundary, BOUNDARIES.keys.push(:pair))
   end
 
 end

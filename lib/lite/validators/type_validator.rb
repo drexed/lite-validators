@@ -6,11 +6,17 @@ class Boolean; end
 class TypeValidator < BaseValidator
 
   def validate_each(record, attribute, value)
-    validate_is!
+    assert_valid_is!
     super
   end
 
   private
+
+  def assert_valid_is!
+    return if options.key?(:is)
+
+    raise ArgumentError, 'ArgumentError: missing ":is" attribute for comparison.'
+  end
 
   def valid_attr?(value)
     return !valid_type?(value) if options[:not]
@@ -24,12 +30,6 @@ class TypeValidator < BaseValidator
     else
       [*options[:is]].any? { |klass| value.is_a?(klass) }
     end
-  end
-
-  def validate_is!
-    return if options.key?(:is)
-
-    raise ArgumentError, 'ArgumentError: missing ":is" attribute for comparison.'
   end
 
 end

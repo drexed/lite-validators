@@ -10,11 +10,17 @@ class UuidValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_version!
+    assert_valid_version!
     super
   end
 
   private
+
+  def assert_valid_version!
+    return unless options.key?(:version)
+
+    assert_valid_option!(:version, VERSIONS.keys)
+  end
 
   def version
     options[:version] || :any
@@ -26,12 +32,6 @@ class UuidValidator < BaseValidator
     else
       VERSIONS.any? { |_, regexp| value.to_s =~ regexp }
     end
-  end
-
-  def validate_version!
-    return unless options.key?(:version)
-
-    validate_option!(:version, VERSIONS.keys)
   end
 
 end

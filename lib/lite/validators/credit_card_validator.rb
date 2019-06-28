@@ -76,11 +76,15 @@ class CreditCardValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_provider!
+    assert_valid_provider!
     super
   end
 
   private
+
+  def assert_valid_provider!
+    assert_valid_option!(:provider, PROVIDERS.keys.push(:all))
+  end
 
   def checksum(value)
     values = digits(value).reverse.map.with_index { |n, i| i.even? ? n * 2 : n }
@@ -135,10 +139,6 @@ class CreditCardValidator < BaseValidator
   def valid_size?(value)
     sizes = PROVIDERS.dig(provider, :sizes) || (12..19)
     encompasses?(sizes, value.to_s.size)
-  end
-
-  def validate_provider!
-    validate_option!(:provider, PROVIDERS.keys.push(:all))
   end
 
 end

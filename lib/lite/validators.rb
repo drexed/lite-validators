@@ -2,8 +2,6 @@
 
 require 'active_model'
 
-# TODO: Rename validate_*! => assert_valid_*!
-# TODO: Rename valid?(value) => validate(value)
 # TODO: Add locales
 # TODO: Add following validators
 #       - csv_validator

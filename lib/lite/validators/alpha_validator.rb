@@ -9,11 +9,15 @@ class AlphaValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_case!
+    assert_valid_case!
     super
   end
 
   private
+
+  def assert_valid_case!
+    assert_valid_option!(:case, CASES.keys, as: :kase)
+  end
 
   def kase
     options[:case] || :any
@@ -25,10 +29,6 @@ class AlphaValidator < BaseValidator
 
   def valid_regexp?(value)
     value.to_s =~ regexp
-  end
-
-  def validate_case!
-    validate_option!(:case, CASES.keys, as: :kase)
   end
 
 end

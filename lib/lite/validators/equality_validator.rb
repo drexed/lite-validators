@@ -12,14 +12,26 @@ class EqualityValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_to!
-    validate_operator!
-    return if valid_length?(value) && valid_attr?(record, value)
+    assign_attr_readers(record, attribute, value)
+
+    assert_valid_to!
+    assert_valid_operator!
+    return if valid_length? && valid_attr?(record, value)
 
     record.errors.add(attribute, *message)
   end
 
   private
+
+  def assert_valid_operator!
+    assert_valid_option!(:operator, OPERATORS.keys)
+  end
+
+  def assert_valid_to!
+    return if options.key?(:to)
+
+    raise ArgumentError, 'ArgumentError: missing ":to" attribute for comparison.'
+  end
 
   def operator
     options[:operator] || :equal_to
@@ -28,16 +40,6 @@ class EqualityValidator < BaseValidator
   def valid_attr?(record, value)
     other = record.send(options[:to])
     value.send(OPERATORS[operator], other)
-  end
-
-  def validate_operator!
-    validate_option!(:operator, OPERATORS.keys)
-  end
-
-  def validate_to!
-    return if options.key?(:to)
-
-    raise ArgumentError, 'ArgumentError: missing ":to" attribute for comparison.'
   end
 
 end

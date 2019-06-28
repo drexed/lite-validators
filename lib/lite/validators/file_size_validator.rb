@@ -13,29 +13,22 @@ class FileSizeValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_check!
+    assert_valid_check!
     valid?(value)
   end
 
   private
 
-  # Base specific
-
-
   # Validator specific
+
+  def assert_valid_check!
+    assert_valid_option!(:check, CHECKS.keys)
+  end
 
   def valid_attr?(value)
     options.slice(*CHECKS.keys).each do |option, option_value|
       check_errors(record, attribute, values, option, option_value)
     end
-  end
-
-  def validate_check(record, attribute, values, option, option_value)
-
-  end
-
-  def validate_check!
-    validate_option!(:check, CHECKS.keys)
   end
 
 end

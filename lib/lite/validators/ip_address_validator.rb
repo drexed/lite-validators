@@ -10,11 +10,15 @@ class IpAddressValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_protocol!
+    assert_valid_protocol!
     super
   end
 
   private
+
+  def assert_valid_protocol!
+    assert_valid_option!(:protocol, REGEXP.keys.push(:any))
+  end
 
   def protocol
     options[:protocol] || :any
@@ -30,10 +34,6 @@ class IpAddressValidator < BaseValidator
 
   def valid_regexp?(key, value)
     value.to_s =~ REGEXP[key]
-  end
-
-  def validate_protocol!
-    validate_option!(:protocol, REGEXP.keys.push(:any))
   end
 
 end

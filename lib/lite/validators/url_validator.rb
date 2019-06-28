@@ -9,8 +9,8 @@ class UrlValidator < BaseValidator
   ].freeze
 
   def validate_each(record, attribute, value)
-    uri = URI.parse(value.to_s)
-    raise URI::InvalidURIError unless valid?(uri)
+    assign_attr_readers(record, attribute, URI.parse(value.to_s))
+    raise URI::InvalidURIError unless valid?
   rescue URI::InvalidURIError
     record.errors.add(attribute, *message)
   end

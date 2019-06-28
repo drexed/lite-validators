@@ -8,11 +8,15 @@ class PasswordValidator < BaseValidator
   }.freeze
 
   def validate_each(record, attribute, value)
-    validate_strength!
+    assert_valid_strength!
     super
   end
 
   private
+
+  def assert_valid_strength!
+    assert_valid_option!(:strength, REGEXP.keys)
+  end
 
   def strength
     options[:strength] || :weak
@@ -20,10 +24,6 @@ class PasswordValidator < BaseValidator
 
   def valid_regexp?(value)
     value.to_s =~ REGEXP[strength]
-  end
-
-  def validate_strength!
-    validate_option!(:strength, REGEXP.keys)
   end
 
 end
