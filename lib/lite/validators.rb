@@ -7,6 +7,7 @@ require 'active_model'
 #       - csv_validator
 #       - file_size_validator
 #       - tracking_number_validator
+#       - ulid_validator
 
 %w[
   version base_validator alpha_validator alpha_numeric_validator base64_validator boolean_validator
@@ -14,6 +15,7 @@ require 'active_model'
   equality_validator hex_validator imei_validator ip_address_validator isbn_validator isin_validator
   mac_address_validator name_validator password_validator phone_number_validator sedol_validator
   slug_validator ssn_validator time_zone_validator type_validator url_validator username_validator
+  uuid_validator
 ].each do |name|
   require "lite/validators/#{name}"
 end
