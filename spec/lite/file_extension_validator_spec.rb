@@ -26,7 +26,7 @@ RSpec.describe FileExtensionValidator do
     before do
       class FileExtensionInvalidCheckKlass < MockedKlass
 
-        validates :input_0, file_extension: { test: 100 }
+        validates :input_0, file_extension: { test: :csv }
 
       end
     end

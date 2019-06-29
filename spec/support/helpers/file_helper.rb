@@ -5,7 +5,8 @@ module FileHelper
   def upload(filename)
     ActionDispatch::Http::UploadedFile.new(
       tempfile: tempfile(filename),
-      filename: filename
+      filename: filename,
+      type: type(filename)
     )
   end
 
@@ -16,6 +17,11 @@ module FileHelper
     path = File.expand_path("../spec/support/fixtures/#{path}", filename)
     path = File.join(path, filename)
     File.open(path)
+  end
+
+  def type(filename)
+    extension = File.extname(filename)
+    Rack::Mime.mime_type(extension)
   end
 
 end
