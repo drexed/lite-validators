@@ -39,6 +39,7 @@ Or install it yourself as:
 * [Currency](https://github.com/drexed/lite-validators/blob/master/docs/CURRENCY.md)
 * [CUSIP](https://github.com/drexed/lite-validators/blob/master/docs/CUSIP.md)
 * [Email](https://github.com/drexed/lite-validators/blob/master/docs/EMAIL.md)
+* [File Extension](https://github.com/drexed/lite-validators/blob/master/docs/FILE_EXTENSION.md)
 * [File Size](https://github.com/drexed/lite-validators/blob/master/docs/FILE_SIZE.md)
 * [HEX](https://github.com/drexed/lite-validators/blob/master/docs/HEX.md)
 * [IMEI](https://github.com/drexed/lite-validators/blob/master/docs/IMEI.md)

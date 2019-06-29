@@ -28,22 +28,4 @@ RSpec.describe TimeZoneValidator do
     end
   end
 
-  context 'with missing ActiveSupport::TimeZone' do
-    before do
-      class TimeZoneMissingActiveSupportKlass < MockedKlass
-
-        validates :input_0, time_zone: true
-
-      end
-    end
-
-    let(:klass) { TimeZoneMissingActiveSupportKlass.new }
-
-    describe '#validate' do
-      xit 'to raise RuntimeError' do
-        expect { klass.valid? }.to raise_error(RuntimeError)
-      end
-    end
-  end
-
 end
