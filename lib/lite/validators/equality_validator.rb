@@ -2,7 +2,7 @@
 
 class EqualityValidator < BaseValidator
 
-  OPERATORS ||= {
+  CHECKS ||= {
     less_than: :<,
     less_than_or_equal_to: :<=,
     greater_than: :>,
@@ -13,14 +13,14 @@ class EqualityValidator < BaseValidator
 
   def validate_each(record, attribute, value)
     assert_valid_to!
-    assert_valid_operator!
+    assert_valid_check!
     super
   end
 
   private
 
-  def assert_valid_operator!
-    assert_valid_option!(:operator, OPERATORS.keys)
+  def assert_valid_check!
+    assert_valid_option!(:check, CHECKS.keys)
   end
 
   def assert_valid_to!
@@ -29,13 +29,13 @@ class EqualityValidator < BaseValidator
     raise ArgumentError, 'ArgumentError: missing ":to" attribute for comparison.'
   end
 
-  def operator
-    options[:operator] || :equal_to
+  def check
+    options[:check] || :equal_to
   end
 
   def valid_attr?
     other = record.send(options[:to])
-    value.send(OPERATORS[operator], other)
+    value.send(CHECKS[check], other)
   end
 
 end

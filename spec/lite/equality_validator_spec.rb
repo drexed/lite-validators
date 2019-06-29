@@ -8,7 +8,7 @@ RSpec.describe EqualityValidator do
     before do
       class EqualityInvalidToKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :less_than }
+        validates :input_0, equality: { check: :less_than }
 
       end
     end
@@ -22,11 +22,11 @@ RSpec.describe EqualityValidator do
     end
   end
 
-  context 'with invalid operator options' do
+  context 'with invalid check options' do
     before do
       class EqualityInvalidOperatorKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :test, to: :input_1 }
+        validates :input_0, equality: { check: :test, to: :input_1 }
 
       end
     end
@@ -40,11 +40,11 @@ RSpec.describe EqualityValidator do
     end
   end
 
-  context 'with options { operator: :less_than, to: :input_1 }' do
+  context 'with options { check: :less_than, to: :input_1 }' do
     before do
       class EqualityLessThanKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :less_than, to: :input_1 }
+        validates :input_0, equality: { check: :less_than, to: :input_1 }
 
       end
     end
@@ -63,11 +63,11 @@ RSpec.describe EqualityValidator do
     end
   end
 
-  context 'with options { operator: :less_than_or_equal_to, to: :input_1 }' do
+  context 'with options { check: :less_than_or_equal_to, to: :input_1 }' do
     before do
       class EqualityLessThanOrEqualToKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :less_than_or_equal_to, to: :input_1 }
+        validates :input_0, equality: { check: :less_than_or_equal_to, to: :input_1 }
 
       end
     end
@@ -86,11 +86,11 @@ RSpec.describe EqualityValidator do
     end
   end
 
-  context 'with options { operator: :greater_than, to: :input_1 }' do
+  context 'with options { check: :greater_than, to: :input_1 }' do
     before do
       class EqualityGreaterThanKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :greater_than, to: :input_1 }
+        validates :input_0, equality: { check: :greater_than, to: :input_1 }
 
       end
     end
@@ -109,11 +109,11 @@ RSpec.describe EqualityValidator do
     end
   end
 
-  context 'with options { operator: :greater_than_or_equal_to, to: :input_1 }' do
+  context 'with options { check: :greater_than_or_equal_to, to: :input_1 }' do
     before do
       class EqualityGreaterThanOrEqualToKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :greater_than_or_equal_to, to: :input_1 }
+        validates :input_0, equality: { check: :greater_than_or_equal_to, to: :input_1 }
 
       end
     end
@@ -132,11 +132,11 @@ RSpec.describe EqualityValidator do
     end
   end
 
-  context 'with options { operator: :equal_to, to: :input_1 }' do
+  context 'with options { check: :equal_to, to: :input_1 }' do
     before do
       class EqualityEqualToKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :equal_to, to: :input_1 }
+        validates :input_0, equality: { check: :equal_to, to: :input_1 }
 
       end
     end
@@ -155,11 +155,11 @@ RSpec.describe EqualityValidator do
     end
   end
 
-  context 'with options { operator: :not_equal_to, to: :input_1 }' do
+  context 'with options { check: :not_equal_to, to: :input_1 }' do
     before do
       class EqualityNotEqualToKlass < MockedKlass
 
-        validates :input_0, equality: { operator: :not_equal_to, to: :input_1 }
+        validates :input_0, equality: { check: :not_equal_to, to: :input_1 }
 
       end
     end

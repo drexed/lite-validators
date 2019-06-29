@@ -3,7 +3,7 @@
 #### Rules
 
 ```ruby
-# 1. Equality
+# 1. Check
 :less_than                => '<'
 :less_than_or_equal_to    => '<='
 :greater_than             => '>'
@@ -16,7 +16,7 @@
 
 Option | Type | Available | Default
 --- | --- | --- | ---
-operator | symbol | less_than, less_than_or_equal_to, greater_than, greater_than_or_equal_to, equal_to, not_equal_to | equal_to
+check | symbol | less_than, less_than_or_equal_to, greater_than, greater_than_or_equal_to, equal_to, not_equal_to | equal_to
 to | symbol | |
 
 #### Usage
@@ -24,7 +24,7 @@ to | symbol | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, equality: { operator: :less_than, to: :input_1 }
+  validates :input_0, equality: { check: :less_than, to: :input_1 }
 
 end
 ```

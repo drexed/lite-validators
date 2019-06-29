@@ -19,16 +19,26 @@ class FileSizeValidator < BaseValidator
 
   private
 
-  # Validator specific
-
   def assert_valid_check!
     assert_valid_option!(:check, CHECKS.keys)
   end
 
   def valid_attr?
     options.slice(*CHECKS.keys).each do |option, option_value|
-      check_errors(record, attribute, values, option, option_value)
+      validate_check(option, option_value)
     end
+  end
+
+
+
+
+
+
+
+  def validate_check(option, option_value)
+    return if valid_size?(value_byte_size(v), option, option_value)
+
+    record.errors.add(attribute, "file_size_is_#{option}".to_sym)
   end
 
 end
