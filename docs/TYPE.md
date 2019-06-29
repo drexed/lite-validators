@@ -1,4 +1,4 @@
-## Type
+# Type
 
 #### Rules
 

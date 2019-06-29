@@ -1,4 +1,4 @@
-## Base64
+# Base64
 
 #### Rules
 

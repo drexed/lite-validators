@@ -1,4 +1,4 @@
-## HEX
+# HEX
 
 #### Rules
 

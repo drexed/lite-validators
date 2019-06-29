@@ -1,4 +1,4 @@
-## AlphaNumeric
+# Alpha numeric
 
 #### Rules
 

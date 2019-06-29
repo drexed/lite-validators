@@ -26,7 +26,7 @@ class EqualityValidator < BaseValidator
   def assert_valid_to!
     return if options.key?(:to)
 
-    raise ArgumentError, 'ArgumentError: missing ":to" attribute for comparison.'
+    raise ArgumentError, 'Missing ":to" attribute for comparison.'
   end
 
   def check

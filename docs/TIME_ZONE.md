@@ -1,4 +1,4 @@
-## Time Zone
+# Time Zone
 
 #### Rules
 

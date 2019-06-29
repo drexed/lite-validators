@@ -1,4 +1,4 @@
-## Username
+# Username
 
 #### Rules
 

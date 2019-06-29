@@ -1,4 +1,4 @@
-## SEDOL
+# SEDOL
 
 #### Rules
 

@@ -1,4 +1,4 @@
-# Coordinate
+# Credit card
 
 #### Rules
 

@@ -1,4 +1,4 @@
-# IP Address
+# IP address
 
 #### Rules
 

@@ -20,11 +20,14 @@ class BaseValidator < ActiveModel::EachValidator
   end
 
   # rubocop:disable Metrics/LineLength, Naming/UncommunicativeMethodParamName
-  def assert_valid_option!(name, collection, as: nil)
-    option = send(as || name)
-    return if collection.include?(option)
+  def assert_valid_option!(name, collection, option: nil)
+    option ||= send(name)
 
-    raise ArgumentError, "Unknown #{name}: #{option.inspect}. Valid options are: #{collection.map(&:inspect).join(', ')}"
+    [*option].each do |option_value|
+      return if collection.include?(option_value)
+
+      raise ArgumentError, "Unknown #{name}: #{option_value.inspect}. Valid options are: #{collection.map(&:inspect).join(', ')}"
+    end
   end
   # rubocop:enable Metrics/LineLength, Naming/UncommunicativeMethodParamName
 

@@ -1,4 +1,4 @@
-## MAC Address
+# MAC address
 
 #### Rules
 

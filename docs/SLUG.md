@@ -1,4 +1,4 @@
-## Slug
+# Slug
 
 #### Rules
 

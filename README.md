@@ -53,7 +53,6 @@ Or install it yourself as:
 * [Slug](https://github.com/drexed/lite-validators/blob/master/docs/SLUG.md)
 * [SSN](https://github.com/drexed/lite-validators/blob/master/docs/SSN.md)
 * [Time Zone](https://github.com/drexed/lite-validators/blob/master/docs/TIME_ZONE.md)
-* [Tracking Number](https://github.com/drexed/lite-validators/blob/master/docs/TRACKING.md)
 * [Type](https://github.com/drexed/lite-validators/blob/master/docs/TYPE.md)
 * [URL](https://github.com/drexed/lite-validators/blob/master/docs/URL.md)
 * [Username](https://github.com/drexed/lite-validators/blob/master/docs/USERNAME.md)

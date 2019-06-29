@@ -2,10 +2,13 @@
 
 require 'active_model'
 
+# TODO: Rename equality_validator to compare_validator
+#       - Make syntax work like file_size
+# TODO: Rework type validator to ust :is_not check
 # TODO: Add locales
 # TODO: Add following validators
 #       - csv_validator
-#       - file_size_validator
+#       - file_type_validator
 
 %w[
   version base_validator alpha_validator alpha_numeric_validator base64_validator boolean_validator

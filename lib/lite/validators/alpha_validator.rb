@@ -16,7 +16,7 @@ class AlphaValidator < BaseValidator
   private
 
   def assert_valid_case!
-    assert_valid_option!(:case, CASES.keys, as: :kase)
+    assert_valid_option!(:case, CASES.keys, option: kase)
   end
 
   def kase

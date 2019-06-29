@@ -15,7 +15,7 @@ class TypeValidator < BaseValidator
   def assert_valid_is!
     return if options.key?(:is)
 
-    raise ArgumentError, 'ArgumentError: missing ":is" attribute for comparison.'
+    raise ArgumentError, 'Missing ":is" attribute for comparison.'
   end
 
   def valid_attr?
