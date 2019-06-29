@@ -20,7 +20,7 @@ class FileSizeValidator < BaseValidator
 
   private
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Metrics/LineLength, Style/GuardClause
   def assert_valid_checks!
     if checks.empty?
       raise ArgumentError, "Missing atleast one check of #{CHECKS.keys.map(&:inspect).join(', ')} attribute for comparison."
@@ -28,7 +28,7 @@ class FileSizeValidator < BaseValidator
       assert_valid_option!(:checks, CHECKS.keys)
     end
   end
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Metrics/LineLength, Style/GuardClause
 
   def checks
     options.keys & CHECKS.keys
