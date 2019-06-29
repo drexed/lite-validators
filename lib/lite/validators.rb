@@ -3,7 +3,6 @@
 require 'active_model'
 require 'lite/validators/version'
 
-# TODO: Make compare syntax work like file_size
 # TODO: Rework type validator to use :is_not check
 # TODO: Add locales
 # TODO: Add following validators

@@ -103,11 +103,11 @@ RSpec.describe TypeValidator do
     end
   end
 
-  context 'with options { is: Array, not: true }' do
+  context 'with options { is_not: [String, Integer] }' do
     before do
       class TypeNotArrayKlass < MockedKlass
 
-        validates :input_0, type: { is: Array, not: true }
+        validates :input_0, type: { is_not: [String, Integer] }
 
       end
     end
@@ -116,15 +116,15 @@ RSpec.describe TypeValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(1)
-        pass!('test')
+        pass!([])
         pass!({})
         pass!(true)
         pass!(false)
       end
 
       it 'to not be valid' do
-        fail!([])
+        fail!(1)
+        fail!('test')
       end
     end
   end
