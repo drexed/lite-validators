@@ -3,11 +3,10 @@
 require 'active_model'
 require 'lite/validators/version'
 
-# TODO: Rework type validator to use :is_not check
-# TODO: Add locales
 # TODO: Add following validators
 #       - csv
 #       - file_type
+# TODO: Add locales
 
 %w[
   base alpha alpha_numeric base64 boolean compare coordinate credit_card currency cusip email

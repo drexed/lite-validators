@@ -18,9 +18,11 @@ class TypeValidator < BaseValidator
     raise ArgumentError, 'Missing ":is" or ":is_not" attribute for comparison.'
   end
 
+  # rubocop:disable Naming/PredicateName
   def is_or_is_not
     options[:is] || options[:is_not]
   end
+  # rubocop:enable Naming/PredicateName
 
   def valid_attr?
     return !valid_type? if options.key?(:is_not)

@@ -78,14 +78,14 @@ RSpec.describe TypeValidator do
     before do
       class CustomKlass; end
 
-      class TypeCustomKlass < MockedKlass
+      class TypeMultiKlass < MockedKlass
 
         validates :input_0, type: { is: [CustomKlass, Hash] }
 
       end
     end
 
-    let(:klass) { TypeCustomKlass.new }
+    let(:klass) { TypeMultiKlass.new }
 
     describe '#validate' do
       it 'to be valid' do
@@ -105,14 +105,14 @@ RSpec.describe TypeValidator do
 
   context 'with options { is_not: [String, Integer] }' do
     before do
-      class TypeNotArrayKlass < MockedKlass
+      class TypeMultiNotKlass < MockedKlass
 
         validates :input_0, type: { is_not: [String, Integer] }
 
       end
     end
 
-    let(:klass) { TypeNotArrayKlass.new }
+    let(:klass) { TypeMultiNotKlass.new }
 
     describe '#validate' do
       it 'to be valid' do
