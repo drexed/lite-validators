@@ -1,4 +1,4 @@
-# Equality
+# Compare
 
 #### Rules
 
@@ -24,7 +24,7 @@ to | symbol | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, equality: { check: :less_than, to: :input_1 }
+  validates :input_0, equality: { to: :input_1, check: :less_than }
 
 end
 ```

@@ -1,22 +1,19 @@
 # frozen_string_literal: true
 
 require 'active_model'
+require 'lite/validators/version'
 
-# TODO: Rename equality_validator to compare_validator
-#       - Make syntax work like file_size
-# TODO: Rework type validator to ust :is_not check
+# TODO: Make compare syntax work like file_size
+# TODO: Rework type validator to use :is_not check
 # TODO: Add locales
 # TODO: Add following validators
-#       - csv_validator
-#       - file_type_validator
+#       - csv
+#       - file_type
 
 %w[
-  version base_validator alpha_validator alpha_numeric_validator base64_validator boolean_validator
-  coordinate_validator credit_card_validator currency_validator cusip_validator email_validator
-  equality_validator file_size_validator hex_validator imei_validator ip_address_validator
-  isbn_validator isin_validator mac_address_validator name_validator password_validator
-  phone_number_validator sedol_validator slug_validator ssn_validator time_zone_validator
-  type_validator url_validator username_validator uuid_validator
+  base alpha alpha_numeric base64 boolean compare coordinate credit_card currency cusip email
+  file_size hex imei ip_address isbn isin mac_address name password phone_number sedol slug ssn
+  time_zone type url username uuid
 ].each do |name|
-  require "lite/validators/#{name}"
+  require "lite/validators/#{name}_validator"
 end

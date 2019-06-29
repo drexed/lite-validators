@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EqualityValidator < BaseValidator
+class CompareValidator < BaseValidator
 
   CHECKS ||= {
     less_than: :<,
