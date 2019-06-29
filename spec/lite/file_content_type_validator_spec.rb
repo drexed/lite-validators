@@ -88,7 +88,7 @@ RSpec.describe FileContentTypeValidator do
     before do
       class FileContentTypeMultiKlass < MockedKlass
 
-        validates :input_0, file_content_type: { include: /^text\/.*/, exclude: 'text/csv' }
+        validates :input_0, file_content_type: { include: %r{^text/.*}, exclude: 'text/csv' }
 
       end
     end

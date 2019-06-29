@@ -5,6 +5,7 @@
 ```ruby
 # 1. Pattern
 /^([A-Z0-9]{6})(\d{1})$/
+
 # 2. Checksum
 ```
 
