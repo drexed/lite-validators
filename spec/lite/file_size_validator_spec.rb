@@ -59,6 +59,10 @@ RSpec.describe FileSizeValidator do
       it 'to not be valid' do
         fail!(upload('csv.txt'))
       end
+
+      it 'to be a "Input 0 is not less than 100" error message' do
+        message?(upload('csv.txt'), message: 'Input 0 file size is not less than 100')
+      end
     end
   end
 
@@ -102,6 +106,10 @@ RSpec.describe FileSizeValidator do
 
       it 'to not be valid' do
         fail!(upload('csv.txt'))
+      end
+
+      it 'to be a "Input 0 is not between 75 and 100" error message' do
+        message?(upload('csv.txt'), message: 'Input 0 file size is not between 75 and 100')
       end
     end
   end

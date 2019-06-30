@@ -49,6 +49,13 @@ class CsvValidator < FileSizeValidator
     options.keys
   end
 
+  def error_message_for(dimension, check, check_value)
+    options[:message] || I18n.t(
+      "errors.messages.csv.#{check}",
+      error_options(check_value).merge(dimension: dimension)
+    )
+  end
+
   def valid_attr?
     options.slice(*DIMENSIONS).each do |dimension, dimension_value|
       dimension_value.each do |check, check_value|
@@ -60,11 +67,7 @@ class CsvValidator < FileSizeValidator
   def validate_check(dimension, check, check_value)
     return if valid_size?(value[dimension], check, check_value)
 
-    record.errors.add(
-      attribute,
-      check || options[:message],
-      error_options(check_value).merge(dimension: dimension)
-    )
+    record.errors.add(attribute, error_message_for(dimension, check, check_value))
   end
 
 end

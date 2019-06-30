@@ -19,6 +19,10 @@ RSpec.describe BaseValidator do
       fail!('')
       fail!(' ')
     end
+
+    it 'to be a "Input 0 is invalid" error message' do
+      message?(nil)
+    end
   end
 
 end

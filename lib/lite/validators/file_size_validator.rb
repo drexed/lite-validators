@@ -34,6 +34,13 @@ class FileSizeValidator < BaseValidator
     options.keys & CHECKS.keys
   end
 
+  def error_message_for(option, option_value)
+    options[:message] || I18n.t(
+      "errors.messages.file_size.#{option}",
+      error_options(option_value)
+    )
+  end
+
   def error_options(option_value)
     if option_value.is_a?(Range)
       { min: option_value.min, max: option_value.max }
@@ -62,7 +69,7 @@ class FileSizeValidator < BaseValidator
     size = value.respond_to?(:byte_size) ? value.byte_size : value.size
     return if valid_size?(size, option, option_value)
 
-    record.errors.add(attribute, option || options[:message], error_options(option_value))
+    record.errors.add(attribute, error_message_for(option, option_value))
   end
 
 end

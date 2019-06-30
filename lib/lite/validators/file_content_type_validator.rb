@@ -32,7 +32,7 @@ class FileContentTypeValidator < BaseValidator
   def validate_check(option, option_value)
     return if valid_content_type?(option, option_value)
 
-    record.errors.add(attribute, option || options[:message], types: [*option_value].join(', '))
+    record.errors.add(attribute, *error_message)
   end
 
 end

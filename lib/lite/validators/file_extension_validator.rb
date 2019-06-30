@@ -34,7 +34,7 @@ class FileExtensionValidator < BaseValidator
     included = !included if check == :exclude
     return if included
 
-    record.errors.add(attribute, check || options[:message], types: include_or_exclude.join(', '))
+    record.errors.add(attribute, *error_message)
   end
   # rubocop:enable Metrics/AbcSize
 

@@ -1,0 +1,23 @@
+en:
+  errors:
+    messages:
+      csv:
+        in: "csv %{dimension} is not between %{min} and %{max}"
+        greater_than: "csv %{dimension} is not greater than %{count}"
+        greater_than_or_equal_to: "csv %{dimension} is not greater than or equal to %{count}"
+        less_than: "csv %{dimension} is not less than %{count}"
+        less_than_or_equal_to: "csv %{dimension} is not less than or equal to %{count}"
+        equal_to: "csv %{dimension} is not equal to %{count} but should"
+        not_equal_to: "csv %{dimension} is equal to %{count} but shouldn't"
+      file_size:
+        in: "file size is not between %{min} and %{max}"
+        greater_than: "file size is not greater than %{count}"
+        greater_than_or_equal_to: "file size is not greater than or equal to %{count}"
+        less_than: "file size is not less than %{count}"
+        less_than_or_equal_to: "file size is not less than or equal to %{count}"
+        equal_to: "file size is not equal to %{count} but should"
+        not_equal_to: "file size is equal to %{count} but shouldn't"
+      url:
+        domain: "has an invalid domain"
+        root: "has a url path but shouldn't"
+        scheme: "has an invalid scheme"
