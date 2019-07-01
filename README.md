@@ -5,6 +5,8 @@
 
 Lite::Validators is a collection of validators useful for any Rails application.
 
+**NOTE:** If you are coming from `ActiveValidation`, please read the [port](#port) section.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -25,36 +27,38 @@ Or install it yourself as:
 
 * [Validators](#validators)
 * [3rd-party](#3rd-party)
+* [Port](#port)
 
 ## Validators
 
 * [Alpha](https://github.com/drexed/lite-validators/blob/master/docs/ALPHA.md)
-* [AlphaNumeric](https://github.com/drexed/lite-validators/blob/master/docs/ALPHA_NUMERIC.md)
+* [Alpha numeric](https://github.com/drexed/lite-validators/blob/master/docs/ALPHA_NUMERIC.md)
 * [Base64](https://github.com/drexed/lite-validators/blob/master/docs/BASE64.md)
 * [Boolean](https://github.com/drexed/lite-validators/blob/master/docs/BOOLEAN.md)
 * [Compare](https://github.com/drexed/lite-validators/blob/master/docs/COMPARE.md)
 * [Coordinates](https://github.com/drexed/lite-validators/blob/master/docs/COORDINATE.md)
-* [Credit Card](https://github.com/drexed/lite-validators/blob/master/docs/CREDIT_CARD.md)
+* [Credit card](https://github.com/drexed/lite-validators/blob/master/docs/CREDIT_CARD.md)
 * [Csv](https://github.com/drexed/lite-validators/blob/master/docs/CSV.md)
 * [Currency](https://github.com/drexed/lite-validators/blob/master/docs/CURRENCY.md)
 * [CUSIP](https://github.com/drexed/lite-validators/blob/master/docs/CUSIP.md)
 * [Email](https://github.com/drexed/lite-validators/blob/master/docs/EMAIL.md)
-* [File Content Type](https://github.com/drexed/lite-validators/blob/master/docs/FILE_CONTENT_TYPE.md)
-* [File Extension](https://github.com/drexed/lite-validators/blob/master/docs/FILE_EXTENSION.md)
-* [File Size](https://github.com/drexed/lite-validators/blob/master/docs/FILE_SIZE.md)
+* [EIN](https://github.com/drexed/lite-validators/blob/master/docs/EIN.md)
+* [File content Type](https://github.com/drexed/lite-validators/blob/master/docs/FILE_CONTENT_TYPE.md)
+* [File extension](https://github.com/drexed/lite-validators/blob/master/docs/FILE_EXTENSION.md)
+* [File size](https://github.com/drexed/lite-validators/blob/master/docs/FILE_SIZE.md)
 * [HEX](https://github.com/drexed/lite-validators/blob/master/docs/HEX.md)
 * [IMEI](https://github.com/drexed/lite-validators/blob/master/docs/IMEI.md)
-* [IP Address](https://github.com/drexed/lite-validators/blob/master/docs/IP_ADDRESS.md)
+* [IP address](https://github.com/drexed/lite-validators/blob/master/docs/IP_ADDRESS.md)
 * [ISBN](https://github.com/drexed/lite-validators/blob/master/docs/ISBN.md)
 * [ISIN](https://github.com/drexed/lite-validators/blob/master/docs/ISIN.md)
-* [MAC Address](https://github.com/drexed/lite-validators/blob/master/docs/MAC.md)
+* [MAC address](https://github.com/drexed/lite-validators/blob/master/docs/MAC.md)
 * [Name](https://github.com/drexed/lite-validators/blob/master/docs/NAME.md)
 * [Password](https://github.com/drexed/lite-validators/blob/master/docs/PASSWORD.md)
-* [Phone Number](https://github.com/drexed/lite-validators/blob/master/docs/PHONE_NUMBER.md)
+* [Phone number](https://github.com/drexed/lite-validators/blob/master/docs/PHONE_NUMBER.md)
 * [SEDOL](https://github.com/drexed/lite-validators/blob/master/docs/SEDOL.md)
 * [Slug](https://github.com/drexed/lite-validators/blob/master/docs/SLUG.md)
 * [SSN](https://github.com/drexed/lite-validators/blob/master/docs/SSN.md)
-* [Time Zone](https://github.com/drexed/lite-validators/blob/master/docs/TIME_ZONE.md)
+* [Time zone](https://github.com/drexed/lite-validators/blob/master/docs/TIME_ZONE.md)
 * [Type](https://github.com/drexed/lite-validators/blob/master/docs/TYPE.md)
 * [URL](https://github.com/drexed/lite-validators/blob/master/docs/URL.md)
 * [Username](https://github.com/drexed/lite-validators/blob/master/docs/USERNAME.md)
@@ -68,6 +72,16 @@ The following are highly recommended 3rd party validators to supplement your wor
 * **Existence:** Validates Existence - https://github.com/perfectline/validates_existence
 * **Group:** Group Validations - https://github.com/adzap/grouped_validations
 * **Overlap:** Validates Overlap - https://github.com/robinbortlik/validates_overlap
+
+## Port
+
+`Lite::Validators` is a near compatible port of [ActiveValidation](https://github.com/drexed/active_validation).
+
+The names for the following validators has been changed, so you will need to make the
+appropriate changes: `equality #=> compare`, `phone #=> phone_number`
+
+The syntax for the following validators has been reworked, so you will need to consult the docs
+for making the appropriate changes: `csv`, `compare`
 
 ## Development
 
