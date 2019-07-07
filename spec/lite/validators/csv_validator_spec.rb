@@ -71,15 +71,15 @@ RSpec.describe CsvValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('6x4.csv'))
+        pass!(upload!('6x4.csv'))
       end
 
       it 'to not be valid' do
-        fail!(upload('5x3.csv'))
+        fail!(upload!('5x3.csv'))
       end
 
       it 'to be a "Input 0 csv columns is not between 6 and 12" error message' do
-        message?(upload('5x3.csv'), message: 'Input 0 csv columns is not between 6 and 12')
+        message?(upload!('5x3.csv'), message: 'Input 0 csv columns is not between 6 and 12')
       end
     end
   end
@@ -97,15 +97,15 @@ RSpec.describe CsvValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('5x3.csv'))
+        pass!(upload!('5x3.csv'))
       end
 
       it 'to not be valid' do
-        fail!(upload('6x4.csv'))
+        fail!(upload!('6x4.csv'))
       end
 
       it 'to be a "Input 0 csv rows is not less than 4" error message' do
-        message?(upload('6x4.csv'), message: 'Input 0 csv rows is not less than 4')
+        message?(upload!('6x4.csv'), message: 'Input 0 csv rows is not less than 4')
       end
     end
   end

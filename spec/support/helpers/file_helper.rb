@@ -2,26 +2,24 @@
 
 module FileHelper
 
-  def upload(filename)
-    ActionDispatch::Http::UploadedFile.new(
-      tempfile: tempfile(filename),
-      filename: filename,
-      type: type(filename)
-    )
+  def mime_type!(filename)
+    extension = File.extname(filename)
+    Rack::Mime.mime_type(extension)
   end
 
-  private
-
-  def tempfile(filename)
+  def open!(filename)
     path = filename.split('.').last
     path = File.expand_path("../spec/support/fixtures/#{path}", filename)
     path = File.join(path, filename)
     File.open(path)
   end
 
-  def type(filename)
-    extension = File.extname(filename)
-    Rack::Mime.mime_type(extension)
+  def upload!(filename)
+    ActionDispatch::Http::UploadedFile.new(
+      tempfile: open!(filename),
+      filename: filename,
+      type: mime_type!(filename)
+    )
   end
 
 end

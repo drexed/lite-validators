@@ -53,11 +53,11 @@ RSpec.describe FileContentTypeValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('5x3.csv'))
+        pass!(upload!('5x3.csv'))
       end
 
       it 'to not be valid' do
-        fail!(upload('csv.txt'))
+        fail!(upload!('csv.txt'))
       end
     end
   end
@@ -75,11 +75,11 @@ RSpec.describe FileContentTypeValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('5x3.csv'))
+        pass!(upload!('5x3.csv'))
       end
 
       it 'to not be valid' do
-        fail!(upload('csv.txt'))
+        fail!(upload!('csv.txt'))
       end
     end
   end
@@ -97,11 +97,11 @@ RSpec.describe FileContentTypeValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('csv.txt'))
+        pass!(upload!('csv.txt'))
       end
 
       it 'to not be valid' do
-        fail!(upload('5x3.csv'))
+        fail!(upload!('5x3.csv'))
       end
     end
   end

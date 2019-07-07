@@ -53,15 +53,15 @@ RSpec.describe FileSizeValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('5x3.csv'))
+        pass!(upload!('5x3.csv'))
       end
 
       it 'to not be valid' do
-        fail!(upload('csv.txt'))
+        fail!(upload!('csv.txt'))
       end
 
       it 'to be a "Input 0 is not less than 100" error message' do
-        message?(upload('csv.txt'), message: 'Input 0 file size is not less than 100')
+        message?(upload!('csv.txt'), message: 'Input 0 file size is not less than 100')
       end
     end
   end
@@ -79,11 +79,11 @@ RSpec.describe FileSizeValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('5x3.csv'))
+        pass!(upload!('5x3.csv'))
       end
 
       it 'to not be valid' do
-        fail!(upload('csv.txt'))
+        fail!(upload!('csv.txt'))
       end
     end
   end
@@ -101,15 +101,15 @@ RSpec.describe FileSizeValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass!(upload('5x3.csv'))
+        pass!(upload!('5x3.csv'))
       end
 
       it 'to not be valid' do
-        fail!(upload('csv.txt'))
+        fail!(upload!('csv.txt'))
       end
 
       it 'to be a "Input 0 is not between 75 and 100" error message' do
-        message?(upload('csv.txt'), message: 'Input 0 file size is not between 75 and 100')
+        message?(upload!('csv.txt'), message: 'Input 0 file size is not between 75 and 100')
       end
     end
   end
