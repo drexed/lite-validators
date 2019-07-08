@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rails/railtie'
+
 module Lite
   module Validators
     class Railtie < ::Rails::Railtie
