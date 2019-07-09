@@ -66,7 +66,7 @@ Or install it yourself as:
 
 ## 3rd-party
 
-The following are highly recommended 3rd party validators to supplement your workflow:
+The following are highly recommended 3rd-party validators to supplement your workflow:
 
 * **DateTime:** Validates Timeliness - https://github.com/adzap/validates_timeliness
 * **Existence:** Validates Existence - https://github.com/perfectline/validates_existence
