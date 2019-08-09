@@ -23,6 +23,8 @@ Metrics/ClassLength:
     - 'lib/lite/validators/credit_card_validator.rb'
 RSpec/ExampleLength:
   Enabled: false
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
 Style/Documentation:
