@@ -3,7 +3,7 @@
 class BooleanValidator < BaseValidator
 
   VALUES ||= %w[
-    1 0 t f true false
+    1 0 t f true false y n yes no on off
   ].freeze
 
   private
