@@ -21,6 +21,7 @@ RSpec.describe CurrencyValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!(1)
       fail!(1.001)
       fail!('$1.01')

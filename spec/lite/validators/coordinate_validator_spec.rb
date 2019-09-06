@@ -23,6 +23,7 @@ RSpec.describe CoordinateValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!([90, 181])
         fail!([-90.1, -180.0])
       end
@@ -66,6 +67,7 @@ RSpec.describe CoordinateValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(91)
         fail!(-90.1)
       end
@@ -91,6 +93,7 @@ RSpec.describe CoordinateValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(181)
         fail!(-180.1)
       end

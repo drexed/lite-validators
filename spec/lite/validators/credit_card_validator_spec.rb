@@ -22,6 +22,7 @@ RSpec.describe CreditCardValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(4242)
         fail!(7_242_424_242_424_242)
         fail!(4_242_424_242_424_241)
@@ -64,6 +65,7 @@ RSpec.describe CreditCardValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(4_242_424_242_424_242)
         fail!(565_555_555_555_444)
         fail!(555_555_555_555_443)

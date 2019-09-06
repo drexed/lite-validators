@@ -20,6 +20,7 @@ RSpec.describe EinValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('my-einnumb')
       fail!('00-1111111')
       fail!('5-55555')

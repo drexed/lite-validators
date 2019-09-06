@@ -26,6 +26,7 @@ RSpec.describe UrlValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('://example.com')
       end
     end
@@ -49,6 +50,7 @@ RSpec.describe UrlValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('http://example.biz')
       end
 
@@ -75,6 +77,7 @@ RSpec.describe UrlValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('https://example.com')
         fail!('ftp://example.com')
       end
@@ -103,6 +106,7 @@ RSpec.describe UrlValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('example.com')
         fail!('http://example.com/test')
         fail!('http://example.com#test')

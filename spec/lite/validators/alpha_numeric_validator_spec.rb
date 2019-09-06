@@ -21,6 +21,7 @@ RSpec.describe AlphaNumericValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('Test 123')
         fail!('Test-123')
       end
@@ -62,6 +63,7 @@ RSpec.describe AlphaNumericValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('Test-123')
       end
     end
@@ -84,6 +86,7 @@ RSpec.describe AlphaNumericValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('Test123')
         fail!('test 123')
         fail!('test-123')
@@ -108,6 +111,7 @@ RSpec.describe AlphaNumericValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('Test 123')
         fail!('test-123')
       end
@@ -131,6 +135,7 @@ RSpec.describe AlphaNumericValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('Test123')
         fail!('TEST 123')
         fail!('TEST-123')
@@ -155,6 +160,7 @@ RSpec.describe AlphaNumericValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('Test 123')
         fail!('TEST-123')
       end

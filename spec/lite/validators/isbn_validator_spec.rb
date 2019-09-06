@@ -24,6 +24,7 @@ RSpec.describe IsbnValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('951-98548-9-p')
       fail!('abc123ab3344')
       fail!('12345678901234')

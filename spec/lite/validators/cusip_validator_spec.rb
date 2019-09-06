@@ -19,6 +19,7 @@ RSpec.describe CusipValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('12345678AB')
     end
   end

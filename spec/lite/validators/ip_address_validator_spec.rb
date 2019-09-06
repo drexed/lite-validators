@@ -26,6 +26,7 @@ RSpec.describe IpAddressValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('0 0 0 0')
         fail!('0.0.0.0:3000')
         fail!('22.22.333.22')
@@ -73,6 +74,7 @@ RSpec.describe IpAddressValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('0 0 0 0')
         fail!('0.0.0.0:3000')
         fail!('22.22.333.22')

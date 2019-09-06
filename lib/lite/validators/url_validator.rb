@@ -10,7 +10,7 @@ class UrlValidator < BaseValidator
 
   def validate_each(record, attribute, value)
     assign_attr_readers(record, attribute, URI.parse(value.to_s))
-    valid?
+    valid_attr?
   rescue URI::InvalidURIError
     record.errors.add(attribute, *error_message)
   end
@@ -26,6 +26,8 @@ class UrlValidator < BaseValidator
   end
 
   def valid_attr?
+    raise URI::InvalidURIError if value.to_s.strip.empty?
+
     valid_uri? && valid_domain? && valid_scheme? && valid_root?
   end
 

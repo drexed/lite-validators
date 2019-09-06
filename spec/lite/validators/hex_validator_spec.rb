@@ -22,6 +22,7 @@ RSpec.describe HexValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('#')
       fail!('a')
       fail!('a9')

@@ -21,6 +21,7 @@ RSpec.describe SsnValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('333 22 4444')
       fail!('333-22-444a')
     end

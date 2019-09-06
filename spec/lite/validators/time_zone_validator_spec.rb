@@ -22,6 +22,7 @@ RSpec.describe TimeZoneValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('America/Miami')
         fail!('Atlanta')
       end

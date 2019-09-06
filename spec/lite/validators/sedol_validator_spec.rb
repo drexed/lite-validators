@@ -19,6 +19,7 @@ RSpec.describe SedolValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('B0WNLY')
       fail!('B0WNLY77')
     end

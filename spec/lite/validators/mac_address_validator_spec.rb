@@ -31,6 +31,7 @@ RSpec.describe MacAddressValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('08:00:2b:01:02')
       fail!('08-00-2b-01-02')
       fail!('08:00:2b:01:02:03:04')

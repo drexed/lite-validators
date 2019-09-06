@@ -25,6 +25,7 @@ RSpec.describe PasswordValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('pass word')
         fail!('pass\word')
       end
@@ -67,6 +68,7 @@ RSpec.describe PasswordValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('pass')
         fail!('password')
         fail!('pass123')

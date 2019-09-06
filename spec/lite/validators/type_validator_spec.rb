@@ -39,6 +39,7 @@ RSpec.describe TypeValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(1)
         fail!('test')
         fail!({})
@@ -66,6 +67,7 @@ RSpec.describe TypeValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(1)
         fail!('test')
         fail!({})
@@ -94,6 +96,7 @@ RSpec.describe TypeValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(1)
         fail!('test')
         fail!([])
@@ -123,6 +126,7 @@ RSpec.describe TypeValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!(1)
         fail!('test')
       end

@@ -23,6 +23,7 @@ RSpec.describe EmailValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('user')
         fail!('user@')
         fail!('user@com')
@@ -54,6 +55,7 @@ RSpec.describe EmailValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('user@test.ly')
       end
     end
@@ -77,6 +79,7 @@ RSpec.describe EmailValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('user@test.ly')
       end
     end

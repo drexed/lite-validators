@@ -20,6 +20,7 @@ RSpec.describe IsinValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('US03783310055')
       fail!('US037833100')
       fail!('US03783315')

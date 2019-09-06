@@ -24,6 +24,7 @@ RSpec.describe UuidValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('a8098c1a-f86e-11da-bd1a-00112444be1e1')
         fail!('6fa459ea-ee8a-3ca4-894e-db77e160355e1')
         fail!('16fd2706-8baf-433b-82eb-8c7fada847da1')
@@ -67,6 +68,7 @@ RSpec.describe UuidValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('a8098c1a-f86e-11da-bd1a-00112444be1e')
         fail!('6fa459ea-ee8a-3ca4-894e-db77e160355e1')
         fail!('16fd2706-8baf-433b-82eb-8c7fada847da')
@@ -92,6 +94,7 @@ RSpec.describe UuidValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('a8098c1a-f86e-11da-bd1a-00112444be1e')
         fail!('6fa459ea-ee8a-3ca4-894e-db77e160355e')
         fail!('16fd2706-8baf-433b-82eb-8c7fada847da1')
@@ -117,6 +120,7 @@ RSpec.describe UuidValidator do
       end
 
       it 'to not be valid' do
+        fail!(nil)
         fail!('a8098c1a-f86e-11da-bd1a-00112444be1e')
         fail!('6fa459ea-ee8a-3ca4-894e-db77e160355e')
         fail!('16fd2706-8baf-433b-82eb-8c7fada847da')

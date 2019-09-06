@@ -22,6 +22,7 @@ RSpec.describe NameValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('First')
       fail!('First 123')
       fail!('Title Sur First Middle Last Maiden')

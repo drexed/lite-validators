@@ -22,6 +22,7 @@ RSpec.describe ImeiValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('3568430537512')
       fail!('35684305263751233')
       fail!('356843052637513')

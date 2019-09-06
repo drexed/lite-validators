@@ -23,6 +23,7 @@ RSpec.describe Base64Validator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('1ab2==')
     end
   end

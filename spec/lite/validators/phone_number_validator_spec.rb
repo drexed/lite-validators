@@ -32,6 +32,7 @@ RSpec.describe PhoneNumberValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('123_4567')
       fail!('(555) 123-4567 ext:1234')
     end

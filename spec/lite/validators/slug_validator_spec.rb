@@ -19,6 +19,7 @@ RSpec.describe SlugValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('slug 1234')
       fail!('slug+1234')
     end

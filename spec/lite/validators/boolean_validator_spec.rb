@@ -26,6 +26,7 @@ RSpec.describe BooleanValidator do
     end
 
     it 'to not be valid' do
+      fail!(nil)
       fail!('test')
       fail!('2')
     end
