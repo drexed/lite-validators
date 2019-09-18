@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2019-09-18
+### Added
+- Added true and false only checks to boolean validator
+
 ## [1.0.5] - 2019-08-09
 ### Added
 - Added length check to Url validator

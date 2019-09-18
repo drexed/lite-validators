@@ -1,6 +1,10 @@
 en:
   errors:
     messages:
+      boolean:
+        all: "must be a true or false value"
+        false_only: "must be a false value"
+        true_only: "must be a true value"
       csv:
         in: "csv %{dimension} is not between %{min} and %{max}"
         greater_than: "csv %{dimension} is not greater than %{count}"
