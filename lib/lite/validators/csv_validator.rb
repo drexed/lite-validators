@@ -19,7 +19,7 @@ class CsvValidator < FileSizeValidator
 
   private
 
-  # rubocop:disable Metrics/LineLength, Style/GuardClause
+  # rubocop:disable Layout/LineLength, Style/GuardClause
   def assert_valid_dimensions!
     if dimensions.empty?
       raise ArgumentError, "Missing atleast one dimension of #{DIMENSIONS.map(&:inspect).join(', ')} attribute for comparison."
@@ -27,7 +27,7 @@ class CsvValidator < FileSizeValidator
       assert_valid_option!(:dimensions, DIMENSIONS)
     end
   end
-  # rubocop:enable Metrics/LineLength, Style/GuardClause
+  # rubocop:enable Layout/LineLength, Style/GuardClause
 
   def csv_dimensions(path)
     dimension = { columns: 0, rows: 0 }

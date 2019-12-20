@@ -12,6 +12,8 @@ Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines_except_namespace
 Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines_except_namespace
+Layout/LineLength:
+  Max: 100
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/**/*'
@@ -19,8 +21,6 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   Exclude:
     - 'lib/lite/validators/credit_card_validator.rb'
-Metrics/LineLength:
-  Max: 100
 RSpec/ExampleLength:
   Enabled: false
 RSpec/LeakyConstantDeclaration:
