@@ -12,7 +12,7 @@ class IsinValidator < BaseValidator
     valid_regexp? && valid_checksum?
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
   def valid_checksum?
     characters = value.chars
     digits = characters.map { |chr| /[A-Z]/.match?(chr) ? (chr.ord - 55) : chr.to_i }
@@ -31,6 +31,6 @@ class IsinValidator < BaseValidator
 
     (10 - (total % 10)) % 10
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
 
 end

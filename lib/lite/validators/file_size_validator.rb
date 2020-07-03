@@ -37,7 +37,7 @@ class FileSizeValidator < BaseValidator
   def error_message_for(option, option_value)
     options[:message] || I18n.t(
       "errors.messages.file_size.#{option}",
-      error_options(option_value)
+      **error_options(option_value)
     )
   end
 

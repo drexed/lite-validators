@@ -52,7 +52,7 @@ class CsvValidator < FileSizeValidator
   def error_message_for(dimension, check, check_value)
     options[:message] || I18n.t(
       "errors.messages.csv.#{check}",
-      error_options(check_value).merge(dimension: dimension)
+      **error_options(check_value).merge(dimension: dimension)
     )
   end
 
