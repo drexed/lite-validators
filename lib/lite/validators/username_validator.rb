@@ -2,6 +2,6 @@
 
 class UsernameValidator < BaseValidator
 
-  REGEXP ||= /^[a-z0-9_-]{1,255}$/.freeze
+  REGEXP ||= /^[A-Za-z0-9._-]{1,255}$/.freeze
 
 end
