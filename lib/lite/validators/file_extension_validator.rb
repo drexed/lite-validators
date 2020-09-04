@@ -22,10 +22,9 @@ class FileExtensionValidator < BaseValidator
 
   def include_or_exclude
     values = options[:include] || options[:exclude]
-    [*values]
+    Array(values)
   end
 
-  # rubocop:disable Metrics/AbcSize
   def valid_attr?
     extension = File.extname(value.original_filename).tr('.', '')
     return false if extension.empty?
@@ -36,6 +35,5 @@ class FileExtensionValidator < BaseValidator
 
     record.errors.add(attribute, *error_message)
   end
-  # rubocop:enable Metrics/AbcSize
 
 end

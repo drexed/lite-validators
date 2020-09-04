@@ -34,7 +34,7 @@ class TypeValidator < BaseValidator
     if is_or_is_not == Boolean
       value.is_a?(TrueClass) || value.is_a?(FalseClass)
     else
-      [*is_or_is_not].any? { |klass| value.is_a?(klass) }
+      Array(is_or_is_not).any? { |klass| value.is_a?(klass) }
     end
   end
 

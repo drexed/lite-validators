@@ -24,7 +24,7 @@ class FileContentTypeValidator < BaseValidator
 
   # rubocop:disable Style/CaseEquality
   def valid_content_type?(option, option_value)
-    check = [*option_value].any? { |type| type === value.content_type }
+    check = Array(option_value).any? { |type| type === value.content_type }
     option == :exclude ? !check : check
   end
   # rubocop:enable Style/CaseEquality

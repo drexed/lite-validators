@@ -31,12 +31,11 @@ class UrlValidator < BaseValidator
     valid_uri? && valid_domain? && valid_scheme? && valid_root?
   end
 
-  # rubocop:disable Metrics/AbcSize
   def valid_domain?
     return true unless options[:domain]
 
     value_downcased = value.host.to_s.downcase
-    check = [*options[:domain]].any? { |domain| value_downcased.end_with?(".#{domain.downcase}") }
+    check = Array(options[:domain]).any? { |domain| value_downcased.end_with?(".#{domain.downcase}") }
     record.errors.add(attribute, error_message_for(:domain)) unless check
   end
 
@@ -51,10 +50,9 @@ class UrlValidator < BaseValidator
     return true unless options[:scheme]
 
     value_downcased = value.scheme.to_s.downcase
-    check = [*scheme].any? { |sch| value_downcased == sch.to_s.downcase }
+    check = Array(scheme).any? { |sch| value_downcased == sch.to_s.downcase }
     record.errors.add(attribute, error_message_for(:scheme)) unless check
   end
-  # rubocop:enable Metrics/AbcSize
 
   def valid_uri?
     value.is_a?(URI::Generic)

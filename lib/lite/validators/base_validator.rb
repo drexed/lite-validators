@@ -23,7 +23,7 @@ class BaseValidator < ActiveModel::EachValidator
   def assert_valid_option!(name, collection, option: nil)
     option ||= send(name)
 
-    [*option].each do |option_value|
+    Array(option).each do |option_value|
       next if collection.include?(option_value)
 
       raise ArgumentError, "Unknown #{name}: #{option_value.inspect}. Valid options are: #{collection.map(&:inspect).join(', ')}"
