@@ -88,7 +88,7 @@ class CreditCardValidator < BaseValidator
 
   def checksum(value)
     values = digits(value).reverse.map.with_index { |n, i| i.even? ? n * 2 : n }
-    total = values.reverse.inject(0) { |a, b| a + digits(b).inject(:+) }
+    total = values.reverse.inject(0) { |a, b| a + digits(b).sum }
     checksum = 10 - (total % 10)
     checksum == 10 ? 0 : checksum
   end

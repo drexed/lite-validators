@@ -31,6 +31,7 @@ class UrlValidator < BaseValidator
     valid_uri? && valid_domain? && valid_scheme? && valid_root?
   end
 
+  # rubocop:disable Layout/LineLength, Metrics/AbcSize
   def valid_domain?
     return true unless options[:domain]
 
@@ -38,6 +39,7 @@ class UrlValidator < BaseValidator
     check = Array(options[:domain]).any? { |domain| value_downcased.end_with?(".#{domain.downcase}") }
     record.errors.add(attribute, error_message_for(:domain)) unless check
   end
+  # rubocop:enable Layout/LineLength, Metrics/AbcSize
 
   def valid_root?
     return true unless options[:root_only]
