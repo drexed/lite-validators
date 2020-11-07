@@ -24,7 +24,7 @@ to | symbol | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, equality: { to: :input_1, check: :less_than }
+  validates :input0, equality: { to: :input1, check: :less_than }
 
 end
 ```

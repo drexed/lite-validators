@@ -6,7 +6,7 @@ RSpec.describe MacAddressValidator do
   before do
     class MacAddressKlass < MockedKlass
 
-      validates :input_0, mac_address: true
+      validates :input0, mac_address: true
 
     end
   end

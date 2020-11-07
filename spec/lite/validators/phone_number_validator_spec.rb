@@ -6,7 +6,7 @@ RSpec.describe PhoneNumberValidator do
   before do
     class PhoneNumberKlass < MockedKlass
 
-      validates :input_0, phone_number: true
+      validates :input0, phone_number: true
 
     end
   end

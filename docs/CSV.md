@@ -36,9 +36,9 @@ not_equal_to | numeric | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, csv: { columns: { less_than: 100 } }
-  validates :input_1, csv: { rows: { in: (50..100) } }
-  validates :input_2, csv: { columns: { equal_to: 5 }, rows: { greater_than: 5 } }
+  validates :input0, csv: { columns: { less_than: 100 } }
+  validates :input1, csv: { rows: { in: (50..100) } }
+  validates :input2, csv: { columns: { equal_to: 5 }, rows: { greater_than: 5 } }
 
 end
 ```

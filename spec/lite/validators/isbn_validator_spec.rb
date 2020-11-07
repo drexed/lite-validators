@@ -6,7 +6,7 @@ RSpec.describe IsbnValidator do
   before do
     class IsbnKlass < MockedKlass
 
-      validates :input_0, isbn: true
+      validates :input0, isbn: true
 
     end
   end

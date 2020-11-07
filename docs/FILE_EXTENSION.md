@@ -18,8 +18,8 @@ exclude | array, string, symbol | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, file_extension: { include: 'csv' }
-  validates :input_1, file_extension: { exclude: [:png, 'text'] }
+  validates :input0, file_extension: { include: 'csv' }
+  validates :input1, file_extension: { exclude: [:png, 'text'] }
 
 end
 ```

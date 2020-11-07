@@ -18,9 +18,9 @@ domain | array, string, symbol | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, email: true
-  validates :input_1, email: { domain: 'com' }
-  validates :input_2, email: { domain: %w[com org] }
+  validates :input0, email: true
+  validates :input1, email: { domain: 'com' }
+  validates :input2, email: { domain: %w[com org] }
 
 end
 ```

@@ -8,7 +8,7 @@ RSpec.describe FileContentTypeValidator do
     before do
       class FileContentTypeMissingCheckKlass < MockedKlass
 
-        validates :input_0, file_content_type: true
+        validates :input0, file_content_type: true
 
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe FileContentTypeValidator do
     before do
       class FileContentTypeInvalidCheckKlass < MockedKlass
 
-        validates :input_0, file_content_type: { test: 'image/png' }
+        validates :input0, file_content_type: { test: 'image/png' }
 
       end
     end
@@ -44,7 +44,7 @@ RSpec.describe FileContentTypeValidator do
     before do
       class FileContentTypeIncludeKlass < MockedKlass
 
-        validates :input_0, file_content_type: { include: 'text/csv' }
+        validates :input0, file_content_type: { include: 'text/csv' }
 
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe FileContentTypeValidator do
     before do
       class FileContentTypeExcludeKlass < MockedKlass
 
-        validates :input_0, file_content_type: { exclude: %w[image/png text/plain] }
+        validates :input0, file_content_type: { exclude: %w[image/png text/plain] }
 
       end
     end
@@ -88,7 +88,7 @@ RSpec.describe FileContentTypeValidator do
     before do
       class FileContentTypeMultiKlass < MockedKlass
 
-        validates :input_0, file_content_type: { include: %r{^text/.*}, exclude: 'text/csv' }
+        validates :input0, file_content_type: { include: %r{^text/.*}, exclude: 'text/csv' }
 
       end
     end

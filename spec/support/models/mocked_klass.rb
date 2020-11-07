@@ -4,6 +4,6 @@ class MockedKlass
 
   include ActiveModel::Validations
 
-  attr_accessor :input_0, :input_1
+  attr_accessor :input0, :input1
 
 end

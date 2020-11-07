@@ -21,9 +21,9 @@ allow_space | boolean | true, false | false
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, alpha: true
-  validates :input_1, alpha: { case: :lower }
-  validates :input_2, alpha: { allow_space: true }
+  validates :input0, alpha: true
+  validates :input1, alpha: { case: :lower }
+  validates :input2, alpha: { allow_space: true }
 
 end
 ```

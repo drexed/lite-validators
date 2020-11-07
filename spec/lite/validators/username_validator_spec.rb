@@ -6,7 +6,7 @@ RSpec.describe UsernameValidator do
   before do
     class UsernameKlass < MockedKlass
 
-      validates :input_0, username: true
+      validates :input0, username: true
 
     end
   end

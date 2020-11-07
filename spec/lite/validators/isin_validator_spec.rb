@@ -6,7 +6,7 @@ RSpec.describe IsinValidator do
   before do
     class IsinKlass < MockedKlass
 
-      validates :input_0, isin: true
+      validates :input0, isin: true
 
     end
   end

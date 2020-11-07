@@ -6,7 +6,7 @@ RSpec.describe SlugValidator do
   before do
     class SlugKlass < MockedKlass
 
-      validates :input_0, slug: true
+      validates :input0, slug: true
 
     end
   end

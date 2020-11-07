@@ -21,6 +21,8 @@ Layout/LineLength:
   Max: 100
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
 Lint/RaiseException:
   Enabled: true
 Lint/StructNewOverride:

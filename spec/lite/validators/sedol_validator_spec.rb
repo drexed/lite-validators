@@ -6,7 +6,7 @@ RSpec.describe SedolValidator do
   before do
     class SedolKlass < MockedKlass
 
-      validates :input_0, sedol: true
+      validates :input0, sedol: true
 
     end
   end

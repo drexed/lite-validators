@@ -8,7 +8,7 @@ RSpec.describe TimeZoneValidator do
     before do
       class TimeZoneKlass < MockedKlass
 
-        validates :input_0, time_zone: true
+        validates :input0, time_zone: true
 
       end
     end

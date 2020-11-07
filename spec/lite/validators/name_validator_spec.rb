@@ -6,7 +6,7 @@ RSpec.describe NameValidator do
   before do
     class NameKlass < MockedKlass
 
-      validates :input_0, name: true
+      validates :input0, name: true
 
     end
   end

@@ -18,11 +18,11 @@ is_not | class | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, type: { is: Array }
-  validates :input_1, type: { is: Boolean }         #=> Checks both TrueClass and FalseClass
-  validates :input_2, type: { is: [Array, Hash] }
-  validates :input_3, type: { is_not: CustomKlass } #=> Any Class based objects
-  validates :input_4, type: { is_not: Integer }
+  validates :input0, type: { is: Array }
+  validates :input1, type: { is: Boolean }         #=> Checks both TrueClass and FalseClass
+  validates :input2, type: { is: [Array, Hash] }
+  validates :input3, type: { is_not: CustomKlass } #=> Any Class based objects
+  validates :input4, type: { is_not: Integer }
 
 end
 ```

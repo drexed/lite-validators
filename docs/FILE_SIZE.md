@@ -30,9 +30,9 @@ not_equal_to | numeric | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, file_size: { less_than: 100 }
-  validates :input_1, file_size: { greater_than_or_equal_to: 75, less_than: 100 }
-  validates :input_0, file_size: { in: (50..100) }
+  validates :input0, file_size: { less_than: 100 }
+  validates :input1, file_size: { greater_than_or_equal_to: 75, less_than: 100 }
+  validates :input0, file_size: { in: (50..100) }
 
 end
 ```

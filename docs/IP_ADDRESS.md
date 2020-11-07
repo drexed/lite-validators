@@ -19,8 +19,8 @@ protocol | symbol | any, ipv4, ipv6 | any
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, ip_address: true
-  validates :input_1, ip_address: { protocol: :ipv4 }
+  validates :input0, ip_address: true
+  validates :input1, ip_address: { protocol: :ipv4 }
 
 end
 ```

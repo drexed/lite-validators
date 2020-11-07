@@ -18,9 +18,9 @@ exclude | array, regexp, string, symbol | |
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, file_content_type: { include: 'text/csv' }
-  validates :input_1, file_content_type: { exclude: %w[image/png text/plain] }
-  validates :input_2, file_content_type: { include: /^text\/.*/, exclude: 'text/csv' }
+  validates :input0, file_content_type: { include: 'text/csv' }
+  validates :input1, file_content_type: { exclude: %w[image/png text/plain] }
+  validates :input2, file_content_type: { include: /^text\/.*/, exclude: 'text/csv' }
 
 end
 ```

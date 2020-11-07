@@ -21,8 +21,8 @@ version | symbol, integer | any, 3, 4, 5 | any
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, uuid: true
-  validates :input_1, uuid: { version: 3 }
+  validates :input0, uuid: true
+  validates :input1, uuid: { version: 3 }
 
 end
 ```

@@ -12,7 +12,7 @@
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, slug: true
+  validates :input0, slug: true
 
 end
 ```

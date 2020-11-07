@@ -6,7 +6,7 @@ RSpec.describe Base64Validator do
   before do
     class Base64Klass < MockedKlass
 
-      validates :input_0, base64: true
+      validates :input0, base64: true
 
     end
   end

@@ -15,7 +15,7 @@
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, mac_address: true
+  validates :input0, mac_address: true
 
 end
 ```

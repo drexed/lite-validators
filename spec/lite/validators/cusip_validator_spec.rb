@@ -6,7 +6,7 @@ RSpec.describe CusipValidator do
   before do
     class CusipKlass < MockedKlass
 
-      validates :input_0, cusip: true
+      validates :input0, cusip: true
 
     end
   end

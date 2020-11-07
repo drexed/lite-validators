@@ -6,7 +6,7 @@ RSpec.describe SsnValidator do
   before do
     class SsnKlass < MockedKlass
 
-      validates :input_0, ssn: true
+      validates :input0, ssn: true
 
     end
   end

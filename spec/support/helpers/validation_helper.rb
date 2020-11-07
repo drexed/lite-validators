@@ -2,7 +2,7 @@
 
 module ValidationHelper
 
-  def message?(*values, message: 'Input 0 is invalid')
+  def message?(*values, message: 'Input0 is invalid')
     assign_klass_values(values)
     klass.valid?
     expect(klass.errors.full_messages.uniq.join(', ')).to eq(message)
@@ -21,7 +21,7 @@ module ValidationHelper
   private
 
   def assign_klass_values(values)
-    values.each_with_index { |value, i| klass.send("input_#{i}=", value) }
+    values.each_with_index { |value, i| klass.send("input#{i}=", value) }
   end
 
 end

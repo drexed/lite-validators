@@ -8,7 +8,7 @@ RSpec.describe PasswordValidator do
     before do
       class PasswordKlass < MockedKlass
 
-        validates :input_0, password: true
+        validates :input0, password: true
 
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe PasswordValidator do
     before do
       class PasswordInvalidStrengthKlass < MockedKlass
 
-        validates :input_0, password: { strength: :test }
+        validates :input0, password: { strength: :test }
 
       end
     end
@@ -54,7 +54,7 @@ RSpec.describe PasswordValidator do
     before do
       class PasswordStrongKlass < MockedKlass
 
-        validates :input_0, password: { strength: :strong }
+        validates :input0, password: { strength: :strong }
 
       end
     end

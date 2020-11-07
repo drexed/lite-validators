@@ -8,7 +8,7 @@ RSpec.describe AlphaNumericValidator do
     before do
       class AlphaNumericAnyWithoutSpaceKlass < MockedKlass
 
-        validates :input_0, alpha_numeric: true
+        validates :input0, alpha_numeric: true
 
       end
     end
@@ -32,7 +32,7 @@ RSpec.describe AlphaNumericValidator do
     before do
       class AlphaNumericInvalidCaseKlass < MockedKlass
 
-        validates :input_0, alpha_numeric: { case: :camel }
+        validates :input0, alpha_numeric: { case: :camel }
 
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe AlphaNumericValidator do
     before do
       class AlphaNumericAnyWithSpaceKlass < MockedKlass
 
-        validates :input_0, alpha_numeric: { allow_space: true }
+        validates :input0, alpha_numeric: { allow_space: true }
 
       end
     end
@@ -73,7 +73,7 @@ RSpec.describe AlphaNumericValidator do
     before do
       class AlphaNumericLowerWithoutSpaceKlass < MockedKlass
 
-        validates :input_0, alpha_numeric: { case: :lower }
+        validates :input0, alpha_numeric: { case: :lower }
 
       end
     end
@@ -98,7 +98,7 @@ RSpec.describe AlphaNumericValidator do
     before do
       class AlphaNumericLowerWithSpaceKlass < MockedKlass
 
-        validates :input_0, alpha_numeric: { case: :lower, allow_space: true }
+        validates :input0, alpha_numeric: { case: :lower, allow_space: true }
 
       end
     end
@@ -122,7 +122,7 @@ RSpec.describe AlphaNumericValidator do
     before do
       class AlphaNumericUpperWithoutSpaceKlass < MockedKlass
 
-        validates :input_0, alpha_numeric: { case: :upper }
+        validates :input0, alpha_numeric: { case: :upper }
 
       end
     end
@@ -147,7 +147,7 @@ RSpec.describe AlphaNumericValidator do
     before do
       class AlphaNumericUpperWithSpaceKlass < MockedKlass
 
-        validates :input_0, alpha_numeric: { case: :upper, allow_space: true }
+        validates :input0, alpha_numeric: { case: :upper, allow_space: true }
 
       end
     end

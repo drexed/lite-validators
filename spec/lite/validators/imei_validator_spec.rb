@@ -6,7 +6,7 @@ RSpec.describe ImeiValidator do
   before do
     class ImeiKlass < MockedKlass
 
-      validates :input_0, imei: true
+      validates :input0, imei: true
 
     end
   end

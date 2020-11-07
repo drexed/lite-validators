@@ -11,7 +11,7 @@
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, time_zone: true
+  validates :input0, time_zone: true
 
 end
 ```

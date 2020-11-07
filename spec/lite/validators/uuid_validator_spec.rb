@@ -8,7 +8,7 @@ RSpec.describe UuidValidator do
     before do
       class UuidKlass < MockedKlass
 
-        validates :input_0, uuid: true
+        validates :input0, uuid: true
 
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe UuidValidator do
     before do
       class UuidInvalidVersionKlass < MockedKlass
 
-        validates :input_0, uuid: { version: 2 }
+        validates :input0, uuid: { version: 2 }
 
       end
     end
@@ -55,7 +55,7 @@ RSpec.describe UuidValidator do
     before do
       class UuidVersion3Klass < MockedKlass
 
-        validates :input_0, uuid: { version: 3 }
+        validates :input0, uuid: { version: 3 }
 
       end
     end
@@ -81,7 +81,7 @@ RSpec.describe UuidValidator do
     before do
       class UuidVersion4Klass < MockedKlass
 
-        validates :input_0, uuid: { version: 4 }
+        validates :input0, uuid: { version: 4 }
 
       end
     end
@@ -107,7 +107,7 @@ RSpec.describe UuidValidator do
     before do
       class UuidVersion5Klass < MockedKlass
 
-        validates :input_0, uuid: { version: 5 }
+        validates :input0, uuid: { version: 5 }
 
       end
     end

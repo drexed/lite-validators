@@ -8,7 +8,7 @@ RSpec.describe UrlValidator do
     before do
       class UrlKlass < MockedKlass
 
-        validates :input_0, url: true
+        validates :input0, url: true
 
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe UrlValidator do
     before do
       class UrlDomainKlass < MockedKlass
 
-        validates :input_0, url: { domain: [:com, 'org'] }
+        validates :input0, url: { domain: [:com, 'org'] }
 
       end
     end
@@ -54,8 +54,8 @@ RSpec.describe UrlValidator do
         fail!('http://example.biz')
       end
 
-      it 'to be a "Input 0 has an invalid domain" error message' do
-        message?('http://example.biz', message: 'Input 0 has an invalid domain')
+      it 'to be a "Input0 has an invalid domain" error message' do
+        message?('http://example.biz', message: 'Input0 has an invalid domain')
       end
     end
   end
@@ -64,7 +64,7 @@ RSpec.describe UrlValidator do
     before do
       class UrlSchemeKlass < MockedKlass
 
-        validates :input_0, url: { scheme: :http }
+        validates :input0, url: { scheme: :http }
 
       end
     end
@@ -82,8 +82,8 @@ RSpec.describe UrlValidator do
         fail!('ftp://example.com')
       end
 
-      it 'to be a "Input 0 has an invalid scheme" error message' do
-        message?('ftp://example.com', message: 'Input 0 has an invalid scheme')
+      it 'to be a "Input0 has an invalid scheme" error message' do
+        message?('ftp://example.com', message: 'Input0 has an invalid scheme')
       end
     end
   end
@@ -92,7 +92,7 @@ RSpec.describe UrlValidator do
     before do
       class UrlRootOnlyKlass < MockedKlass
 
-        validates :input_0, url: { root_only: true }
+        validates :input0, url: { root_only: true }
 
       end
     end
@@ -113,8 +113,8 @@ RSpec.describe UrlValidator do
         fail!('http://example.com?a=b')
       end
 
-      it 'to be a "Input 0 has a url path but shouldnt" error message' do
-        message?('http://example.com/test', message: "Input 0 has a url path but shouldn't")
+      it 'to be a "Input0 has a url path but shouldnt" error message' do
+        message?('http://example.com/test', message: "Input0 has a url path but shouldn't")
       end
     end
   end

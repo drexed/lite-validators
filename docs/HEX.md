@@ -12,7 +12,7 @@
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, hex: true
+  validates :input0, hex: true
 
 end
 ```

@@ -27,7 +27,7 @@ class IsinValidator < BaseValidator
 
     longest = longest.map { |int| int * 2 }
     values = longest.concat(shortest).to_s.scan(/./).map(&:to_i)
-    total = values.inject(&:+)
+    total = values.sum
 
     (10 - (total % 10)) % 10
   end

@@ -6,7 +6,7 @@ RSpec.describe BaseValidator do
   before do
     class BaseKlass < MockedKlass
 
-      validates :input_0, alpha: true
+      validates :input0, alpha: true
 
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe BaseValidator do
       fail!(' ')
     end
 
-    it 'to be a "Input 0 is invalid" error message' do
+    it 'to be a "Input0 is invalid" error message' do
       message?(nil)
     end
   end

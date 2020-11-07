@@ -19,8 +19,8 @@ check | symbol | all, false_only, true_only | all
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, boolean: true
-  validates :input_1, boolean: { check: :true_only }
+  validates :input0, boolean: true
+  validates :input1, boolean: { check: :true_only }
 
 end
 ```

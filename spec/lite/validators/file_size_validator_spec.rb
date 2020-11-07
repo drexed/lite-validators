@@ -8,7 +8,7 @@ RSpec.describe FileSizeValidator do
     before do
       class FileSizeMissingCheckKlass < MockedKlass
 
-        validates :input_0, file_size: true
+        validates :input0, file_size: true
 
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe FileSizeValidator do
     before do
       class FileSizeInvalidCheckKlass < MockedKlass
 
-        validates :input_0, file_size: { test: 100 }
+        validates :input0, file_size: { test: 100 }
 
       end
     end
@@ -44,7 +44,7 @@ RSpec.describe FileSizeValidator do
     before do
       class FileSizeLessThanKlass < MockedKlass
 
-        validates :input_0, file_size: { less_than: 100 }
+        validates :input0, file_size: { less_than: 100 }
 
       end
     end
@@ -60,8 +60,8 @@ RSpec.describe FileSizeValidator do
         fail!(upload!('csv.txt'))
       end
 
-      it 'to be a "Input 0 is not less than 100" error message' do
-        message?(upload!('csv.txt'), message: 'Input 0 file size is not less than 100')
+      it 'to be a "Input0 is not less than 100" error message' do
+        message?(upload!('csv.txt'), message: 'Input0 file size is not less than 100')
       end
     end
   end
@@ -70,7 +70,7 @@ RSpec.describe FileSizeValidator do
     before do
       class FileSizeGreaterAndLessThanKlass < MockedKlass
 
-        validates :input_0, file_size: { greater_than: 75, less_than: 100 }
+        validates :input0, file_size: { greater_than: 75, less_than: 100 }
 
       end
     end
@@ -92,7 +92,7 @@ RSpec.describe FileSizeValidator do
     before do
       class FileSizeRangeKlass < MockedKlass
 
-        validates :input_0, file_size: { in: (75..100) }
+        validates :input0, file_size: { in: (75..100) }
 
       end
     end
@@ -108,8 +108,8 @@ RSpec.describe FileSizeValidator do
         fail!(upload!('csv.txt'))
       end
 
-      it 'to be a "Input 0 is not between 75 and 100" error message' do
-        message?(upload!('csv.txt'), message: 'Input 0 file size is not between 75 and 100')
+      it 'to be a "Input0 is not between 75 and 100" error message' do
+        message?(upload!('csv.txt'), message: 'Input0 file size is not between 75 and 100')
       end
     end
   end

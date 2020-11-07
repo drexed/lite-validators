@@ -8,7 +8,7 @@ RSpec.describe FileExtensionValidator do
     before do
       class FileExtensionMissingCheckKlass < MockedKlass
 
-        validates :input_0, file_extension: true
+        validates :input0, file_extension: true
 
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe FileExtensionValidator do
     before do
       class FileExtensionInvalidCheckKlass < MockedKlass
 
-        validates :input_0, file_extension: { test: :csv }
+        validates :input0, file_extension: { test: :csv }
 
       end
     end
@@ -44,7 +44,7 @@ RSpec.describe FileExtensionValidator do
     before do
       class FileExtensionIncludeKlass < MockedKlass
 
-        validates :input_0, file_extension: { include: :csv }
+        validates :input0, file_extension: { include: :csv }
 
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe FileExtensionValidator do
     before do
       class FileExtensionExcludeKlass < MockedKlass
 
-        validates :input_0, file_extension: { exclude: [:csv, 'png'] }
+        validates :input0, file_extension: { exclude: [:csv, 'png'] }
 
       end
     end

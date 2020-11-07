@@ -6,7 +6,7 @@ RSpec.describe EinValidator do
   before do
     class EinKlass < MockedKlass
 
-      validates :input_0, ein: true
+      validates :input0, ein: true
 
     end
   end

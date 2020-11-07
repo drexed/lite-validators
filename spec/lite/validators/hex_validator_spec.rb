@@ -6,7 +6,7 @@ RSpec.describe HexValidator do
   before do
     class HexKlass < MockedKlass
 
-      validates :input_0, hex: true
+      validates :input0, hex: true
 
     end
   end

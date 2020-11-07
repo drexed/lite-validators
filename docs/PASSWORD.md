@@ -19,8 +19,8 @@ strength | symbol | strong, weak | weak
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, password: true
-  validates :input_1, password: { strength: :strong }
+  validates :input0, password: true
+  validates :input1, password: { strength: :strong }
 
 end
 ```

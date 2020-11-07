@@ -8,7 +8,7 @@ RSpec.describe TypeValidator do
     before do
       class TypeInvalidIsKlass < MockedKlass
 
-        validates :input_0, type: true
+        validates :input0, type: true
 
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe TypeValidator do
     before do
       class TypeArrayKlass < MockedKlass
 
-        validates :input_0, type: { is: Array }
+        validates :input0, type: { is: Array }
 
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe TypeValidator do
     before do
       class TypeBooleanKlass < MockedKlass
 
-        validates :input_0, type: { is: Boolean }
+        validates :input0, type: { is: Boolean }
 
       end
     end
@@ -82,7 +82,7 @@ RSpec.describe TypeValidator do
 
       class TypeMultiKlass < MockedKlass
 
-        validates :input_0, type: { is: [CustomKlass, Hash] }
+        validates :input0, type: { is: [CustomKlass, Hash] }
 
       end
     end
@@ -110,7 +110,7 @@ RSpec.describe TypeValidator do
     before do
       class TypeMultiNotKlass < MockedKlass
 
-        validates :input_0, type: { is_not: [String, Integer] }
+        validates :input0, type: { is_not: [String, Integer] }
 
       end
     end

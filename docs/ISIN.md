@@ -14,7 +14,7 @@
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, isin: true
+  validates :input0, isin: true
 
 end
 ```

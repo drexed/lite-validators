@@ -22,8 +22,8 @@ provider | symbol | [view here](https://github.com/drexed/lite-validators/blob/m
 ```ruby
 class User < ActiveRecord::Base
 
-  validates :input_0, credit_card: true
-  validates :input_1, credit_card: { provider: :visa }
+  validates :input0, credit_card: true
+  validates :input1, credit_card: { provider: :visa }
 
 end
 ```

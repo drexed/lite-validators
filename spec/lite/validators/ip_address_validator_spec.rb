@@ -8,7 +8,7 @@ RSpec.describe IpAddressValidator do
     before do
       class IpAddressKlass < MockedKlass
 
-        validates :input_0, ip_address: true
+        validates :input0, ip_address: true
 
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe IpAddressValidator do
     before do
       class IpAddressInvalidProtocolKlass < MockedKlass
 
-        validates :input_0, ip_address: { protocol: :test }
+        validates :input0, ip_address: { protocol: :test }
 
       end
     end
@@ -59,7 +59,7 @@ RSpec.describe IpAddressValidator do
     before do
       class IpAddressv4Klass < MockedKlass
 
-        validates :input_0, ip_address: { protocol: :ipv4 }
+        validates :input0, ip_address: { protocol: :ipv4 }
 
       end
     end

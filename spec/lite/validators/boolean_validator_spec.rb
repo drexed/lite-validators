@@ -8,7 +8,7 @@ RSpec.describe BooleanValidator do
     before do
       class BooleanInvalidCheckKlass < MockedKlass
 
-        validates :input_0, boolean: { check: :test }
+        validates :input0, boolean: { check: :test }
 
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe BooleanValidator do
     before do
       class BooleanKlass < MockedKlass
 
-        validates :input_0, boolean: true
+        validates :input0, boolean: true
 
       end
     end
@@ -51,8 +51,8 @@ RSpec.describe BooleanValidator do
         fail!('2')
       end
 
-      it 'to be a "Input 0 must be a true or false value" error message' do
-        message?(nil, message: 'Input 0 must be a true or false value')
+      it 'to be a "Input0 must be a true or false value" error message' do
+        message?(nil, message: 'Input0 must be a true or false value')
       end
     end
   end
@@ -61,7 +61,7 @@ RSpec.describe BooleanValidator do
     before do
       class BooleanTrueKlass < MockedKlass
 
-        validates :input_0, boolean: { check: :true_only }
+        validates :input0, boolean: { check: :true_only }
 
       end
     end
@@ -86,8 +86,8 @@ RSpec.describe BooleanValidator do
         fail!('2')
       end
 
-      it 'to be a "Input 0 must be a true value" error message' do
-        message?(nil, message: 'Input 0 must be a true value')
+      it 'to be a "Input0 must be a true value" error message' do
+        message?(nil, message: 'Input0 must be a true value')
       end
     end
   end
@@ -96,7 +96,7 @@ RSpec.describe BooleanValidator do
     before do
       class BooleanFalseKlass < MockedKlass
 
-        validates :input_0, boolean: { check: :false_only }
+        validates :input0, boolean: { check: :false_only }
 
       end
     end
@@ -121,8 +121,8 @@ RSpec.describe BooleanValidator do
         fail!('2')
       end
 
-      it 'to be a "Input 0 must be a false value" error message' do
-        message?(nil, message: 'Input 0 must be a false value')
+      it 'to be a "Input0 must be a false value" error message' do
+        message?(nil, message: 'Input0 must be a false value')
       end
     end
   end
