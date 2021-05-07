@@ -2,7 +2,7 @@
 
 class CoordinateValidator < BaseValidator
 
-  BOUNDARIES ||= {
+  BOUNDARIES = {
     latitude: 90.0,
     longitude: 180.0
   }.freeze

@@ -2,7 +2,7 @@
 
 class FileSizeValidator < BaseValidator
 
-  CHECKS ||= {
+  CHECKS = {
     in: :===,
     less_than: :<,
     less_than_or_equal_to: :<=,

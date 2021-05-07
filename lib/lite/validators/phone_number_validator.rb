@@ -2,6 +2,6 @@
 
 class PhoneNumberValidator < BaseValidator
 
-  REGEXP ||= %r{^[0-9+()#.\s/ext-]+$}.freeze
+  REGEXP = %r{^[0-9+()#.\s/ext-]+$}.freeze
 
 end

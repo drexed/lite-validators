@@ -2,7 +2,7 @@
 
 class AlphaValidator < BaseValidator
 
-  CASES ||= {
+  CASES = {
     lower: 'a-z',
     upper: 'A-Z',
     any: 'A-Za-z'

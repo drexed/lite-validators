@@ -2,7 +2,7 @@
 
 class BooleanValidator < BaseValidator
 
-  CHECKS ||= {
+  CHECKS = {
     all: nil,
     false_only: %w[0 f false n no off],
     true_only: %w[1 t true y yes on]

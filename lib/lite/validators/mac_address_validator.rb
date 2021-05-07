@@ -2,7 +2,7 @@
 
 class MacAddressValidator < BaseValidator
 
-  REGEXP ||= [
+  REGEXP = [
     /^(\h{2}[-|.:\s]){5}\h{2}?$/i,
     /^(\h{4}[-|.:\s]){2}\h{4}?$/i,
     /^(\h{6}[-|.:\s])\h{6}?$/i,

@@ -4,7 +4,7 @@ class CreditCardValidator < BaseValidator
 
   # NOTE: https://en.wikipedia.org/wiki/Payment_card_value#Issuer_identification_value_.28IIN.29
 
-  PROVIDERS ||= {
+  PROVIDERS = {
     american_express: {
       sizes: [15],
       prefixes: [34, 37]

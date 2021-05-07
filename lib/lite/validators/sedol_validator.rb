@@ -2,8 +2,8 @@
 
 class SedolValidator < BaseValidator
 
-  REGEXP ||= /^([A-Z0-9]{6})(\d{1})$/.freeze
-  WEIGHTS ||= [
+  REGEXP = /^([A-Z0-9]{6})(\d{1})$/.freeze
+  WEIGHTS = [
     1, 3, 1, 7, 3, 9, 1
   ].freeze
 

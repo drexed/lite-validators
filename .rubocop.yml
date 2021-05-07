@@ -23,6 +23,8 @@ Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 Lint/ConstantDefinitionInBlock:
   Enabled: false
+Lint/EmptyClass:
+  Enabled: false
 Lint/RaiseException:
   Enabled: true
 Lint/StructNewOverride:

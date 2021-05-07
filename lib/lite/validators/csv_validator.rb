@@ -4,7 +4,7 @@ require 'csv'
 
 class CsvValidator < FileSizeValidator
 
-  DIMENSIONS ||= %i[
+  DIMENSIONS = %i[
     columns rows
   ].freeze
 

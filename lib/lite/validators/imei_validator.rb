@@ -2,7 +2,7 @@
 
 class ImeiValidator < BaseValidator
 
-  REGEXP ||= /\A[\d.:\-\s]+\z/i.freeze
+  REGEXP = /\A[\d.:\-\s]+\z/i.freeze
 
   private
 

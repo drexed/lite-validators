@@ -2,7 +2,7 @@
 
 class CompareValidator < BaseValidator
 
-  CHECKS ||= {
+  CHECKS = {
     less_than: :<,
     less_than_or_equal_to: :<=,
     greater_than: :>,

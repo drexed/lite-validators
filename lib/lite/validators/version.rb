@@ -3,7 +3,7 @@
 module Lite
   module Validators
 
-    VERSION ||= '1.1.2'
+    VERSION = '1.1.2'
 
   end
 end

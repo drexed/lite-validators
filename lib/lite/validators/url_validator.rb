@@ -4,7 +4,7 @@ require 'uri'
 
 class UrlValidator < BaseValidator
 
-  SCHEMES ||= %w[
+  SCHEMES = %w[
     http https
   ].freeze
 

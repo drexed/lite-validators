@@ -2,7 +2,7 @@
 
 class PasswordValidator < BaseValidator
 
-  REGEXP ||= {
+  REGEXP = {
     strong: /\A(?=.{4,255})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[[:^alnum:]])/x,
     weak: /^[A-Za-z0-9.,<>:;!@#$%^&*?_~-]{1,255}$/
   }.freeze
