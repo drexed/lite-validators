@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2021-07-05
+### Updated
+- Improve array build performance
+
 ## [1.1.1] - 2020-06-06
 ### Updated
 - Improve mac address regex

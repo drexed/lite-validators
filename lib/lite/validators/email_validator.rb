@@ -13,7 +13,7 @@ class EmailValidator < BaseValidator
   def valid_domain?
     return true unless options.key?(:domain)
 
-    [options[:domain]].flatten.any? { |domain| value.downcase.end_with?(".#{domain.downcase}") }
+    Array(options[:domain]).any? { |domain| value.downcase.end_with?(".#{domain.downcase}") }
   end
 
 end
