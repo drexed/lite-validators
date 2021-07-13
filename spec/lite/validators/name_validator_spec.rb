@@ -17,6 +17,7 @@ RSpec.describe NameValidator do
     it 'to be valid' do
       pass!('First Last')
       pass!('First Last-Name')
+      pass!('First 123')
       pass!('First Middle Last')
       pass!("Sur First Middle O'Last Maiden")
     end
@@ -24,8 +25,8 @@ RSpec.describe NameValidator do
     it 'to not be valid' do
       fail!(nil)
       fail!('First')
-      fail!('First 123')
       fail!('Title Sur First Middle Last Maiden')
+      fail!('Sur First Middle O"Last Maiden')
     end
   end
 

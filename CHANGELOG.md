@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2021-07-13
+### Updated
+- Update name validator to accept numeric values and remove double quotes
+
 ## [1.1.2] - 2021-07-05
 ### Updated
 - Improve array build performance

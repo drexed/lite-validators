@@ -2,6 +2,6 @@
 
 class NameValidator < BaseValidator
 
-  REGEXP = /^([A-Za-z'"-]+\s+){1,4}[A-Za-z'"-]*\z/.freeze
+  REGEXP = /^([A-Za-z0-9'-]+\s+){1,4}[A-Za-z0-9'-]*\z/.freeze
 
 end
