@@ -2,6 +2,6 @@
 
 class EinValidator < BaseValidator
 
-  REGEXP = /^[1-9]\d?-\d{7}$/.freeze
+  REGEXP = /^[1-9]\d?-\d{7}$/
 
 end

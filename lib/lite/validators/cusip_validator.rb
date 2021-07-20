@@ -2,7 +2,7 @@
 
 class CusipValidator < BaseValidator
 
-  REGEXP = /^[0-9A-Z]{9}$/.freeze
+  REGEXP = /^[0-9A-Z]{9}$/
 
   private
 
