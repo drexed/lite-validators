@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'active_model'
+require 'active_model' unless defined?(ActiveModel)
 
+require 'lite/validators/railtie' if defined?(Rails::Railtie)
 require 'lite/validators/version'
-require 'lite/validators/railtie' if defined?(Rails)
 
 %w[
   base alpha alpha_numeric base64 boolean compare coordinate credit_card currency cusip email ein
