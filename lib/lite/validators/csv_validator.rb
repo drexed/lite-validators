@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'csv'
+require 'csv' unless defined?(CSV)
 
 class CsvValidator < FileSizeValidator
 

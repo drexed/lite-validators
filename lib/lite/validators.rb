@@ -4,11 +4,36 @@ require 'active_model' unless defined?(ActiveModel)
 
 require 'lite/validators/railtie' if defined?(Rails::Railtie)
 require 'lite/validators/version'
-
-%w[
-  base alpha alpha_numeric base64 boolean compare coordinate credit_card currency cusip email ein
-  file_content_type file_extension file_size csv hex imei ip_address isbn isin mac_address name
-  password phone_number sedol slug ssn time_zone type url username uuid
-].each do |name|
-  require "lite/validators/#{name}_validator"
-end
+require 'lite/validators/base_validator'
+require 'lite/validators/alpha_validator'
+require 'lite/validators/alpha_numeric_validator'
+require 'lite/validators/base64_validator'
+require 'lite/validators/boolean_validator'
+require 'lite/validators/compare_validator'
+require 'lite/validators/coordinate_validator'
+require 'lite/validators/credit_card_validator'
+require 'lite/validators/currency_validator'
+require 'lite/validators/cusip_validator'
+require 'lite/validators/email_validator'
+require 'lite/validators/ein_validator'
+require 'lite/validators/file_content_type_validator'
+require 'lite/validators/file_extension_validator'
+require 'lite/validators/file_size_validator'
+require 'lite/validators/csv_validator'
+require 'lite/validators/hex_validator'
+require 'lite/validators/imei_validator'
+require 'lite/validators/ip_address_validator'
+require 'lite/validators/isbn_validator'
+require 'lite/validators/isin_validator'
+require 'lite/validators/mac_address_validator'
+require 'lite/validators/name_validator'
+require 'lite/validators/password_validator'
+require 'lite/validators/phone_number_validator'
+require 'lite/validators/sedol_validator'
+require 'lite/validators/slug_validator'
+require 'lite/validators/ssn_validator'
+require 'lite/validators/time_zone_validator'
+require 'lite/validators/type_validator'
+require 'lite/validators/url_validator'
+require 'lite/validators/username_validator'
+require 'lite/validators/uuid_validator'

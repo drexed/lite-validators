@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'uri'
+require 'uri' unless defined?(URI)
 
 class UrlValidator < BaseValidator
 

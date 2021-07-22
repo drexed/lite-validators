@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/time/zones'
+require 'active_support/core_ext/time/zones' unless defined?(ActiveSupport)
 
 class TimeZoneValidator < BaseValidator
 

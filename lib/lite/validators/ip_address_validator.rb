@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'resolv'
+require 'resolv' unless defined?(Resolv)
 
 class IpAddressValidator < BaseValidator
 
