@@ -23,5 +23,6 @@ en:
         not_equal_to: "file size is equal to %{count} but shouldn't"
       url:
         domain: "has an invalid domain"
+        host: "has an invalid host"
         root: "has a url path but shouldn't"
         scheme: "has an invalid scheme"

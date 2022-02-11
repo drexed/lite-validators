@@ -11,27 +11,23 @@ class UrlValidator < BaseValidator
   def validate_each(record, attribute, value)
     assign_attr_readers(record, attribute, URI.parse(value.to_s))
     valid_attr?
-  rescue URI::InvalidURIError
+  rescue URI::BadURIError, URI::InvalidURIError
     record.errors.add(attribute, *error_message)
   end
 
   private
 
-  def scheme
-    options[:scheme] || UrlValidator::SCHEMES
-  end
-
   def error_message_for(option)
     options[:message] || I18n.t("errors.messages.url.#{option}")
   end
 
+  # rubocop:disable Layout/LineLength, Metrics/AbcSize
   def valid_attr?
     raise URI::InvalidURIError if value.to_s.strip.empty?
 
-    valid_uri? && valid_domain? && valid_scheme? && valid_root?
+    valid_uri? && valid_host? && valid_domain? && valid_scheme? && valid_root?
   end
 
-  # rubocop:disable Layout/LineLength, Metrics/AbcSize
   def valid_domain?
     return true unless options[:domain]
 
@@ -39,7 +35,16 @@ class UrlValidator < BaseValidator
     check = Array(options[:domain]).any? { |domain| value_downcased.end_with?(".#{domain.downcase}") }
     record.errors.add(attribute, error_message_for(:domain)) unless check
   end
-  # rubocop:enable Layout/LineLength, Metrics/AbcSize
+
+  def valid_host?
+    hosts = options[:include_host] || options[:exclude_host]
+    return true unless hosts
+
+    value_downcased = value.host.to_s.downcase
+    check = options[:include_host] ? :any? : :none?
+    check = Array(hosts).send(check) { |host| value_downcased.include?(host.to_s.downcase) }
+    record.errors.add(attribute, error_message_for(:host)) unless check
+  end
 
   def valid_root?
     return true unless options[:root_only]
@@ -52,12 +57,14 @@ class UrlValidator < BaseValidator
     return true unless options[:scheme]
 
     value_downcased = value.scheme.to_s.downcase
-    check = Array(scheme).any? { |sch| value_downcased == sch.to_s.downcase }
+    schemes = options[:scheme] || SCHEMES
+    check = Array(schemes).any? { |scheme| value_downcased == scheme.to_s.downcase }
     record.errors.add(attribute, error_message_for(:scheme)) unless check
   end
 
   def valid_uri?
     value.is_a?(URI::Generic)
   end
+  # rubocop:enable Layout/LineLength, Metrics/AbcSize
 
 end

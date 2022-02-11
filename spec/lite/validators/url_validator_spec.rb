@@ -32,6 +32,66 @@ RSpec.describe UrlValidator do
     end
   end
 
+  context 'with options { include_host: ["example", "sample.com"] }' do
+    before do
+      class UrlIncludeHostKlass < MockedKlass
+
+        validates :input0, url: { include_host: ['example', 'sample.com'] }
+
+      end
+    end
+
+    let(:klass) { UrlIncludeHostKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass!('http://example.com')
+        pass!('http://example.net')
+        pass!('http://sample.com')
+      end
+
+      it 'to not be valid' do
+        fail!(nil)
+        fail!('http://test.com')
+        fail!('http://sample.org')
+      end
+
+      it 'to be a "Input0 has an invalid host" error message' do
+        message?('http://test.com', message: 'Input0 has an invalid host')
+      end
+    end
+  end
+
+  context 'with options { exclude_host: ["example", "sample.com"] }' do
+    before do
+      class UrlExcludeHostKlass < MockedKlass
+
+        validates :input0, url: { exclude_host: ['example', 'sample.com'] }
+
+      end
+    end
+
+    let(:klass) { UrlExcludeHostKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass!('http://test.com')
+        pass!('http://sample.org')
+      end
+
+      it 'to not be valid' do
+        fail!(nil)
+        fail!('http://example.com')
+        fail!('http://example.net')
+        fail!('http://sample.com')
+      end
+
+      it 'to be a "Input0 has an invalid host" error message' do
+        message?('http://example.com', message: 'Input0 has an invalid host')
+      end
+    end
+  end
+
   context 'with options { domain: [:com, "org"] }' do
     before do
       class UrlDomainKlass < MockedKlass

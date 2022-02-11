@@ -18,7 +18,7 @@ class CusipValidator < BaseValidator
     odd_values = digits.values_at(*digits.each_index.select(&:odd?))
 
     values = odd_values.map { |int| int * 2 }.zip(even_values).flatten
-    values = values.inject(0) { |sum, int| sum + (int / 10) + int % 10 }
+    values = values.inject(0) { |sum, int| sum + (int / 10) + (int % 10) }
 
     ((10 - values) % 10) % 10
   end

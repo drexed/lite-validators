@@ -17,7 +17,7 @@ class SedolValidator < BaseValidator
     total = 0
     digits = value.chars.map { |dgt| /[A-Z]/.match?(dgt) ? (dgt.ord - 55) : dgt.to_i }
     digits.each_with_index { |dgt, idx| total += (WEIGHTS[idx] * dgt) }
-    (10 - total % 10) % 10
+    (10 - (total % 10)) % 10
   end
 
 end
