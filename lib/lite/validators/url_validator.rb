@@ -33,7 +33,9 @@ class UrlValidator < BaseValidator
 
     value_downcased = value.host.to_s.downcase
     check = Array(options[:domain]).any? { |domain| value_downcased.end_with?(".#{domain.downcase}") }
-    record.errors.add(attribute, error_message_for(:domain)) unless check
+    return true if check
+
+    record.errors.add(attribute, error_message_for(:domain))
   end
 
   def valid_host?
@@ -43,14 +45,18 @@ class UrlValidator < BaseValidator
     value_downcased = value.host.to_s.downcase
     check = options[:include_host] ? :any? : :none?
     check = Array(hosts).send(check) { |host| value_downcased.include?(host.to_s.downcase) }
-    record.errors.add(attribute, error_message_for(:host)) unless check
+    return true if check
+
+    record.errors.add(attribute, error_message_for(:host))
   end
 
   def valid_root?
     return true unless options[:root_only]
 
     check = ['', '/'].include?(value.path) && value.query.blank? && value.fragment.blank?
-    record.errors.add(attribute, error_message_for(:root)) unless check
+    return true if check
+
+    record.errors.add(attribute, error_message_for(:root))
   end
 
   def valid_scheme?
@@ -59,7 +65,9 @@ class UrlValidator < BaseValidator
     value_downcased = value.scheme.to_s.downcase
     schemes = options[:scheme] || SCHEMES
     check = Array(schemes).any? { |scheme| value_downcased == scheme.to_s.downcase }
-    record.errors.add(attribute, error_message_for(:scheme)) unless check
+    return true if check
+
+    record.errors.add(attribute, error_message_for(:scheme))
   end
 
   def valid_uri?

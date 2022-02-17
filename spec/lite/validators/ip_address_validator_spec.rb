@@ -82,4 +82,64 @@ RSpec.describe IpAddressValidator do
     end
   end
 
+  context 'with options { include_address: ["0.0.0.0", "99.39.240.31"] }' do
+    before do
+      class IpAddressIncludeAddressKlass < MockedKlass
+
+        validates :input0, ip_address: { include_address: ['0.0.0.0', '99.39.240.31'] }
+
+      end
+    end
+
+    let(:klass) { IpAddressIncludeAddressKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass!('0.0.0.0')
+        pass!('99.39.240.31')
+      end
+
+      it 'to not be valid' do
+        fail!(nil)
+        fail!('127.0.0.1')
+        fail!('0.0.0.0:3000')
+        fail!('22.22.333.22')
+      end
+
+      it 'to be a "Input0 has an invalid address" error message' do
+        message?('99.39.240.32', message: 'Input0 has an invalid address')
+      end
+    end
+  end
+
+  context 'with options { exclude_address: ["0.0.0.0", "99.39.240.31"] }' do
+    before do
+      class IpAddressExcludeAddressKlass < MockedKlass
+
+        validates :input0, ip_address: { exclude_address: ['0.0.0.0', '99.39.240.31'] }
+
+      end
+    end
+
+    let(:klass) { IpAddressExcludeAddressKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass!('127.0.0.1')
+        pass!('99.39.240.32')
+      end
+
+      it 'to not be valid' do
+        fail!(nil)
+        fail!('0.0.0.0')
+        fail!('99.39.240.31')
+        fail!('0.0.0.0:3000')
+      end
+
+      it 'to be a "Input0 has an invalid address" error message' do
+        message?('99.39.240.31', message: 'Input0 has an invalid address')
+      end
+    end
+  end
+
 end

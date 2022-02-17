@@ -13,6 +13,8 @@ Option | Type | Available | Default
 domain | array, string, symbol | |
 root_only | boolean | true, false | false
 scheme | array, string, symbol | |
+include_host | array, string, symbol | |
+exclude_host | array, string, symbol | |
 
 #### Usage
 

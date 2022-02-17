@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2022-02-17
+### Changed
+- Added `include_address` to ip_address validator
+- Added `exclude_address` to ip_address validator
+
 ## [1.4.0] - 2022-02-11
 ### Changed
 - Added `include_host` to url validator

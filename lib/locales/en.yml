@@ -21,6 +21,8 @@ en:
         less_than_or_equal_to: "file size is not less than or equal to %{count}"
         equal_to: "file size is not equal to %{count} but should"
         not_equal_to: "file size is equal to %{count} but shouldn't"
+      ip_address:
+        address: "has an invalid address"
       url:
         domain: "has an invalid domain"
         host: "has an invalid host"
