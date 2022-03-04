@@ -21,7 +21,7 @@ module ValidationHelper
   private
 
   def assign_klass_values(values)
-    values.each_with_index { |value, i| klass.send("input#{i}=", value) }
+    values.each_with_index { |value, i| klass.public_send("input#{i}=", value) }
   end
 
 end

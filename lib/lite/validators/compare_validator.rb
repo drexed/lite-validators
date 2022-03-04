@@ -34,8 +34,8 @@ class CompareValidator < BaseValidator
   end
 
   def valid_attr?
-    other = record.send(options[:to])
-    value.send(CHECKS[check], other)
+    other = record.public_send(options[:to])
+    value.public_send(CHECKS[check], other)
   end
 
 end

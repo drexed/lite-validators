@@ -59,9 +59,9 @@ class FileSizeValidator < BaseValidator
     return false if size.nil?
 
     if option_value.is_a?(Range)
-      option_value.send(CHECKS[option], size)
+      option_value.public_send(CHECKS[option], size)
     else
-      size.send(CHECKS[option], option_value)
+      size.public_send(CHECKS[option], option_value)
     end
   end
 

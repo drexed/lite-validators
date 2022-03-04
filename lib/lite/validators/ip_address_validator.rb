@@ -37,7 +37,7 @@ class IpAddressValidator < BaseValidator
     return true unless addresses
 
     check = options[:include_address] ? :any? : :none?
-    check = Array(addresses).send(check) { |address| value.include?(address.to_s) }
+    check = Array(addresses).public_send(check) { |address| value.include?(address.to_s) }
     return true if check
 
     record.errors.add(attribute, error_message_for(:address))

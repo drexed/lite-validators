@@ -51,6 +51,7 @@ Or install it yourself as:
 * [IP address](https://github.com/drexed/lite-validators/blob/master/docs/IP_ADDRESS.md)
 * [ISBN](https://github.com/drexed/lite-validators/blob/master/docs/ISBN.md)
 * [ISIN](https://github.com/drexed/lite-validators/blob/master/docs/ISIN.md)
+* [List](https://github.com/drexed/lite-validators/blob/master/docs/LIST.md)
 * [MAC address](https://github.com/drexed/lite-validators/blob/master/docs/MAC.md)
 * [Name](https://github.com/drexed/lite-validators/blob/master/docs/NAME.md)
 * [Password](https://github.com/drexed/lite-validators/blob/master/docs/PASSWORD.md)

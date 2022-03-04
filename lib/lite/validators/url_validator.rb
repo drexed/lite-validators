@@ -44,7 +44,7 @@ class UrlValidator < BaseValidator
 
     value_downcased = value.host.to_s.downcase
     check = options[:include_host] ? :any? : :none?
-    check = Array(hosts).send(check) { |host| value_downcased.include?(host.to_s.downcase) }
+    check = Array(hosts).public_send(check) { |host| value_downcased.include?(host.to_s.downcase) }
     return true if check
 
     record.errors.add(attribute, error_message_for(:host))
