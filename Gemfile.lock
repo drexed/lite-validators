@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lite-validators (1.7.1)
+    lite-validators (1.7.2)
       activemodel
 
 GEM

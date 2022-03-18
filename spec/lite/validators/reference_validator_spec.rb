@@ -40,7 +40,7 @@ RSpec.describe ReferenceValidator do
         validates :input_id, reference: true
 
         def input
-          self
+          MockedKlass.new
         end
 
       end
@@ -57,6 +57,41 @@ RSpec.describe ReferenceValidator do
       end
 
       it 'to not be valid' do
+        fail_assoc!('Test')
+      end
+    end
+  end
+
+  context 'with invalid existing record' do
+    before do
+      class FakeInvalidExistingRecordKlass < MockedKlass
+
+        validates :input0, presence: true
+
+      end
+
+      class ReferenceInvalidExistingRecordKlass < MockedKlass
+
+        validates :input_id, reference: true
+
+        def input
+          FakeInvalidExistingRecordKlass.new
+        end
+
+      end
+    end
+
+    let(:klass) { ReferenceInvalidExistingRecordKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass_assoc!(1)
+        pass_assoc!('1')
+      end
+
+      it 'to not be valid' do
+        fail_assoc!(nil)
+        fail_assoc!('')
         fail_assoc!('Test')
       end
     end
@@ -100,7 +135,7 @@ RSpec.describe ReferenceValidator do
         validates :input_id, reference: { polymorphic: true }
 
         def input
-          self
+          MockedKlass.new
         end
 
       end
@@ -135,7 +170,7 @@ RSpec.describe ReferenceValidator do
         end
 
         def other_input
-          self
+          MockedKlass.new
         end
 
       end
