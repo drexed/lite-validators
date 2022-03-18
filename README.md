@@ -56,6 +56,7 @@ Or install it yourself as:
 * [Name](https://github.com/drexed/lite-validators/blob/master/docs/NAME.md)
 * [Password](https://github.com/drexed/lite-validators/blob/master/docs/PASSWORD.md)
 * [Phone number](https://github.com/drexed/lite-validators/blob/master/docs/PHONE_NUMBER.md)
+* [Reference](https://github.com/drexed/lite-validators/blob/master/docs/REFERENCE.md)
 * [SEDOL](https://github.com/drexed/lite-validators/blob/master/docs/SEDOL.md)
 * [Slug](https://github.com/drexed/lite-validators/blob/master/docs/SLUG.md)
 * [SSN](https://github.com/drexed/lite-validators/blob/master/docs/SSN.md)
