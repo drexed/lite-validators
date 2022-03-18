@@ -13,8 +13,8 @@ module ValidationHelper
     expect(klass).not_to be_valid
   end
 
-  def fail_id!(id)
-    assign_klass_id(id)
+  def fail_assoc!(*values)
+    assign_klass_assoc(values)
     expect(klass).not_to be_valid
   end
 
@@ -23,15 +23,16 @@ module ValidationHelper
     expect(klass).to be_valid
   end
 
-  def pass_id!(id)
-    assign_klass_id(id)
+  def pass_assoc!(*values)
+    assign_klass_assoc(values)
     expect(klass).to be_valid
   end
 
   private
 
-  def assign_klass_id(value)
-    klass.input_id = value
+  def assign_klass_assoc(values)
+    attr_map = %i[id type]
+    values.each_with_index { |value, i| klass.public_send("input_#{attr_map[i]}=", value) }
   end
 
   def assign_klass_values(values)

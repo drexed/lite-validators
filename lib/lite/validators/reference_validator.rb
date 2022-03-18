@@ -7,7 +7,7 @@ class ReferenceValidator < BaseValidator
   private
 
   def valid?
-    valid_id? || valid_object?
+    (valid_id? && valid_type?) || valid_object?
   end
 
   def valid_id?
@@ -22,7 +22,16 @@ class ReferenceValidator < BaseValidator
 
   def valid_object?
     association_object = options[:association] || attribute.to_s.chomp('_id')
-    record.send(association_object).present?
+    return true if record.send(association_object).present?
+
+    record.errors.add(association_object, *error_message)
+  end
+
+  def valid_type?
+    return true unless options[:polymorphic]
+
+    association_type = "#{attribute.to_s.chomp('_id')}_type"
+    record.send(association_type).present?
   end
 
 end

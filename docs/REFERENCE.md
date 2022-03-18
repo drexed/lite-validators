@@ -12,6 +12,7 @@
 Option | Type | Available | Default
 --- | --- | --- | ---
 association | symbol | object method | attribute without `_id`
+polymorphic | symbol | true, false | false
 
 #### Usage
 
@@ -19,6 +20,7 @@ association | symbol | object method | attribute without `_id`
 class User < ActiveRecord::Base
 
   validates :input_id, reference: true
+  validates :output_id, reference: { polymorphic: true }
   validates :output_id, reference: { association: :input }
 
 end

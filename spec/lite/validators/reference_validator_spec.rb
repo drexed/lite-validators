@@ -21,14 +21,14 @@ RSpec.describe ReferenceValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass_id!(1)
-        pass_id!('1')
+        pass_assoc!(1)
+        pass_assoc!('1')
       end
 
       it 'to not be valid' do
-        fail_id!(nil)
-        fail_id!('')
-        fail_id!('Test')
+        fail_assoc!(nil)
+        fail_assoc!('')
+        fail_assoc!('Test')
       end
     end
   end
@@ -50,14 +50,76 @@ RSpec.describe ReferenceValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass_id!(nil)
-        pass_id!(1)
-        pass_id!('1')
-        pass_id!('')
+        pass_assoc!(nil)
+        pass_assoc!(1)
+        pass_assoc!('1')
+        pass_assoc!('')
       end
 
       it 'to not be valid' do
-        fail_id!('Test')
+        fail_assoc!('Test')
+      end
+    end
+  end
+
+  context 'with polymorphic new record' do
+    before do
+      class ReferencePolymorphicNewRecordKlass < MockedKlass
+
+        validates :input_id, reference: { polymorphic: true }
+
+        def input
+          nil
+        end
+
+      end
+    end
+
+    let(:klass) { ReferencePolymorphicNewRecordKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass_assoc!(1, 'Test')
+        pass_assoc!('1', 'Test')
+      end
+
+      it 'to not be valid' do
+        fail_assoc!(nil, nil)
+        fail_assoc!('Test', 'Test')
+        fail_assoc!(1, nil)
+        fail_assoc!('1', nil)
+        fail_assoc!(nil, 'Test')
+      end
+    end
+  end
+
+  context 'with polymorphic existing record' do
+    before do
+      class ReferencePolymorphicExistingRecordKlass < MockedKlass
+
+        validates :input_id, reference: { polymorphic: true }
+
+        def input
+          self
+        end
+
+      end
+    end
+
+    let(:klass) { ReferencePolymorphicExistingRecordKlass.new }
+
+    describe '#validate' do
+      it 'to be valid' do
+        pass_assoc!(nil, nil)
+        pass_assoc!(nil, 'Test')
+        pass_assoc!(1, 'Test')
+        pass_assoc!('1', 'Test')
+        pass_assoc!(1, nil)
+        pass_assoc!('1', nil)
+      end
+
+      it 'to not be valid' do
+        fail_assoc!('Test', 'Test')
       end
     end
   end
@@ -83,14 +145,14 @@ RSpec.describe ReferenceValidator do
 
     describe '#validate' do
       it 'to be valid' do
-        pass_id!(nil)
-        pass_id!(1)
-        pass_id!('1')
-        pass_id!('')
+        pass_assoc!(nil)
+        pass_assoc!(1)
+        pass_assoc!('1')
+        pass_assoc!('')
       end
 
       it 'to not be valid' do
-        fail_id!('Test')
+        fail_assoc!('Test')
       end
     end
   end
