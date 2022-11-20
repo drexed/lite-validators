@@ -8,7 +8,7 @@ module FileHelper
   end
 
   def open!(filename)
-    path = filename.split('.').last
+    path = filename.split(".").last
     path = File.expand_path("../spec/support/fixtures/#{path}", filename)
     path = File.join(path, filename)
     File.open(path)

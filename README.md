@@ -5,8 +5,6 @@
 
 Lite::Validators is a collection of validators useful for any Rails application.
 
-**NOTE:** If you are coming from `ActiveValidation`, please read the [port](#port) section.
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -27,7 +25,6 @@ Or install it yourself as:
 
 * [Validators](#validators)
 * [3rd-party](#3rd-party)
-* [Port](#port)
 
 ## Validators
 
@@ -75,16 +72,6 @@ The following are highly recommended 3rd-party validators to supplement your wor
 * **Group:** Group Validations - https://github.com/adzap/grouped_validations
 * **Overlap:** Validates Overlap - https://github.com/robinbortlik/validates_overlap
 
-## Port
-
-`Lite::Validators` is a near compatible port of [ActiveValidation](https://github.com/drexed/active_validation).
-
-The names for the following validators has been changed, so you will need to make the
-appropriate changes: `equality #=> compare`, `phone #=> phone_number`
-
-The syntax for the following validators has been reworked, so you will need to consult the docs
-for making the appropriate changes: `csv`, `compare`
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -93,7 +80,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/lite-validators. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/drexed/lite-validators. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -101,4 +88,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Lite::Validators project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/lite-validators/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Lite::Validators project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/drexed/lite-validators/blob/master/CODE_OF_CONDUCT.md).

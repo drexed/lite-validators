@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe ReferenceValidator do
 
-  context 'with new record' do
+  context "with new record" do
     before do
       class ReferenceNewRecordKlass < MockedKlass
 
@@ -19,21 +19,21 @@ RSpec.describe ReferenceValidator do
 
     let(:klass) { ReferenceNewRecordKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass_assoc!(1)
-        pass_assoc!('1')
+        pass_assoc!("1")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail_assoc!(nil)
-        fail_assoc!('')
-        fail_assoc!('Test')
+        fail_assoc!("")
+        fail_assoc!("Test")
       end
     end
   end
 
-  context 'with existing record' do
+  context "with existing record" do
     before do
       class ReferenceExistingRecordKlass < MockedKlass
 
@@ -48,21 +48,21 @@ RSpec.describe ReferenceValidator do
 
     let(:klass) { ReferenceExistingRecordKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass_assoc!(nil)
         pass_assoc!(1)
-        pass_assoc!('1')
-        pass_assoc!('')
+        pass_assoc!("1")
+        pass_assoc!("")
       end
 
-      it 'to not be valid' do
-        fail_assoc!('Test')
+      it "to not be valid" do
+        fail_assoc!("Test")
       end
     end
   end
 
-  context 'with invalid existing record' do
+  context "with invalid existing record" do
     before do
       class FakeInvalidExistingRecordKlass < MockedKlass
 
@@ -83,21 +83,21 @@ RSpec.describe ReferenceValidator do
 
     let(:klass) { ReferenceInvalidExistingRecordKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass_assoc!(1)
-        pass_assoc!('1')
+        pass_assoc!("1")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail_assoc!(nil)
-        fail_assoc!('')
-        fail_assoc!('Test')
+        fail_assoc!("")
+        fail_assoc!("Test")
       end
     end
   end
 
-  context 'with polymorphic new record' do
+  context "with polymorphic new record" do
     before do
       class ReferencePolymorphicNewRecordKlass < MockedKlass
 
@@ -112,23 +112,23 @@ RSpec.describe ReferenceValidator do
 
     let(:klass) { ReferencePolymorphicNewRecordKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
-        pass_assoc!(1, 'Test')
-        pass_assoc!('1', 'Test')
+    describe "#validate" do
+      it "to be valid" do
+        pass_assoc!(1, "Test")
+        pass_assoc!("1", "Test")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail_assoc!(nil, nil)
-        fail_assoc!('Test', 'Test')
+        fail_assoc!("Test", "Test")
         fail_assoc!(1, nil)
-        fail_assoc!('1', nil)
-        fail_assoc!(nil, 'Test')
+        fail_assoc!("1", nil)
+        fail_assoc!(nil, "Test")
       end
     end
   end
 
-  context 'with polymorphic existing record' do
+  context "with polymorphic existing record" do
     before do
       class ReferencePolymorphicExistingRecordKlass < MockedKlass
 
@@ -143,23 +143,23 @@ RSpec.describe ReferenceValidator do
 
     let(:klass) { ReferencePolymorphicExistingRecordKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass_assoc!(nil, nil)
-        pass_assoc!(nil, 'Test')
-        pass_assoc!(1, 'Test')
-        pass_assoc!('1', 'Test')
+        pass_assoc!(nil, "Test")
+        pass_assoc!(1, "Test")
+        pass_assoc!("1", "Test")
         pass_assoc!(1, nil)
-        pass_assoc!('1', nil)
+        pass_assoc!("1", nil)
       end
 
-      it 'to not be valid' do
-        fail_assoc!('Test', 'Test')
+      it "to not be valid" do
+        fail_assoc!("Test", "Test")
       end
     end
   end
 
-  context 'with association option' do
+  context "with association option" do
     before do
       class ReferenceAssociationOptionKlass < MockedKlass
 
@@ -178,21 +178,21 @@ RSpec.describe ReferenceValidator do
 
     let(:klass) { ReferenceAssociationOptionKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass_assoc!(nil)
         pass_assoc!(1)
-        pass_assoc!('1')
-        pass_assoc!('')
+        pass_assoc!("1")
+        pass_assoc!("")
       end
 
-      it 'to not be valid' do
-        fail_assoc!('Test')
+      it "to not be valid" do
+        fail_assoc!("Test")
       end
     end
   end
 
-  context 'with invalid option' do
+  context "with invalid option" do
     before do
       class ReferenceInvalidOptionKlass < MockedKlass
 
@@ -203,8 +203,8 @@ RSpec.describe ReferenceValidator do
 
     let(:klass) { ReferenceInvalidOptionKlass.new }
 
-    describe '#validate' do
-      it 'to raise NoMethodError' do
+    describe "#validate" do
+      it "to raise NoMethodError" do
         expect { klass.valid? }.to raise_error(NoMethodError)
       end
     end

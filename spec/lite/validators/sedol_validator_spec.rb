@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe SedolValidator do
   before do
@@ -13,15 +13,15 @@ RSpec.describe SedolValidator do
 
   let(:klass) { SedolKlass.new }
 
-  describe '#validate' do
-    it 'to be valid' do
-      pass!('B0WNLY7')
+  describe "#validate" do
+    it "to be valid" do
+      pass!("B0WNLY7")
     end
 
-    it 'to not be valid' do
+    it "to not be valid" do
       fail!(nil)
-      fail!('B0WNLY')
-      fail!('B0WNLY77')
+      fail!("B0WNLY")
+      fail!("B0WNLY77")
     end
   end
 

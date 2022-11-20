@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe TypeValidator do
 
-  context 'with invalid is options' do
+  context "with invalid is options" do
     before do
       class TypeInvalidIsKlass < MockedKlass
 
@@ -15,14 +15,14 @@ RSpec.describe TypeValidator do
 
     let(:klass) { TypeInvalidIsKlass.new }
 
-    describe '#validate' do
-      it 'to raise ArgumentError' do
+    describe "#validate" do
+      it "to raise ArgumentError" do
         expect { klass.valid? }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context 'with options { is: Array }' do
+  context "with options { is: Array }" do
     before do
       class TypeArrayKlass < MockedKlass
 
@@ -33,15 +33,15 @@ RSpec.describe TypeValidator do
 
     let(:klass) { TypeArrayKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!([])
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
         fail!(1)
-        fail!('test')
+        fail!("test")
         fail!({})
         fail!(true)
         fail!(false)
@@ -49,7 +49,7 @@ RSpec.describe TypeValidator do
     end
   end
 
-  context 'with options { is: Boolean }' do
+  context "with options { is: Boolean }" do
     before do
       class TypeBooleanKlass < MockedKlass
 
@@ -60,23 +60,23 @@ RSpec.describe TypeValidator do
 
     let(:klass) { TypeBooleanKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(true)
         pass!(false)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
         fail!(1)
-        fail!('test')
+        fail!("test")
         fail!({})
         fail!([])
       end
     end
   end
 
-  context 'with options { is: [CustomKlass, Hash] }' do
+  context "with options { is: [CustomKlass, Hash] }" do
     before do
       class CustomKlass; end
 
@@ -89,16 +89,16 @@ RSpec.describe TypeValidator do
 
     let(:klass) { TypeMultiKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!({})
         pass!(CustomKlass.new)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
         fail!(1)
-        fail!('test')
+        fail!("test")
         fail!([])
         fail!(true)
         fail!(false)
@@ -106,7 +106,7 @@ RSpec.describe TypeValidator do
     end
   end
 
-  context 'with options { is_not: [String, Integer] }' do
+  context "with options { is_not: [String, Integer] }" do
     before do
       class TypeMultiNotKlass < MockedKlass
 
@@ -117,18 +117,18 @@ RSpec.describe TypeValidator do
 
     let(:klass) { TypeMultiNotKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!([])
         pass!({})
         pass!(true)
         pass!(false)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
         fail!(1)
-        fail!('test')
+        fail!("test")
       end
     end
   end

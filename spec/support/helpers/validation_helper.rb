@@ -2,10 +2,10 @@
 
 module ValidationHelper
 
-  def message?(*values, message: 'Input0 is invalid')
+  def message?(*values, message: "Input0 is invalid")
     assign_klass_values(values)
     klass.valid?
-    expect(klass.errors.full_messages.uniq.join(', ')).to eq(message)
+    expect(klass.errors.full_messages.uniq.join(", ")).to eq(message)
   end
 
   def fail!(*values)

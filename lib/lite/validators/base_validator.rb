@@ -19,7 +19,6 @@ class BaseValidator < ActiveModel::EachValidator
     @value = value
   end
 
-  # rubocop:disable Layout/LineLength
   def assert_valid_option!(name, collection, option: nil)
     option ||= send(name)
 
@@ -29,7 +28,6 @@ class BaseValidator < ActiveModel::EachValidator
       raise ArgumentError, "Unknown #{name}: #{option_value.inspect}. Valid options are: #{collection.map(&:inspect).join(', ')}"
     end
   end
-  # rubocop:enable Layout/LineLength
 
   def error_message
     [options[:message] || :invalid]

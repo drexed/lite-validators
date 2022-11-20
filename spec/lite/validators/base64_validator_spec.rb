@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe Base64Validator do
   before do
@@ -13,18 +13,18 @@ RSpec.describe Base64Validator do
 
   let(:klass) { Base64Klass.new }
 
-  describe '#validate' do
-    it 'to be valid' do
-      pass!('YW55IGNhcm5hbCBwbGVhcw==')
-      pass!('YW55IGNhcm5hbCBwbGVhc3U=')
-      pass!('YW55IGNhcm5hbCBwbGVhc3Vy')
-      pass!('YW55IGNhcm5hbCBwbGVhc3VyZQ==')
-      pass!('YW55IGNhcm5hbCBwbGVhc3VyZS4=')
+  describe "#validate" do
+    it "to be valid" do
+      pass!("YW55IGNhcm5hbCBwbGVhcw==")
+      pass!("YW55IGNhcm5hbCBwbGVhc3U=")
+      pass!("YW55IGNhcm5hbCBwbGVhc3Vy")
+      pass!("YW55IGNhcm5hbCBwbGVhc3VyZQ==")
+      pass!("YW55IGNhcm5hbCBwbGVhc3VyZS4=")
     end
 
-    it 'to not be valid' do
+    it "to not be valid" do
       fail!(nil)
-      fail!('1ab2==')
+      fail!("1ab2==")
     end
   end
 

@@ -10,7 +10,6 @@ class CusipValidator < BaseValidator
     valid_regexp? && valid_checksum?
   end
 
-  # rubocop:disable Metrics/AbcSize
   def valid_checksum?
     digits = value.chars.map { |chr| /[A-Z]/.match?(chr) ? (chr.ord - 55) : chr.to_i }
 
@@ -22,6 +21,5 @@ class CusipValidator < BaseValidator
 
     ((10 - values) % 10) % 10
   end
-  # rubocop:enable Metrics/AbcSize
 
 end

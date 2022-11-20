@@ -11,7 +11,7 @@ class ImeiValidator < BaseValidator
   end
 
   def valid_checksum?
-    number = value.to_s.gsub(/\D/, '').reverse
+    number = value.to_s.gsub(/\D/, "").reverse
 
     total = 0
     number.chars.each_with_index do |chr, idx|

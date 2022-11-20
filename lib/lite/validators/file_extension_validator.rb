@@ -26,7 +26,7 @@ class FileExtensionValidator < BaseValidator
   end
 
   def valid_attr?
-    extension = File.extname(value.original_filename).tr('.', '')
+    extension = File.extname(value.original_filename).tr(".", "")
     return false if extension.empty?
 
     included = include_or_exclude.any? { |ext| ext.to_s == extension }

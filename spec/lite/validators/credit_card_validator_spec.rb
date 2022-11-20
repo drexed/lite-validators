@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe CreditCardValidator do
 
-  context 'with base options' do
+  context "with base options" do
     before do
       class CreditCardKlass < MockedKlass
 
@@ -15,13 +15,13 @@ RSpec.describe CreditCardValidator do
 
     let(:klass) { CreditCardKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(4_242_424_242_424_242)
-        pass!('4242424242424242')
+        pass!("4242424242424242")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
         fail!(4242)
         fail!(7_242_424_242_424_242)
@@ -30,7 +30,7 @@ RSpec.describe CreditCardValidator do
     end
   end
 
-  context 'with invalid provider options' do
+  context "with invalid provider options" do
     before do
       class CreditCardInvalidProviderKlass < MockedKlass
 
@@ -41,14 +41,14 @@ RSpec.describe CreditCardValidator do
 
     let(:klass) { CreditCardInvalidProviderKlass.new }
 
-    describe '#validate' do
-      it 'to raise ArgumentError' do
+    describe "#validate" do
+      it "to raise ArgumentError" do
         expect { klass.valid? }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context 'with options { provider: :mastercard }' do
+  context "with options { provider: :mastercard }" do
     before do
       class CreditCardMastercardKlass < MockedKlass
 
@@ -59,12 +59,12 @@ RSpec.describe CreditCardValidator do
 
     let(:klass) { CreditCardMastercardKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(5_555_555_555_554_444)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
         fail!(4_242_424_242_424_242)
         fail!(565_555_555_555_444)

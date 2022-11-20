@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe CompareValidator do
 
-  context 'with invalid to options' do
+  context "with invalid to options" do
     before do
       class CompareInvalidToKlass < MockedKlass
 
@@ -15,8 +15,8 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareInvalidToKlass.new }
 
-    describe '#validate' do
-      it 'to raise NoMethodError' do
+    describe "#validate" do
+      it "to raise NoMethodError" do
         klass.input0 = 0
         klass.input1 = 1
 
@@ -25,7 +25,7 @@ RSpec.describe CompareValidator do
     end
   end
 
-  context 'with missing to options' do
+  context "with missing to options" do
     before do
       class CompareMissingToKlass < MockedKlass
 
@@ -36,14 +36,14 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareMissingToKlass.new }
 
-    describe '#validate' do
-      it 'to raise ArgumentError' do
+    describe "#validate" do
+      it "to raise ArgumentError" do
         expect { klass.valid? }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context 'with invalid check options' do
+  context "with invalid check options" do
     before do
       class CompareInvalidOperatorKlass < MockedKlass
 
@@ -54,14 +54,14 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareInvalidOperatorKlass.new }
 
-    describe '#validate' do
-      it 'to raise ArgumentError' do
+    describe "#validate" do
+      it "to raise ArgumentError" do
         expect { klass.valid? }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context 'with options { to: :input1, check: :less_than }' do
+  context "with options { to: :input1, check: :less_than }" do
     before do
       class CompareLessThanKlass < MockedKlass
 
@@ -72,19 +72,19 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareLessThanKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(0, 1)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(1, 1)
         fail!(1, 0)
       end
     end
   end
 
-  context 'with options { to: :input1, check: :less_than_or_equal_to }' do
+  context "with options { to: :input1, check: :less_than_or_equal_to }" do
     before do
       class CompareLessThanOrEqualToKlass < MockedKlass
 
@@ -95,19 +95,19 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareLessThanOrEqualToKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(0, 1)
         pass!(1, 1)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(1, 0)
       end
     end
   end
 
-  context 'with options { to: :input1, check: :greater_than }' do
+  context "with options { to: :input1, check: :greater_than }" do
     before do
       class CompareGreaterThanKlass < MockedKlass
 
@@ -118,19 +118,19 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareGreaterThanKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(1, 0)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(1, 1)
         fail!(0, 1)
       end
     end
   end
 
-  context 'with options { to: :input1, check: :greater_than_or_equal_to }' do
+  context "with options { to: :input1, check: :greater_than_or_equal_to }" do
     before do
       class CompareGreaterThanOrEqualToKlass < MockedKlass
 
@@ -141,19 +141,19 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareGreaterThanOrEqualToKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(1, 0)
         pass!(1, 1)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(0, 1)
       end
     end
   end
 
-  context 'with options { to: :input1, check: :equal_to }' do
+  context "with options { to: :input1, check: :equal_to }" do
     before do
       class CompareEqualToKlass < MockedKlass
 
@@ -164,19 +164,19 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareEqualToKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(1, 1)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(0, 1)
         fail!(1, 0)
       end
     end
   end
 
-  context 'with options { to: :input1, check: :not_equal_to }' do
+  context "with options { to: :input1, check: :not_equal_to }" do
     before do
       class CompareNotEqualToKlass < MockedKlass
 
@@ -187,13 +187,13 @@ RSpec.describe CompareValidator do
 
     let(:klass) { CompareNotEqualToKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!(0, 1)
         pass!(1, 0)
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(1, 1)
       end
     end

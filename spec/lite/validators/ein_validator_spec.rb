@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe EinValidator do
   before do
@@ -13,17 +13,17 @@ RSpec.describe EinValidator do
 
   let(:klass) { EinKlass.new }
 
-  describe '#validate' do
-    it 'to be valid' do
-      pass!('55-5555555')
-      pass!('1-2345678')
+  describe "#validate" do
+    it "to be valid" do
+      pass!("55-5555555")
+      pass!("1-2345678")
     end
 
-    it 'to not be valid' do
+    it "to not be valid" do
       fail!(nil)
-      fail!('my-einnumb')
-      fail!('00-1111111')
-      fail!('5-55555')
+      fail!("my-einnumb")
+      fail!("00-1111111")
+      fail!("5-55555")
     end
   end
 

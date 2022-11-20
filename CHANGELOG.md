@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2022-11-20
+### Changed
+- Improved docs
+- Improved internal setup
+- Improved rubocop setup
+
 ## [1.7.2] - 2022-03-18
 ### Changed
 - Check associated object is valid to reference validator

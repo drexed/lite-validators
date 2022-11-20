@@ -21,7 +21,7 @@ class ReferenceValidator < BaseValidator
   end
 
   def valid_object?
-    association_type = options[:association] || attribute.to_s.chomp('_id')
+    association_type = options[:association] || attribute.to_s.chomp("_id")
     association_object = record.send(association_type)
     return true if association_object.present? && association_object.valid?
 

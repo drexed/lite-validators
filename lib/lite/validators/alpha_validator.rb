@@ -3,9 +3,9 @@
 class AlphaValidator < BaseValidator
 
   CASES = {
-    lower: 'a-z',
-    upper: 'A-Z',
-    any: 'A-Za-z'
+    lower: "a-z",
+    upper: "A-Z",
+    any: "A-Za-z"
   }.freeze
 
   def validate_each(record, attribute, value)

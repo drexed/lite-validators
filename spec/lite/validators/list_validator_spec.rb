@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe ListValidator do
 
-  context 'with missing check options' do
+  context "with missing check options" do
     before do
       class ListMissingCheckKlass < MockedKlass
 
@@ -15,14 +15,14 @@ RSpec.describe ListValidator do
 
     let(:klass) { ListMissingCheckKlass.new }
 
-    describe '#validate' do
-      it 'to raise ArgumentError' do
+    describe "#validate" do
+      it "to raise ArgumentError" do
         expect { klass.valid? }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context 'with invalid check options' do
+  context "with invalid check options" do
     before do
       class ListInvalidCheckKlass < MockedKlass
 
@@ -33,14 +33,14 @@ RSpec.describe ListValidator do
 
     let(:klass) { ListInvalidCheckKlass.new }
 
-    describe '#validate' do
-      it 'to raise ArgumentError' do
+    describe "#validate" do
+      it "to raise ArgumentError" do
         expect { klass.valid? }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context 'with options { all: [1, 2] }' do
+  context "with options { all: [1, 2] }" do
     before do
       class ListAllKlass < MockedKlass
 
@@ -51,19 +51,19 @@ RSpec.describe ListValidator do
 
     let(:klass) { ListAllKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!([1, 2])
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!([1, 3])
         fail!([3, 4])
       end
     end
   end
 
-  context 'with options { any: [1, 2] }' do
+  context "with options { any: [1, 2] }" do
     before do
       class ListAnyKlass < MockedKlass
 
@@ -74,19 +74,19 @@ RSpec.describe ListValidator do
 
     let(:klass) { ListAnyKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!([1, 2])
         pass!([1, 3])
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!([3, 4])
       end
     end
   end
 
-  context 'with options { none: [1, 2] }' do
+  context "with options { none: [1, 2] }" do
     before do
       class ListNoneKlass < MockedKlass
 
@@ -97,19 +97,19 @@ RSpec.describe ListValidator do
 
     let(:klass) { ListNoneKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!([3, 4])
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!([1, 2])
         fail!([1, 3])
       end
     end
   end
 
-  context 'with options { any: [1, 2], none: [3, 4] }' do
+  context "with options { any: [1, 2], none: [3, 4] }" do
     before do
       class ListMultiKlass < MockedKlass
 
@@ -120,13 +120,13 @@ RSpec.describe ListValidator do
 
     let(:klass) { ListMultiKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
+    describe "#validate" do
+      it "to be valid" do
         pass!([1, 2])
         pass!([1, 5])
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!([3, 4])
         fail!([1, 4])
       end

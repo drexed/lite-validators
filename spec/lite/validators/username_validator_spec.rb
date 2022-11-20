@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe UsernameValidator do
   before do
@@ -13,15 +13,15 @@ RSpec.describe UsernameValidator do
 
   let(:klass) { UsernameKlass.new }
 
-  describe '#validate' do
-    it 'to be valid' do
-      pass!('user-name_123')
+  describe "#validate" do
+    it "to be valid" do
+      pass!("user-name_123")
     end
 
-    it 'to not be valid' do
+    it "to not be valid" do
       fail!(nil)
-      fail!('username ')
-      fail!('@username')
+      fail!("username ")
+      fail!("@username")
     end
   end
 

@@ -3,12 +3,9 @@ require:
   - rubocop-rake
   - rubocop-rspec
 AllCops:
-  TargetRubyVersion: 3.0
   NewCops: enable
   DisplayCopNames: true
   DisplayStyleGuide: true
-Gemspec/RequireMFA:
-  Enabled: false
 Gemspec/RequiredRubyVersion:
   Enabled: false
 Layout/EmptyLinesAroundAttributeAccessor:
@@ -21,7 +18,7 @@ Layout/EmptyLinesAroundClassBody:
 Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines_except_namespace
 Layout/LineLength:
-  Max: 100
+  Enabled: false
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 Lint/ConstantDefinitionInBlock:
@@ -32,6 +29,8 @@ Lint/RaiseException:
   Enabled: true
 Lint/StructNewOverride:
   Enabled: true
+Metrics/AbcSize:
+  Enabled: false
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/**/*'
@@ -39,7 +38,15 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   Exclude:
     - 'lib/lite/validators/credit_card_validator.rb'
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
 RSpec/ExampleLength:
+  Enabled: false
+RSpec/NoExpectationExample:
   Enabled: false
 RSpec/LeakyConstantDeclaration:
   Enabled: false
@@ -51,3 +58,7 @@ Style/Documentation:
   Enabled: false
 Style/ExpandPathArguments:
   Enabled: false
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

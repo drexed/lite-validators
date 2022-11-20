@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe AlphaValidator do
 
-  context 'with base options' do
+  context "with base options" do
     before do
       class AlphaAnyWithoutSpaceKlass < MockedKlass
 
@@ -15,21 +15,21 @@ RSpec.describe AlphaValidator do
 
     let(:klass) { AlphaAnyWithoutSpaceKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
-        pass!('Test')
+    describe "#validate" do
+      it "to be valid" do
+        pass!("Test")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
-        fail!('Test text')
-        fail!('Test123')
-        fail!('Test-text')
+        fail!("Test text")
+        fail!("Test123")
+        fail!("Test-text")
       end
     end
   end
 
-  context 'with invalid case options' do
+  context "with invalid case options" do
     before do
       class AlphaInvalidCaseKlass < MockedKlass
 
@@ -40,14 +40,14 @@ RSpec.describe AlphaValidator do
 
     let(:klass) { AlphaInvalidCaseKlass.new }
 
-    describe '#validate' do
-      it 'to raise ArgumentError' do
+    describe "#validate" do
+      it "to raise ArgumentError" do
         expect { klass.valid? }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context 'with options { allow_space: true }' do
+  context "with options { allow_space: true }" do
     before do
       class AlphaAnyWithSpaceKlass < MockedKlass
 
@@ -58,20 +58,20 @@ RSpec.describe AlphaValidator do
 
     let(:klass) { AlphaAnyWithSpaceKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
-        pass!('Test text')
+    describe "#validate" do
+      it "to be valid" do
+        pass!("Test text")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
-        fail!('Test123')
-        fail!('Test-text')
+        fail!("Test123")
+        fail!("Test-text")
       end
     end
   end
 
-  context 'with options { case: :lower }' do
+  context "with options { case: :lower }" do
     before do
       class AlphaLowerWithoutSpaceKlass < MockedKlass
 
@@ -82,22 +82,22 @@ RSpec.describe AlphaValidator do
 
     let(:klass) { AlphaLowerWithoutSpaceKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
-        pass!('test')
+    describe "#validate" do
+      it "to be valid" do
+        pass!("test")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
-        fail!('Test')
-        fail!('test text')
-        fail!('test 123')
-        fail!('test-text')
+        fail!("Test")
+        fail!("test text")
+        fail!("test 123")
+        fail!("test-text")
       end
     end
   end
 
-  context 'with options { case: :lower, allow_space: true }' do
+  context "with options { case: :lower, allow_space: true }" do
     before do
       class AlphaLowerWithSpaceKlass < MockedKlass
 
@@ -108,21 +108,21 @@ RSpec.describe AlphaValidator do
 
     let(:klass) { AlphaLowerWithSpaceKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
-        pass!('test text')
+    describe "#validate" do
+      it "to be valid" do
+        pass!("test text")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
-        fail!('Test text')
-        fail!('test 123')
-        fail!('test-text')
+        fail!("Test text")
+        fail!("test 123")
+        fail!("test-text")
       end
     end
   end
 
-  context 'with options { case: :upper }' do
+  context "with options { case: :upper }" do
     before do
       class AlphaUpperWithoutSpaceKlass < MockedKlass
 
@@ -133,22 +133,22 @@ RSpec.describe AlphaValidator do
 
     let(:klass) { AlphaUpperWithoutSpaceKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
-        pass!('TEST')
+    describe "#validate" do
+      it "to be valid" do
+        pass!("TEST")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
-        fail!('Test')
-        fail!('TEST TEXT')
-        fail!('TEST 123')
-        fail!('TEST-TEXT')
+        fail!("Test")
+        fail!("TEST TEXT")
+        fail!("TEST 123")
+        fail!("TEST-TEXT")
       end
     end
   end
 
-  context 'with options { case: :upper, allow_space: true }' do
+  context "with options { case: :upper, allow_space: true }" do
     before do
       class AlphaUpperWithSpaceKlass < MockedKlass
 
@@ -159,16 +159,16 @@ RSpec.describe AlphaValidator do
 
     let(:klass) { AlphaUpperWithSpaceKlass.new }
 
-    describe '#validate' do
-      it 'to be valid' do
-        pass!('TEST TEXT')
+    describe "#validate" do
+      it "to be valid" do
+        pass!("TEST TEXT")
       end
 
-      it 'to not be valid' do
+      it "to not be valid" do
         fail!(nil)
-        fail!('Test Text')
-        fail!('TEST 123')
-        fail!('TEST-TEXT')
+        fail!("Test Text")
+        fail!("TEST 123")
+        fail!("TEST-TEXT")
       end
     end
   end

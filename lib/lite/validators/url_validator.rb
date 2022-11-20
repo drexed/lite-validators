@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'uri' unless defined?(URI)
+require "uri" unless defined?(URI)
 
 class UrlValidator < BaseValidator
 
@@ -21,7 +21,6 @@ class UrlValidator < BaseValidator
     options[:message] || I18n.t("errors.messages.url.#{option}")
   end
 
-  # rubocop:disable Layout/LineLength, Metrics/AbcSize
   def valid_attr?
     raise URI::InvalidURIError if value.to_s.strip.empty?
 
@@ -53,7 +52,7 @@ class UrlValidator < BaseValidator
   def valid_root?
     return true unless options[:root_only]
 
-    check = ['', '/'].include?(value.path) && value.query.blank? && value.fragment.blank?
+    check = ["", "/"].include?(value.path) && value.query.blank? && value.fragment.blank?
     return true if check
 
     record.errors.add(attribute, error_message_for(:root))
@@ -73,6 +72,5 @@ class UrlValidator < BaseValidator
   def valid_uri?
     value.is_a?(URI::Generic)
   end
-  # rubocop:enable Layout/LineLength, Metrics/AbcSize
 
 end
